@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Відтворення</string>
-    <string name="widget_name_pulse">LatentJam · Пульсова панель</string>
-    <string name="widget_name_portal">LatentJam · Портал обкладинки</string>
-    <string name="widget_name_deck">LatentJam · SMART-пульт</string>
+    <string name="widget_name_pulse">Roomtone · Пульсова панель</string>
+    <string name="widget_name_portal">Roomtone · Портал обкладинки</string>
+    <string name="widget_name_deck">Roomtone · SMART-пульт</string>
     <string name="widget_description_pulse">Обкладинка, трек і керування на компактній панелі</string>
     <string name="widget_description_portal">Атмосферний плеєр із акцентом на обкладинці</string>
     <string name="widget_description_deck">Докладний плеєр із часом, наступним треком і SMART-керуванням</string>

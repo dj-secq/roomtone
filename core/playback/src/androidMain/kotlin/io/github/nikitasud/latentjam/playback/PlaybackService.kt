@@ -192,7 +192,7 @@ public class PlaybackService : MediaLibraryService() {
             browser: MediaSession.ControllerInfo,
             params: LibraryParams?,
         ): ListenableFuture<LibraryResult<MediaItem>> = Futures.immediateFuture(
-            LibraryResult.ofItem(folderItem(BROWSE_ROOT_ID, "LatentJam"), params),
+            LibraryResult.ofItem(folderItem(BROWSE_ROOT_ID, "Roomtone"), params),
         )
 
         override fun onGetChildren(
@@ -394,7 +394,7 @@ public class PlaybackService : MediaLibraryService() {
 
     private fun resolveBrowseItem(catalog: MediaBrowseCatalog, mediaId: String): MediaItem? =
         when (mediaId) {
-            BROWSE_ROOT_ID -> folderItem(BROWSE_ROOT_ID, "LatentJam")
+            BROWSE_ROOT_ID -> folderItem(BROWSE_ROOT_ID, "Roomtone")
             BROWSE_COLLECTIONS_ID -> folderItem(
                 BROWSE_COLLECTIONS_ID,
                 catalog.collectionsTitle,

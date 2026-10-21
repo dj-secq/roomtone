@@ -41,10 +41,9 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        // ".kmp" suffix lets this build coexist on-device with another
-        // LatentJam build during development. Drop the suffix when this
-        // becomes the only one.
-        applicationId = "io.github.nikitasud.latentjam.kmp"
+        // Roomtone's install id, so this build can sit beside LatentJam.
+        // Kotlin packages stay io.github.nikitasud.latentjam so upstream merges stay possible.
+        applicationId = "io.github.djsecq.roomtone"
         minSdk = 24
         targetSdk = 36
         versionCode = 16

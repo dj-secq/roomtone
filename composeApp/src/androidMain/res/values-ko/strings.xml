@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">재생</string>
-    <string name="widget_name_pulse">LatentJam · 펄스 바</string>
-    <string name="widget_name_portal">LatentJam · 커버 포털</string>
-    <string name="widget_name_deck">LatentJam · SMART 덱</string>
+    <string name="widget_name_pulse">Roomtone · 펄스 바</string>
+    <string name="widget_name_portal">Roomtone · 커버 포털</string>
+    <string name="widget_name_deck">Roomtone · SMART 덱</string>
     <string name="widget_description_pulse">컴팩트한 바에 앨범 아트, 곡 및 컨트롤 표시</string>
     <string name="widget_description_portal">앨범 아트를 강조한 몰입형 플레이어</string>
     <string name="widget_description_deck">시간, 다음 곡 및 SMART 컨트롤을 갖춘 상세 플레이어</string>

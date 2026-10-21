@@ -5,7 +5,7 @@
 
   Korean (ko). Keys and ordering follow values/strings.xml.
   Apostrophes and quotation marks are RAW; only \uXXXX \n \t \\ are unescaped.
-  "LatentJam" and "SMART" are names — never translated.
+  "Roomtone" and "SMART" are names — never translated.
 -->
 <resources>
 
@@ -269,14 +269,14 @@
     <string name="info_edit_refused">이 파일의 태그는 안전하게 다시 쓸 수 없는 형식이라 아무것도 변경되지 않았습니다.</string>
     <string name="info_edit_failed">이 파일에 쓸 수 없습니다. 원래 상태로 두었습니다.</string>
     <string name="info_edit_no_space">이 태그를 안전하게 저장할 여유 공간이 부족합니다. 아무것도 변경되지 않았습니다.</string>
-    <string name="info_edit_recovery_pending">저장이 중단되었습니다. 다음에 파일 쓰기가 허용되면 LatentJam이 저장을 완료하거나 되돌립니다.</string>
+    <string name="info_edit_recovery_pending">저장이 중단되었습니다. 다음에 파일 쓰기가 허용되면 Roomtone이 저장을 완료하거나 되돌립니다.</string>
     <string name="tag_recovery_title">태그 저장 완료</string>
     <plurals name="tag_recovery_body">
-        <item quantity="other">파일 %1$d개에 태그를 저장하던 중 LatentJam이 중단되었습니다. 지금 변경을 완료하거나, 완료할 수 없는 파일은 되돌릴 수 있습니다.</item>
+        <item quantity="other">파일 %1$d개에 태그를 저장하던 중 Roomtone이 중단되었습니다. 지금 변경을 완료하거나, 완료할 수 없는 파일은 되돌릴 수 있습니다.</item>
     </plurals>
     <string name="tag_recovery_finish">완료</string>
     <string name="tag_recovery_later">나중에</string>
-    <string name="tag_problem_unsupported_format">LatentJam에서 이 종류의 파일은 편집할 수 없습니다.</string>
+    <string name="tag_problem_unsupported_format">Roomtone에서 이 종류의 파일은 편집할 수 없습니다.</string>
     <string name="tag_problem_damaged">이 파일이 손상된 것 같아 그대로 두었습니다.</string>
     <string name="tag_problem_protected">이 파일은 복사 방지가 되어 있어 변경할 수 없습니다.</string>
     <string name="tag_problem_tags_too_large">태그가 이 파일에 비해 너무 커집니다.</string>
@@ -284,7 +284,7 @@
     <string name="tag_problem_number_unreadable">파일 자체의 곡 번호 또는 디스크 번호가 일반 숫자가 아니라서 전체 개수만 따로 변경할 수 없습니다.</string>
     <string name="tag_problem_bad_image">이 이미지는 JPEG 또는 PNG 형식이 아닙니다.</string>
     <string name="tag_problem_read_only_storage">이 파일은 쓸 수 없는 저장소에 있습니다.</string>
-    <string name="tag_problem_music_library">음악 보관함의 곡은 편집할 수 없으며, LatentJam으로 가져온 곡만 편집할 수 있습니다.</string>
+    <string name="tag_problem_music_library">음악 보관함의 곡은 편집할 수 없으며, Roomtone으로 가져온 곡만 편집할 수 있습니다.</string>
     <string name="tag_problem_unreadable">이 파일을 읽을 수 없었습니다.</string>
     <string name="tag_problem_not_allowed">파일 변경 권한이 허용되지 않았습니다.</string>
     <string name="tag_problem_missing">파일이 더 이상 없습니다.</string>
@@ -292,7 +292,7 @@
     <string name="tag_problem_cancelled">권한 요청이 닫혔습니다.</string>
     <string name="tag_problem_undone">중단된 저장을 취소했습니다. 파일이 이전 상태로 돌아갔습니다.</string>
     <string name="tag_problem_changed_elsewhere">저장이 중단된 뒤 다른 앱이 파일을 변경해서 그대로 두었습니다.</string>
-    <string name="tag_problem_lost">LatentJam이 이 저장이 어떻게 끝났는지 확인하지 못했습니다. 파일의 태그를 확인하세요.</string>
+    <string name="tag_problem_lost">Roomtone이 이 저장이 어떻게 끝났는지 확인하지 못했습니다. 파일의 태그를 확인하세요.</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">설정</string>
@@ -307,7 +307,7 @@
     <string name="settings_intelligence">SMART 엔진</string>
     <string name="settings_smart_engine">SMART 엔진</string>
     <string name="settings_smart_engine_subtitle">온디바이스 모델이 내 라이브러리에 대해 알고 있는 것</string>
-    <string name="settings_about_body">LatentJam은 온디바이스 추천 기능을 갖춘 로컬 음악 플레이어입니다. 청취 기록은 이 기기를 벗어나지 않습니다.</string>
+    <string name="settings_about_body">Roomtone은 온디바이스 추천 기능을 갖춘 로컬 음악 플레이어입니다. 청취 기록은 이 기기를 벗어나지 않습니다.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">켜짐</string>
@@ -331,12 +331,12 @@
     <string name="engine_state_unavailable">사용할 수 없음: %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">라이브러리를 검색하려면 LatentJam에 음악 접근 권한이 필요합니다.</string>
+    <string name="permission_audio_rationale">라이브러리를 검색하려면 Roomtone에 음악 접근 권한이 필요합니다.</string>
     <string name="permission_grant">권한 허용</string>
-    <string name="permission_audio_settings_rationale">음악 접근이 차단되었습니다. 시스템 설정을 열고 LatentJam의 음악 및 오디오 파일 접근을 허용하세요.</string>
+    <string name="permission_audio_settings_rationale">음악 접근이 차단되었습니다. 시스템 설정을 열고 Roomtone의 음악 및 오디오 파일 접근을 허용하세요.</string>
     <string name="permission_open_settings">설정 열기</string>
     <string name="permission_notifications_title">분석 진행 상황을 표시할까요?</string>
-    <string name="permission_notifications_rationale">SMART는 이 기기에서 보관함을 분석합니다. 알림을 허용하면 진행 상황을 보고 분석 중 LatentJam으로 돌아올 수 있습니다. “나중에”를 선택해도 분석은 계속됩니다.</string>
+    <string name="permission_notifications_rationale">SMART는 이 기기에서 보관함을 분석합니다. 알림을 허용하면 진행 상황을 보고 분석 중 Roomtone으로 돌아올 수 있습니다. “나중에”를 선택해도 분석은 계속됩니다.</string>
     <string name="permission_not_now">나중에</string>
     <string name="permission_continue">계속</string>
 
@@ -358,7 +358,7 @@
     <string name="settings_playback_subtitle">이퀄라이저 및 오디오 제어</string>
     <string name="settings_privacy">개인정보 및 데이터</string>
     <string name="settings_privacy_subtitle">감상 기록 및 최근 검색</string>
-    <string name="settings_about">LatentJam 정보</string>
+    <string name="settings_about">Roomtone 정보</string>
     <string name="settings_about_subtitle">라이선스, 소스 코드 및 지원</string>
     <string name="settings_section_library">라이브러리</string>
     <string name="settings_section_navigation">탐색</string>
@@ -403,18 +403,18 @@
     <string name="settings_color_theme">테마</string>
     <string name="settings_color_theme_body">곡별 색상 대신 앱 테마를 사용합니다.</string>
     <string name="settings_start_page">시작 페이지</string>
-    <string name="settings_start_page_body">다음에 LatentJam을 열 때 적용됩니다.</string>
+    <string name="settings_start_page_body">다음에 Roomtone을 열 때 적용됩니다.</string>
     <string name="settings_library_count">라이브러리의 곡</string>
     <string name="settings_library_refresh">라이브러리 새로고침</string>
     <string name="settings_library_refresh_body">새로 추가된 음악을 찾고 더 이상 사용할 수 없는 파일 항목을 제거합니다.</string>
     <string name="settings_library_import">음악 가져오기</string>
-    <string name="settings_library_import_body">LatentJam에 복사할 오디오 파일을 선택합니다.</string>
+    <string name="settings_library_import_body">Roomtone에 복사할 오디오 파일을 선택합니다.</string>
     <string name="settings_library_restore">숨긴 곡 복원</string>
-    <string name="settings_library_restore_body">LatentJam에서 제거한 모든 곡을 라이브러리에 다시 표시합니다. 기기의 파일은 변경되지 않습니다.</string>
+    <string name="settings_library_restore_body">Roomtone에서 제거한 모든 곡을 라이브러리에 다시 표시합니다. 기기의 파일은 변경되지 않습니다.</string>
     <string name="settings_playlist_relative_paths">내보낸 재생목록에 상대 경로 사용</string>
     <string name="settings_playlist_relative_paths_body">각 곡의 경로를 재생목록이 있는 폴더 기준(../Music/…)으로 기록해 다른 기기에서도 재생목록을 쓸 수 있게 합니다. 폴더 경로가 없는 곳에 저장하면 전체 경로를 그대로 씁니다.</string>
     <string name="settings_equalizer_unavailable">현재 오디오 출력에서 사용할 수 없음</string>
-    <string name="equalizer_unavailable_body">현재 오디오 출력은 LatentJam에 이퀄라이저를 제공하지 않습니다. 다른 출력을 사용해 보세요. 재생은 정상적으로 작동합니다.</string>
+    <string name="equalizer_unavailable_body">현재 오디오 출력은 Roomtone에 이퀄라이저를 제공하지 않습니다. 다른 출력을 사용해 보세요. 재생은 정상적으로 작동합니다.</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">플랫</string>
     <string name="equalizer_preset_bass">저음</string>
@@ -443,7 +443,7 @@
     <string name="foryou_mix_spoken_audio">음성 콘텐츠</string>
     <string name="foryou_mix_instrumental">연주곡</string>
     <string name="intelligence_how_it_works">SMART는 이 기기에서 사운드 지문을 비교한 다음 음악적 유사성과 감상 기록을 결합합니다. 계정이나 인터넷 연결 없이 작동합니다.</string>
-    <string name="privacy_local_body">라이브러리, 감상 기록 및 SMART 데이터는 이 기기에만 저장됩니다. LatentJam에는 계정이 없으며 이러한 데이터를 서버로 보내지 않습니다.</string>
+    <string name="privacy_local_body">라이브러리, 감상 기록 및 SMART 데이터는 이 기기에만 저장됩니다. Roomtone에는 계정이 없으며 이러한 데이터를 서버로 보내지 않습니다.</string>
     <string name="privacy_save_history_body">맞춤 추천과 SMART 추천을 위해 재생 및 건너뛰기 기록을 이 기기에 저장합니다.</string>
     <string name="privacy_remember_searches_body">검색창이 비어 있을 때 표시하도록 검색어를 이 기기에 저장합니다.</string>
     <string name="privacy_disable_history_body">새로운 감상 활동 저장을 중지합니다. 이 기기에 이미 저장된 기록은 어떻게 할까요?</string>
@@ -464,7 +464,7 @@
     <string name="privacy_clear_searches_body">검색창이 비어 있을 때 표시되는 검색어를 삭제합니다.</string>
     <string name="privacy_clear_searches_confirm">최근 검색을 모두 삭제할까요?</string>
     <string name="settings_license">라이선스</string>
-    <string name="settings_license_body">LatentJam은 Apache License 2.0으로 제공되는 자유 소프트웨어입니다.</string>
+    <string name="settings_license_body">Roomtone은 Apache License 2.0으로 제공되는 자유 소프트웨어입니다.</string>
     <string name="settings_open_source">소스 코드</string>
     <string name="settings_open_source_body">GitHub에서 프로젝트 보기</string>
     <string name="settings_report_issue">문제 신고</string>
@@ -495,23 +495,23 @@
     <string name="settings_audio_access_not_requested">요청하지 않음</string>
     <string name="settings_audio_access_not_required">필요 없음</string>
     <string name="settings_sources">음악 소스</string>
-    <string name="settings_sources_body">LatentJam에 표시할 폴더나 기기 컬렉션을 선택하세요. 기기의 파일은 변경되지 않습니다.</string>
+    <string name="settings_sources_body">Roomtone에 표시할 폴더나 기기 컬렉션을 선택하세요. 기기의 파일은 변경되지 않습니다.</string>
     <string name="settings_sources_empty">관리할 수 있는 음악 소스를 찾지 못했습니다.</string>
     <string name="settings_source_unnamed">기기 음악</string>
     <string name="settings_source_music_library">음악 보관함</string>
     <string name="settings_hidden_tracks">숨긴 트랙</string>
-    <string name="settings_hidden_tracks_body">LatentJam에서만 숨긴 트랙입니다. 파일을 변경하지 않고 트랙을 복원할 수 있습니다.</string>
-    <string name="settings_hidden_tracks_empty">LatentJam에 숨긴 트랙이 없습니다.</string>
+    <string name="settings_hidden_tracks_body">Roomtone에서만 숨긴 트랙입니다. 파일을 변경하지 않고 트랙을 복원할 수 있습니다.</string>
+    <string name="settings_hidden_tracks_empty">Roomtone에 숨긴 트랙이 없습니다.</string>
     <string name="settings_interrupted_saves">중단된 저장</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="other">파일 %1$d개에 태그를 저장하던 중 중단되었습니다. 파일 쓰기가 허용되면 LatentJam이 저장을 완료하거나 되돌립니다.</item>
+        <item quantity="other">파일 %1$d개에 태그를 저장하던 중 중단되었습니다. 파일 쓰기가 허용되면 Roomtone이 저장을 완료하거나 되돌립니다.</item>
     </plurals>
     <string name="settings_interrupted_finish">지금 완료</string>
     <string name="settings_interrupted_being_repaired">복구 중: 완료될 때까지 재생되지 않음</string>
     <string name="settings_interrupted_forget">포기</string>
     <string name="settings_interrupted_forget_title">이 저장을 포기할까요?</string>
-    <string name="settings_interrupted_forget_body">파일은 지금 그대로 유지되며, LatentJam은 이 저장을 완료하거나 되돌리려는 시도를 멈춥니다. 되돌릴 수 없습니다.</string>
-    <string name="settings_interrupted_forget_damaged_body">이 저장은 도중에 멈췄습니다. 파일이 손상되어 재생되지 않을 수 있으며, 포기하면 LatentJam이 파일을 복구하는 데 쓸 수 있는 사본이 삭제됩니다. 되돌릴 수 없습니다.</string>
+    <string name="settings_interrupted_forget_body">파일은 지금 그대로 유지되며, Roomtone은 이 저장을 완료하거나 되돌리려는 시도를 멈춥니다. 되돌릴 수 없습니다.</string>
+    <string name="settings_interrupted_forget_damaged_body">이 저장은 도중에 멈췄습니다. 파일이 손상되어 재생되지 않을 수 있으며, 포기하면 Roomtone이 파일을 복구하는 데 쓸 수 있는 사본이 삭제됩니다. 되돌릴 수 없습니다.</string>
     <string name="settings_duplicates">오디오 중복</string>
     <string name="settings_duplicates_body">태그와 상관없이 같은 녹음의 복사본을 소리로 찾습니다</string>
     <string name="settings_duplicates_scanning">모든 트랙 쌍을 비교하는 중…</string>
@@ -526,17 +526,17 @@
     <string name="settings_lyrics_folders_failed">이 폴더는 사용할 수 없습니다. 이 기기의 저장공간에 있는 폴더를 선택하세요.</string>
 
     <string name="settings_licenses">오픈 소스 라이선스</string>
-    <string name="settings_licenses_body">LatentJam, 번들 모델 및 타사 소프트웨어 고지</string>
+    <string name="settings_licenses_body">Roomtone, 번들 모델 및 타사 소프트웨어 고지</string>
     <string name="settings_license_models">오디오 및 SMART 모델</string>
-    <string name="settings_license_models_body">LatentJam이 만든 MobileNetV4 오디오 가중치는 Apache-2.0입니다. 학생 모델은 timm(Apache-2.0)을 사용하며 EfficientAT에서 증류되었습니다(MIT, 저작권 © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">Roomtone이 만든 MobileNetV4 오디오 가중치는 Apache-2.0입니다. 학생 모델은 timm(Apache-2.0)을 사용하며 EfficientAT에서 증류되었습니다(MIT, 저작권 © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">텍스트 모델</string>
-    <string name="settings_license_text_model_body">번들 텍스트 인코더와 어휘는 sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0)를 재현하도록 LatentJam이 학습시켰으며 Apache-2.0입니다.</string>
+    <string name="settings_license_text_model_body">번들 텍스트 인코더와 어휘는 sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0)를 재현하도록 Roomtone이 학습시켰으며 Apache-2.0입니다.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">기기 내 모델 추론은 MIT 라이선스의 Microsoft ONNX Runtime을 사용합니다. 저작권 © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz 및 Wikidata</string>
     <string name="settings_license_aliases_body">번들 아티스트 별칭 검색 데이터는 MusicBrainz 및 Wikidata에서 파생되며 CC0으로 제공됩니다.</string>
     <string name="settings_license_libraries">타사 라이브러리</string>
-    <string name="settings_license_libraries_body">LatentJam은 허용적인 Apache-2.0 또는 MIT 라이선스로 Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin 및 Coil을 사용합니다. 전체 고지는 소스 배포판에 포함됩니다.</string>
+    <string name="settings_license_libraries_body">Roomtone은 허용적인 Apache-2.0 또는 MIT 라이선스로 Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin 및 Coil을 사용합니다. 전체 고지는 소스 배포판에 포함됩니다.</string>
 
     <string name="sleep_timer">수면 타이머</string>
     <string name="sleep_timer_off">끔</string>
@@ -561,7 +561,7 @@
     <string name="intelligence_rebuild_confirm">모든 SMART 분석을 다시 만들까요? 음악 파일, 재생목록 및 청취 기록은 변경되지 않습니다.</string>
     <string name="intelligence_how_title">SMART 작동 방식</string>
     <string name="intelligence_notifications">분석 알림</string>
-    <string name="intelligence_notifications_body">LatentJam 밖에서도 색인 진행 상황 표시</string>
+    <string name="intelligence_notifications_body">Roomtone 밖에서도 색인 진행 상황 표시</string>
     <string name="intelligence_exclusions_clear">모든 제외 지우기</string>
 
     <string name="settings_backup">로컬 백업</string>
@@ -582,7 +582,7 @@
     </plurals>
     <string name="backup_import_partial">오류가 발생하기 전에 일부 데이터를 복원했습니다.</string>
     <string name="backup_failed">백업 작업을 완료하지 못했습니다.</string>
-    <string name="backup_invalid">유효한 LatentJam 백업이 아닙니다.</string>
+    <string name="backup_invalid">유효한 Roomtone 백업이 아닙니다.</string>
     <string name="backup_destination_warning">백업에는 비공개 앱 데이터가 포함됩니다. 시스템 선택 화면에서 고른 클라우드 또는 타사 위치가 이를 동기화할 수 있습니다.</string>
     <string name="settings_stats">통계</string>
     <string name="settings_stats_subtitle">숫자로 보는 나의 감상</string>
@@ -748,9 +748,9 @@
     <string name="stats_stuck_artists">자리 잡은 새 아티스트</string>
     <string name="stats_stuck_artists_recent">자리 잡은 새 아티스트 · 최근 3개월</string>
     <plurals name="stats_log_age">
-        <item quantity="other">LatentJam과 함께 들은 지 %1$d일</item>
+        <item quantity="other">Roomtone과 함께 들은 지 %1$d일</item>
     </plurals>
-    <string name="stats_new_note">처음 들은 곡 = LatentJam에서 처음 재생한 곡입니다. 라이브러리가 앱보다 오래되었을 수 있습니다.</string>
+    <string name="stats_new_note">처음 들은 곡 = Roomtone에서 처음 재생한 곡입니다. 라이브러리가 앱보다 오래되었을 수 있습니다.</string>
     <plurals name="stats_locked_plays">
         <item quantity="other">이 기간에 %1$d회 재생하면 표시됩니다</item>
     </plurals>
@@ -770,7 +770,7 @@
     <string name="stats_smart_mode_share">SMART 모드로 재생</string>
     <string name="stats_finish_note">전체 재생 시작 대비 비율입니다. 끝까지 감상 = 85%까지 들은 곡, 건너뜀 = 처음 30초 안에 넘긴 곡.</string>
     <string name="stats_slipping_away">멀어지는 곡</string>
-    <string name="stats_slipping_note">직접 자주 골랐지만 LatentJam에서 두 달 이상 재생하지 않은 즐겨 듣던 곡입니다.</string>
+    <string name="stats_slipping_note">직접 자주 골랐지만 Roomtone에서 두 달 이상 재생하지 않은 즐겨 듣던 곡입니다.</string>
     <string name="stats_year_ago">1년 전</string>
     <string name="stats_patterns">나의 패턴</string>
     <string name="stats_same_artist_picks">같은 아티스트를 다시 고르기</string>
@@ -788,7 +788,7 @@
     <string name="stats_unlock_slipping">멀어지는 곡 — 3개월 감상 후 표시</string>
     <string name="stats_part_failed">일부 통계를 불러오지 못했습니다.</string>
     <string name="stats_playlist_row">플레이리스트</string>
-    <string name="stats_playlists_note">각 플레이리스트에서 재생한 횟수입니다. SMART가 추가한 곡과 LatentJam이 재생 출처를 기록하기 전의 재생은 포함되지 않습니다.</string>
+    <string name="stats_playlists_note">각 플레이리스트에서 재생한 횟수입니다. SMART가 추가한 곡과 Roomtone이 재생 출처를 기록하기 전의 재생은 포함되지 않습니다.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">그룹: %1$d · 여분의 사본: %2$d · 확보 가능: %3$s</string>

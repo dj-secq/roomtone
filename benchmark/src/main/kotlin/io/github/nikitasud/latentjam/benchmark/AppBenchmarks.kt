@@ -17,7 +17,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-private const val PACKAGE = "io.github.nikitasud.latentjam.kmp.benchmark"
+private const val PACKAGE = "io.github.djsecq.roomtone.benchmark"
 private const val WAIT_MS = 30_000L
 
 private fun MacrobenchmarkScope.page(name: String) {

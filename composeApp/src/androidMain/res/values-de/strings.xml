@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Wiedergabe</string>
-    <string name="widget_name_pulse">LatentJam · Pulse-Leiste</string>
-    <string name="widget_name_portal">LatentJam · Cover-Portal</string>
-    <string name="widget_name_deck">LatentJam · SMART-Deck</string>
+    <string name="widget_name_pulse">Roomtone · Pulse-Leiste</string>
+    <string name="widget_name_portal">Roomtone · Cover-Portal</string>
+    <string name="widget_name_deck">Roomtone · SMART-Deck</string>
     <string name="widget_description_pulse">Cover, Titel und Steuerung in einer kompakten Leiste</string>
     <string name="widget_description_portal">Ein immersiver Player mit dem Cover im Mittelpunkt</string>
     <string name="widget_description_deck">Detaillierter Player mit Zeit, nächstem Titel und SMART-Steuerung</string>

@@ -77,7 +77,7 @@ internal class IosIndexingContinuation : IndexingNotifier {
     }
 
     private companion object {
-        const val DEFAULT_TASK_NAME = "LatentJam library analysis"
+        const val DEFAULT_TASK_NAME = "Roomtone library analysis"
     }
 }
 

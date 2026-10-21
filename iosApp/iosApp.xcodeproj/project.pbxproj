@@ -285,8 +285,8 @@
 					"-framework",
 					ComposeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.nikitasud.latentjam.kmp;
-				PRODUCT_NAME = LatentJam;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.djsecq.roomtone;
+				PRODUCT_NAME = Roomtone;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = iosApp/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -321,8 +321,8 @@
 					"-framework",
 					ComposeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.nikitasud.latentjam.kmp;
-				PRODUCT_NAME = LatentJam;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.djsecq.roomtone;
+				PRODUCT_NAME = Roomtone;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = iosApp/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;

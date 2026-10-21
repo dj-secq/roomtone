@@ -311,7 +311,7 @@
     <string name="info_edit_refused">התגיות בקובץ הזה כתובות בצורה שאי אפשר לכתוב מחדש בבטחה, ולכן שום דבר לא שונה.</string>
     <string name="info_edit_failed">לא ניתן לכתוב לקובץ הזה. הוא נשאר כפי שהיה.</string>
     <string name="info_edit_no_space">אין מספיק מקום פנוי כדי לשמור את התגיות בבטחה. שום דבר לא שונה.</string>
-    <string name="info_edit_recovery_pending">השמירה נקטעה. LatentJam ישלים או יבטל אותה בפעם הבאה שתהיה לו הרשאה לכתוב לקובץ.</string>
+    <string name="info_edit_recovery_pending">השמירה נקטעה. Roomtone ישלים או יבטל אותה בפעם הבאה שתהיה לו הרשאה לכתוב לקובץ.</string>
     <string name="tag_recovery_title">השלמת שמירת התגיות</string>
     <plurals name="tag_recovery_body">
         <item quantity="one">שמירת התגיות ב־%1$d קובץ נקטעה. אפשר להשלים את השינוי עכשיו, או לבטל אותו אם אי אפשר להשלים את הקובץ.</item>
@@ -320,7 +320,7 @@
     </plurals>
     <string name="tag_recovery_finish">השלמה</string>
     <string name="tag_recovery_later">אחר כך</string>
-    <string name="tag_problem_unsupported_format">אי אפשר לערוך קבצים מהסוג הזה ב־LatentJam.</string>
+    <string name="tag_problem_unsupported_format">אי אפשר לערוך קבצים מהסוג הזה ב־Roomtone.</string>
     <string name="tag_problem_damaged">הקובץ הזה נראה פגום, ולכן הוא נשאר כפי שהוא.</string>
     <string name="tag_problem_protected">הקובץ הזה מוגן מפני העתקה ואי אפשר לשנות אותו.</string>
     <string name="tag_problem_tags_too_large">התגיות יהיו גדולות מדי עבור הקובץ הזה.</string>
@@ -328,7 +328,7 @@
     <string name="tag_problem_number_unreadable">מספר הרצועה או הדיסק בקובץ אינו מספר פשוט, ולכן אי אפשר לשנות רק את הסך הכולל.</string>
     <string name="tag_problem_bad_image">התמונה אינה בפורמט JPEG או PNG.</string>
     <string name="tag_problem_read_only_storage">הקובץ הזה נמצא באחסון שאי אפשר לכתוב אליו.</string>
-    <string name="tag_problem_music_library">אי אפשר לערוך שירים מספריית המוזיקה, רק שירים שיובאו אל LatentJam.</string>
+    <string name="tag_problem_music_library">אי אפשר לערוך שירים מספריית המוזיקה, רק שירים שיובאו אל Roomtone.</string>
     <string name="tag_problem_unreadable">לא ניתן לקרוא את הקובץ הזה.</string>
     <string name="tag_problem_not_allowed">לא ניתנה הרשאה לשנות את הקובץ.</string>
     <string name="tag_problem_missing">הקובץ כבר לא קיים.</string>
@@ -351,7 +351,7 @@
     <string name="settings_intelligence">מנוע SMART</string>
     <string name="settings_smart_engine">מנוע SMART</string>
     <string name="settings_smart_engine_subtitle">מה המודל שבמכשיר יודע על הספרייה שלך</string>
-    <string name="settings_about_body">נגן המוזיקה המקומי LatentJam כולל מנוע המלצות שפועל במכשיר. שום מידע על ההאזנה שלך לא יוצא מהמכשיר הזה.</string>
+    <string name="settings_about_body">נגן המוזיקה המקומי Roomtone כולל מנוע המלצות שפועל במכשיר. שום מידע על ההאזנה שלך לא יוצא מהמכשיר הזה.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">פועל</string>
@@ -373,12 +373,12 @@
     <string name="engine_state_unavailable">לא זמין — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">ל־LatentJam נדרשת גישה למוזיקה שלך כדי לסרוק את הספרייה.</string>
+    <string name="permission_audio_rationale">ל־Roomtone נדרשת גישה למוזיקה שלך כדי לסרוק את הספרייה.</string>
     <string name="permission_grant">מתן גישה</string>
-    <string name="permission_audio_settings_rationale">הגישה למוזיקה חסומה. יש לפתוח את הגדרות המערכת ולאפשר ל־LatentJam גישה למוזיקה ולאודיו.</string>
+    <string name="permission_audio_settings_rationale">הגישה למוזיקה חסומה. יש לפתוח את הגדרות המערכת ולאפשר ל־Roomtone גישה למוזיקה ולאודיו.</string>
     <string name="permission_open_settings">פתיחת ההגדרות</string>
     <string name="permission_notifications_title">להציג את התקדמות הניתוח?</string>
-    <string name="permission_notifications_rationale">מנוע SMART מנתח את הספרייה במכשיר הזה. כדי לראות את ההתקדמות ולחזור ל־LatentJam בזמן העבודה, יש לאשר התראות. הניתוח ימשיך גם אם בוחרים "לא עכשיו".</string>
+    <string name="permission_notifications_rationale">מנוע SMART מנתח את הספרייה במכשיר הזה. כדי לראות את ההתקדמות ולחזור ל־Roomtone בזמן העבודה, יש לאשר התראות. הניתוח ימשיך גם אם בוחרים "לא עכשיו".</string>
     <string name="permission_not_now">לא עכשיו</string>
     <string name="permission_continue">המשך</string>
 
@@ -401,7 +401,7 @@
     <string name="settings_playback_subtitle">אקולייזר ובקרות שמע</string>
     <string name="settings_privacy">פרטיות ונתונים</string>
     <string name="settings_privacy_subtitle">היסטוריית האזנה וחיפושים אחרונים</string>
-    <string name="settings_about">אודות LatentJam</string>
+    <string name="settings_about">אודות Roomtone</string>
     <string name="settings_about_subtitle">רישיון, קוד מקור ותמיכה</string>
     <string name="settings_section_library">ספרייה</string>
     <string name="settings_section_navigation">ניווט</string>
@@ -447,20 +447,20 @@
     <string name="settings_color_theme">עיצוב</string>
     <string name="settings_color_theme_body">צבעי האפליקציה במקום צבעים לכל שיר.</string>
     <string name="settings_start_page">עמוד פתיחה</string>
-    <string name="settings_start_page_body">יחול בפתיחה הבאה של LatentJam.</string>
+    <string name="settings_start_page_body">יחול בפתיחה הבאה של Roomtone.</string>
 
     <string name="settings_library_count">שירים בספרייה</string>
     <string name="settings_library_refresh">רענון הספרייה</string>
     <string name="settings_library_refresh_body">איתור מוזיקה חדשה והסרת רשומות של קבצים שכבר אינם זמינים.</string>
     <string name="settings_library_import">ייבוא מוזיקה</string>
-    <string name="settings_library_import_body">בחירת קובצי שמע להעתקה אל LatentJam.</string>
+    <string name="settings_library_import_body">בחירת קובצי שמע להעתקה אל Roomtone.</string>
     <string name="settings_library_restore">שחזור שירים מוסתרים</string>
-    <string name="settings_library_restore_body">החזרת כל השירים שהוסרו מ־LatentJam אל הספרייה. הקבצים במכשיר לא משתנים.</string>
+    <string name="settings_library_restore_body">החזרת כל השירים שהוסרו מ־Roomtone אל הספרייה. הקבצים במכשיר לא משתנים.</string>
     <string name="settings_playlist_relative_paths">נתיבים יחסיים בפלייליסטים מיוצאים</string>
     <string name="settings_playlist_relative_paths_body">כתיבת הנתיב של כל שיר ביחס לתיקיית הפלייליסט, כדי שהפלייליסט יעבוד גם במכשירים אחרים. בשמירה במיקום ללא נתיב תיקייה, הנתיבים נשארים מלאים.</string>
 
     <string name="settings_equalizer_unavailable">לא זמין ביציאת השמע הזו</string>
-    <string name="equalizer_unavailable_body">יציאת השמע הנוכחית לא מספקת אקולייזר ל־LatentJam. אפשר לנסות יציאה אחרת. ההשמעה ממשיכה לפעול כרגיל.</string>
+    <string name="equalizer_unavailable_body">יציאת השמע הנוכחית לא מספקת אקולייזר ל־Roomtone. אפשר לנסות יציאה אחרת. ההשמעה ממשיכה לפעול כרגיל.</string>
     <string name="equalizer_bass_value">%1$d%</string>
     <string name="equalizer_preset_flat">שטוח</string>
     <string name="equalizer_preset_bass">בס</string>
@@ -491,7 +491,7 @@
     <string name="foryou_mix_instrumental">אינסטרומנטלי</string>
     <string name="intelligence_how_it_works">מנוע SMART משווה טביעות צליל במכשיר הזה, ואז משלב דמיון מוזיקלי עם היסטוריית ההאזנה שלך. הוא פועל בלי חשבון ובלי חיבור לאינטרנט.</string>
 
-    <string name="privacy_local_body">הספרייה, היסטוריית ההאזנה ונתוני SMART נשארים במכשיר הזה. ל־LatentJam אין חשבון, ושום דבר מזה לא נשלח לשרת.</string>
+    <string name="privacy_local_body">הספרייה, היסטוריית ההאזנה ונתוני SMART נשארים במכשיר הזה. ל־Roomtone אין חשבון, ושום דבר מזה לא נשלח לשרת.</string>
     <string name="privacy_save_history_body">שמירת השמעות ודילוגים במכשיר הזה עבור "בשבילך" והמלצות SMART.</string>
     <string name="privacy_remember_searches_body">שמירת חיפושים במכשיר הזה כדי שיופיעו כששדה החיפוש ריק.</string>
     <string name="privacy_disable_history_body">הפסקת השמירה של פעילות האזנה חדשה. מה לעשות עם ההיסטוריה שכבר נמצאת במכשיר?</string>
@@ -515,7 +515,7 @@
     <string name="privacy_clear_searches_confirm">לנקות את כל החיפושים האחרונים?</string>
 
     <string name="settings_license">רישיון</string>
-    <string name="settings_license_body">הקוד של LatentJam הוא תוכנה חופשית ברישיון Apache License 2.0.</string>
+    <string name="settings_license_body">הקוד של Roomtone הוא תוכנה חופשית ברישיון Apache License 2.0.</string>
     <string name="settings_open_source">קוד מקור</string>
     <string name="settings_open_source_body">הפרויקט ב־GitHub</string>
     <string name="settings_report_issue">דיווח על בעיה</string>
@@ -537,13 +537,13 @@
     <string name="settings_audio_access_not_requested">לא התבקשה</string>
     <string name="settings_audio_access_not_required">לא נדרשת</string>
     <string name="settings_sources">מקורות מוזיקה</string>
-    <string name="settings_sources_body">בחירת התיקיות או האוספים במכשיר שיופיעו ב־LatentJam. הקבצים במכשיר לא משתנים.</string>
+    <string name="settings_sources_body">בחירת התיקיות או האוספים במכשיר שיופיעו ב־Roomtone. הקבצים במכשיר לא משתנים.</string>
     <string name="settings_sources_empty">לא נמצאו מקורות מוזיקה שאפשר לנהל.</string>
     <string name="settings_source_unnamed">מוזיקה במכשיר</string>
     <string name="settings_source_music_library">ספריית המוזיקה</string>
     <string name="settings_hidden_tracks">שירים מוסתרים</string>
-    <string name="settings_hidden_tracks_body">שירים שהוסתרו רק ב־LatentJam. אפשר לשחזר כל שיר בלי לשנות את הקובץ שלו.</string>
-    <string name="settings_hidden_tracks_empty">אין שירים מוסתרים ב־LatentJam.</string>
+    <string name="settings_hidden_tracks_body">שירים שהוסתרו רק ב־Roomtone. אפשר לשחזר כל שיר בלי לשנות את הקובץ שלו.</string>
+    <string name="settings_hidden_tracks_empty">אין שירים מוסתרים ב־Roomtone.</string>
     <string name="settings_interrupted_saves">שמירות שנקטעו</string>
     <plurals name="settings_interrupted_saves_body">
         <item quantity="one">שמירת התגיות ב־%1$d קובץ נקטעה. היא תושלם או תבוטל ברגע שתהיה הרשאה לכתוב לקובץ.</item>
@@ -554,8 +554,8 @@
     <string name="settings_interrupted_being_repaired">בתיקון: לא יושמע עד שהתיקון יסתיים</string>
     <string name="settings_interrupted_forget">התעלמות</string>
     <string name="settings_interrupted_forget_title">להתעלם מהשמירה הזו?</string>
-    <string name="settings_interrupted_forget_body">הקובץ יישאר בדיוק כפי שהוא עכשיו, ו־LatentJam יפסיק לנסות להשלים או לבטל את השמירה. אי אפשר לבטל את הפעולה.</string>
-    <string name="settings_interrupted_forget_damaged_body">השמירה הזו נעצרה באמצע. הקובץ עלול להיות פגום ולא להתנגן, והתעלמות תמחק את העותקים שמהם LatentJam יכול לתקן אותו. אי אפשר לבטל את הפעולה.</string>
+    <string name="settings_interrupted_forget_body">הקובץ יישאר בדיוק כפי שהוא עכשיו, ו־Roomtone יפסיק לנסות להשלים או לבטל את השמירה. אי אפשר לבטל את הפעולה.</string>
+    <string name="settings_interrupted_forget_damaged_body">השמירה הזו נעצרה באמצע. הקובץ עלול להיות פגום ולא להתנגן, והתעלמות תמחק את העותקים שמהם Roomtone יכול לתקן אותו. אי אפשר לבטל את הפעולה.</string>
     <string name="settings_duplicates">כפילויות שמע</string>
     <string name="settings_duplicates_body">איתור עותקים של אותה הקלטה לפי הצליל, בלי קשר לתגיות</string>
     <string name="settings_duplicates_scanning">השוואה של כל זוג שירים…</string>
@@ -570,11 +570,11 @@
     <string name="settings_lyrics_folders_failed">אי אפשר להשתמש בתיקייה הזו. יש לבחור תיקייה באחסון של המכשיר.</string>
 
     <string name="settings_licenses">רישיונות קוד פתוח</string>
-    <string name="settings_licenses_body">הודעות עבור LatentJam, המודלים המובנים ותוכנות צד שלישי</string>
+    <string name="settings_licenses_body">הודעות עבור Roomtone, המודלים המובנים ותוכנות צד שלישי</string>
     <string name="settings_license_models">מודלי שמע ו־SMART</string>
-    <string name="settings_license_models_body">המשקלים של מודל השמע MobileNetV4, שהופקו על ידי LatentJam, מופצים ברישיון Apache-2.0. מודל התלמיד משתמש ב־timm (Apache-2.0) וזוקק מ־EfficientAT (MIT, זכויות יוצרים © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">המשקלים של מודל השמע MobileNetV4, שהופקו על ידי Roomtone, מופצים ברישיון Apache-2.0. מודל התלמיד משתמש ב־timm (Apache-2.0) וזוקק מ־EfficientAT (MIT, זכויות יוצרים © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">מודל טקסט</string>
-    <string name="settings_license_text_model_body">מקודד הטקסט המובנה ואוצר המילים שלו אומנו על ידי LatentJam כדי לשחזר את sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0), ומופצים ברישיון Apache-2.0.</string>
+    <string name="settings_license_text_model_body">מקודד הטקסט המובנה ואוצר המילים שלו אומנו על ידי Roomtone כדי לשחזר את sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0), ומופצים ברישיון Apache-2.0.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">הרצת המודלים במכשיר מתבססת על Microsoft ONNX Runtime ברישיון MIT. זכויות יוצרים © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz ו־Wikidata</string>
@@ -606,7 +606,7 @@
     <string name="intelligence_rebuild_confirm">לבנות מחדש את כל ניתוח SMART? קובצי המוזיקה, הפלייליסטים והיסטוריית ההאזנה לא ישתנו.</string>
     <string name="intelligence_how_title">איך SMART עובד</string>
     <string name="intelligence_notifications">התראות ניתוח</string>
-    <string name="intelligence_notifications_body">הצגת התקדמות האינדוקס מחוץ ל־LatentJam</string>
+    <string name="intelligence_notifications_body">הצגת התקדמות האינדוקס מחוץ ל־Roomtone</string>
     <string name="intelligence_exclusions_clear">ניקוי כל ההחרגות</string>
 
     <string name="settings_backup">גיבוי מקומי</string>
@@ -629,7 +629,7 @@
     </plurals>
     <string name="backup_import_partial">חלק מהנתונים שוחזרו לפני שאירעה שגיאה.</string>
     <string name="backup_failed">לא ניתן להשלים את פעולת הגיבוי.</string>
-    <string name="backup_invalid">זה לא גיבוי תקין של LatentJam.</string>
+    <string name="backup_invalid">זה לא גיבוי תקין של Roomtone.</string>
     <string name="backup_destination_warning">הגיבוי מכיל נתוני אפליקציה פרטיים. יעד בענן או של צד שלישי שנבחר בבורר המערכת עשוי לסנכרן אותו.</string>
     <string name="settings_stats">סטטיסטיקה</string>
     <string name="settings_stats_subtitle">ההאזנה שלך במספרים</string>
@@ -837,11 +837,11 @@
     <string name="stats_stuck_artists">אמנים חדשים שנשארו</string>
     <string name="stats_stuck_artists_recent">אמנים חדשים שנשארו · 3 החודשים האחרונים</string>
     <plurals name="stats_log_age">
-        <item quantity="one">LatentJam מאזין איתך כבר %1$d יום</item>
-        <item quantity="two">LatentJam מאזין איתך כבר %1$d ימים</item>
-        <item quantity="other">LatentJam מאזין איתך כבר %1$d ימים</item>
+        <item quantity="one">Roomtone מאזין איתך כבר %1$d יום</item>
+        <item quantity="two">Roomtone מאזין איתך כבר %1$d ימים</item>
+        <item quantity="other">Roomtone מאזין איתך כבר %1$d ימים</item>
     </plurals>
-    <string name="stats_new_note">חדשים בשבילך = הושמעו לראשונה ב־LatentJam. הספרייה שלך עשויה להיות ותיקה יותר מהאפליקציה.</string>
+    <string name="stats_new_note">חדשים בשבילך = הושמעו לראשונה ב־Roomtone. הספרייה שלך עשויה להיות ותיקה יותר מהאפליקציה.</string>
     <plurals name="stats_locked_plays">
         <item quantity="one">יופיע אחרי %1$d השמעה בתקופה הזו</item>
         <item quantity="two">יופיע אחרי %1$d השמעות בתקופה הזו</item>
@@ -863,7 +863,7 @@
     <string name="stats_smart_mode_share">הושמעו במצב SMART</string>
     <string name="stats_finish_note">שיעורים מתוך כל ההפעלות. הושלמו = נשמעו עד 85%, דולגו = ננטשו ב־30 השניות הראשונות.</string>
     <string name="stats_slipping_away">הולכים ונשכחים</string>
-    <string name="stats_slipping_note">שירים אהובים שבחרת בעצמך לעיתים קרובות, ולא הושמעו ב־LatentJam חודשיים או יותר.</string>
+    <string name="stats_slipping_note">שירים אהובים שבחרת בעצמך לעיתים קרובות, ולא הושמעו ב־Roomtone חודשיים או יותר.</string>
     <string name="stats_year_ago">לפני שנה</string>
     <string name="stats_patterns">הדפוסים שלך</string>
     <string name="stats_same_artist_picks">שוב אותו אמן</string>
@@ -881,7 +881,7 @@
     <string name="stats_unlock_slipping">הולכים ונשכחים — אחרי שלושה חודשים של האזנה</string>
     <string name="stats_part_failed">לא ניתן לטעון חלק מהנתונים האלה.</string>
     <string name="stats_playlist_row">פלייליסט</string>
-    <string name="stats_playlists_note">השמעות מכל פלייליסט. שירים ש־SMART הוסיף והאזנות מלפני ש־LatentJam תיעד מאיפה הופעל שיר אינם נספרים.</string>
+    <string name="stats_playlists_note">השמעות מכל פלייליסט. שירים ש־SMART הוסיף והאזנות מלפני ש־Roomtone תיעד מאיפה הופעל שיר אינם נספרים.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">קבוצות: %1$d · עותקים עודפים: %2$d · אפשר לפנות: %3$s</string>

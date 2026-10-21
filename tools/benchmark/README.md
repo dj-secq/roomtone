@@ -1,7 +1,7 @@
 # Application benchmarks and measured profiles
 
 The module is opt-in: add `-Platentjam.benchmarks=true`. Its target uses
-`io.github.nikitasud.latentjam.kmp.benchmark`, so installation and fixture
+`io.github.djsecq.roomtone.benchmark`, so installation and fixture
 controls cannot replace the normal application. The target is not debuggable
 and does not request `largeHeap`. The instrumentation APK is debuggable.
 

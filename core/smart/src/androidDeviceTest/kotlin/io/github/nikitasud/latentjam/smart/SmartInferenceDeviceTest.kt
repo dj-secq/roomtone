@@ -159,6 +159,6 @@ class SmartInferenceDeviceTest {
         (System.nanoTime() - started) / 1_000_000
 
     private companion object {
-        const val APP_PACKAGE = "io.github.nikitasud.latentjam.kmp"
+        const val APP_PACKAGE = "io.github.djsecq.roomtone"
     }
 }

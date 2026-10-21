@@ -36,9 +36,9 @@ horizontal distance between fingers**, in screen pixels. The historical 1080×23
 used the following coordinates; these are an example, not a discovery mechanism:
 
 ```sh
-adb -s DEVICE shell dumpsys gfxinfo io.github.nikitasud.latentjam.kmp reset
+adb -s DEVICE shell dumpsys gfxinfo io.github.djsecq.roomtone reset
 adb -s DEVICE shell 'CLASSPATH=/data/local/tmp/latentjam-map-gesture.jar app_process /system/bin MapGesture 540 1050 120 480 3 1000' > /tmp/map-gesture-run.log
-adb -s DEVICE shell dumpsys gfxinfo io.github.nikitasud.latentjam.kmp > /tmp/map-gfx-run.txt
+adb -s DEVICE shell dumpsys gfxinfo io.github.djsecq.roomtone > /tmp/map-gfx-run.txt
 ```
 
 One cycle: DOWN, second-pointer DOWN, pinch out, pan 100px right, return, pinch in, second-pointer

@@ -120,13 +120,13 @@ class UnindexedAudioTest {
     fun `volume roots come from app specific directories`() {
         assertEquals(
             "/storage/emulated/0",
-            storageVolumeRoot("/storage/emulated/0/Android/data/io.github.nikitasud.latentjam.kmp/files"),
+            storageVolumeRoot("/storage/emulated/0/Android/data/io.github.djsecq.roomtone/files"),
         )
         assertEquals(
             "/storage/1234-ABCD",
-            storageVolumeRoot("/storage/1234-ABCD/Android/data/io.github.nikitasud.latentjam.kmp/files"),
+            storageVolumeRoot("/storage/1234-ABCD/Android/data/io.github.djsecq.roomtone/files"),
         )
-        assertNull(storageVolumeRoot("/data/user/0/io.github.nikitasud.latentjam.kmp/files"))
+        assertNull(storageVolumeRoot("/data/user/0/io.github.djsecq.roomtone/files"))
     }
 
     @Test

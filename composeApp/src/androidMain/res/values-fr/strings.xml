@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Lecture</string>
-    <string name="widget_name_pulse">LatentJam · Bande Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portail de pochette</string>
-    <string name="widget_name_deck">LatentJam · Platine SMART</string>
+    <string name="widget_name_pulse">Roomtone · Bande Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portail de pochette</string>
+    <string name="widget_name_deck">Roomtone · Platine SMART</string>
     <string name="widget_description_pulse">Pochette, titre et commandes dans une bande compacte</string>
     <string name="widget_description_portal">Un lecteur immersif centré sur la pochette</string>
     <string name="widget_description_deck">Lecteur détaillé avec durée, prochain titre et commandes SMART</string>

@@ -5,7 +5,7 @@
 
   Română. Terminologie ca în playerele reale (Spotify, YouTube Music):
   „Coadă”, „Redare aleatorie”, „Bibliotecă”, „Artist”.
-  „LatentJam” și „SMART” nu se traduc.
+  „Roomtone” și „SMART” nu se traduc.
 
   Atenție la plural: româna are trei forme — 1 piesă / 2 piese / 20 DE piese.
   Categoria CLDR `other` (20+) trebuie să conțină „de”.
@@ -300,16 +300,16 @@
     <string name="info_edit_refused">Etichetele acestui fișier sunt într-o formă care nu poate fi rescrisă în siguranță, așa că nimic nu a fost schimbat.</string>
     <string name="info_edit_failed">Fișierul nu a putut fi scris. A rămas neschimbat.</string>
     <string name="info_edit_no_space">Nu există suficient spațiu liber pentru a salva aceste etichete în siguranță. Nu s-a modificat nimic.</string>
-    <string name="info_edit_recovery_pending">Salvarea a fost întreruptă. LatentJam o va termina sau o va anula data viitoare când va avea voie să scrie fișierul.</string>
+    <string name="info_edit_recovery_pending">Salvarea a fost întreruptă. Roomtone o va termina sau o va anula data viitoare când va avea voie să scrie fișierul.</string>
     <string name="tag_recovery_title">Termină salvarea etichetelor</string>
     <plurals name="tag_recovery_body">
-        <item quantity="one">LatentJam a fost întrerupt în timp ce salva etichete în %1$d fișier. Poate termina modificarea acum sau o poate anula dacă fișierul nu poate fi terminat.</item>
-        <item quantity="few">LatentJam a fost întrerupt în timp ce salva etichete în %1$d fișiere. Poate termina modificările acum sau le poate anula acolo unde un fișier nu poate fi terminat.</item>
-        <item quantity="other">LatentJam a fost întrerupt în timp ce salva etichete în %1$d de fișiere. Poate termina modificările acum sau le poate anula acolo unde un fișier nu poate fi terminat.</item>
+        <item quantity="one">Roomtone a fost întrerupt în timp ce salva etichete în %1$d fișier. Poate termina modificarea acum sau o poate anula dacă fișierul nu poate fi terminat.</item>
+        <item quantity="few">Roomtone a fost întrerupt în timp ce salva etichete în %1$d fișiere. Poate termina modificările acum sau le poate anula acolo unde un fișier nu poate fi terminat.</item>
+        <item quantity="other">Roomtone a fost întrerupt în timp ce salva etichete în %1$d de fișiere. Poate termina modificările acum sau le poate anula acolo unde un fișier nu poate fi terminat.</item>
     </plurals>
     <string name="tag_recovery_finish">Termină</string>
     <string name="tag_recovery_later">Mai târziu</string>
-    <string name="tag_problem_unsupported_format">LatentJam nu poate edita acest tip de fișier.</string>
+    <string name="tag_problem_unsupported_format">Roomtone nu poate edita acest tip de fișier.</string>
     <string name="tag_problem_damaged">Acest fișier pare deteriorat, așa că a rămas neschimbat.</string>
     <string name="tag_problem_protected">Acest fișier este protejat la copiere și nu poate fi modificat.</string>
     <string name="tag_problem_tags_too_large">Etichetele ar fi prea mari pentru acest fișier.</string>
@@ -317,7 +317,7 @@
     <string name="tag_problem_number_unreadable">Numărul de piesă sau de disc din fișier nu este un număr simplu, așa că totalul lui nu poate fi schimbat separat.</string>
     <string name="tag_problem_bad_image">Imaginea nu este de tip JPEG sau PNG.</string>
     <string name="tag_problem_read_only_storage">Acest fișier se află pe un spațiu de stocare pe care nu se poate scrie.</string>
-    <string name="tag_problem_music_library">Melodiile din biblioteca muzicală nu pot fi editate, doar cele importate în LatentJam.</string>
+    <string name="tag_problem_music_library">Melodiile din biblioteca muzicală nu pot fi editate, doar cele importate în Roomtone.</string>
     <string name="tag_problem_unreadable">Acest fișier nu a putut fi citit.</string>
     <string name="tag_problem_not_allowed">Permisiunea de a modifica fișierul nu a fost acordată.</string>
     <string name="tag_problem_missing">Fișierul nu mai există.</string>
@@ -325,7 +325,7 @@
     <string name="tag_problem_cancelled">Cererea de permisiune a fost închisă.</string>
     <string name="tag_problem_undone">O salvare întreruptă a fost anulată: fișierul este ca înainte.</string>
     <string name="tag_problem_changed_elsewhere">O altă aplicație a modificat fișierul după întreruperea salvării, așa că a rămas neschimbat.</string>
-    <string name="tag_problem_lost">LatentJam nu a putut afla cum s-a încheiat această salvare. Verifică etichetele fișierului.</string>
+    <string name="tag_problem_lost">Roomtone nu a putut afla cum s-a încheiat această salvare. Verifică etichetele fișierului.</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">Setări</string>
@@ -340,7 +340,7 @@
     <string name="settings_intelligence">Motorul SMART</string>
     <string name="settings_smart_engine">Motorul SMART</string>
     <string name="settings_smart_engine_subtitle">Ce știe despre biblioteca ta modelul de pe dispozitiv</string>
-    <string name="settings_about_body">LatentJam — un player de muzică local, cu recomandări făcute chiar pe dispozitiv. Nimic din ce asculți nu părăsește acest dispozitiv.</string>
+    <string name="settings_about_body">Roomtone — un player de muzică local, cu recomandări făcute chiar pe dispozitiv. Nimic din ce asculți nu părăsește acest dispozitiv.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Activat</string>
@@ -362,12 +362,12 @@
     <string name="engine_state_unavailable">Indisponibil — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">LatentJam are nevoie de acces la muzica ta ca să scaneze biblioteca.</string>
+    <string name="permission_audio_rationale">Roomtone are nevoie de acces la muzica ta ca să scaneze biblioteca.</string>
     <string name="permission_grant">Acordă acces</string>
-    <string name="permission_audio_settings_rationale">Accesul la muzică este blocat. Deschide setările sistemului și permite aplicației LatentJam accesul la muzică și fișiere audio.</string>
+    <string name="permission_audio_settings_rationale">Accesul la muzică este blocat. Deschide setările sistemului și permite aplicației Roomtone accesul la muzică și fișiere audio.</string>
     <string name="permission_open_settings">Deschide setările</string>
     <string name="permission_notifications_title">Afișezi progresul analizei?</string>
-    <string name="permission_notifications_rationale">SMART îți analizează biblioteca pe acest dispozitiv. Permite notificările pentru a vedea progresul și a reveni în LatentJam în timpul analizei. Analiza continuă dacă alegi „Nu acum”.</string>
+    <string name="permission_notifications_rationale">SMART îți analizează biblioteca pe acest dispozitiv. Permite notificările pentru a vedea progresul și a reveni în Roomtone în timpul analizei. Analiza continuă dacă alegi „Nu acum”.</string>
     <string name="permission_not_now">Nu acum</string>
     <string name="permission_continue">Continuă</string>
 
@@ -389,7 +389,7 @@
     <string name="settings_playback_subtitle">Egalizator și comenzi audio</string>
     <string name="settings_privacy">Confidențialitate și date</string>
     <string name="settings_privacy_subtitle">Istoric de ascultare și căutări recente</string>
-    <string name="settings_about">Despre LatentJam</string>
+    <string name="settings_about">Despre Roomtone</string>
     <string name="settings_about_subtitle">Licență, cod sursă și asistență</string>
     <string name="settings_section_library">Bibliotecă</string>
     <string name="settings_section_navigation">Navigare</string>
@@ -434,18 +434,18 @@
     <string name="settings_color_theme">Temă</string>
     <string name="settings_color_theme_body">Folosește tema aplicației în locul culorilor specifice fiecărei piese.</string>
     <string name="settings_start_page">Pagina de pornire</string>
-    <string name="settings_start_page_body">Va fi folosită data viitoare când deschizi LatentJam.</string>
+    <string name="settings_start_page_body">Va fi folosită data viitoare când deschizi Roomtone.</string>
     <string name="settings_library_count">Piese în bibliotecă</string>
     <string name="settings_library_refresh">Actualizează biblioteca</string>
     <string name="settings_library_refresh_body">Găsește muzica adăugată recent și elimină intrările fișierelor care nu mai sunt disponibile.</string>
     <string name="settings_library_import">Importă muzică</string>
-    <string name="settings_library_import_body">Alege fișiere audio pentru a le copia în LatentJam.</string>
+    <string name="settings_library_import_body">Alege fișiere audio pentru a le copia în Roomtone.</string>
     <string name="settings_library_restore">Restaurează piesele ascunse</string>
-    <string name="settings_library_restore_body">Readu în bibliotecă toate piesele eliminate din LatentJam. Fișierele de pe dispozitiv rămân neschimbate.</string>
+    <string name="settings_library_restore_body">Readu în bibliotecă toate piesele eliminate din Roomtone. Fișierele de pe dispozitiv rămân neschimbate.</string>
     <string name="settings_playlist_relative_paths">Căi relative în playlisturile exportate</string>
     <string name="settings_playlist_relative_paths_body">Scrie calea fiecărei piese pornind de la dosarul playlistului (../Music/…), ca playlistul să funcționeze și pe alte dispozitive. Dacă salvezi într-un loc fără cale de dosar, căile rămân complete.</string>
     <string name="settings_equalizer_unavailable">Indisponibil pentru această ieșire audio</string>
-    <string name="equalizer_unavailable_body">Ieșirea audio actuală nu oferă aplicației LatentJam acces la un egalizator. Încearcă altă ieșire. Redarea funcționează în continuare normal.</string>
+    <string name="equalizer_unavailable_body">Ieșirea audio actuală nu oferă aplicației Roomtone acces la un egalizator. Încearcă altă ieșire. Redarea funcționează în continuare normal.</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">Plat</string>
     <string name="equalizer_preset_bass">Bas</string>
@@ -474,7 +474,7 @@
     <string name="foryou_mix_spoken_audio">Audio vorbit</string>
     <string name="foryou_mix_instrumental">Muzică instrumentală</string>
     <string name="intelligence_how_it_works">SMART compară amprentele sonore pe acest dispozitiv și combină asemănarea muzicală cu istoricul tău de ascultare. Funcționează fără cont sau conexiune la internet.</string>
-    <string name="privacy_local_body">Biblioteca, istoricul de ascultare și datele SMART rămân pe acest dispozitiv. LatentJam nu folosește conturi și nu trimite aceste date către un server.</string>
+    <string name="privacy_local_body">Biblioteca, istoricul de ascultare și datele SMART rămân pe acest dispozitiv. Roomtone nu folosește conturi și nu trimite aceste date către un server.</string>
     <string name="privacy_save_history_body">Reține redările și omiterile pe acest dispozitiv pentru Pentru tine și recomandările SMART.</string>
     <string name="privacy_remember_searches_body">Salvează căutările pe acest dispozitiv pentru a le afișa când câmpul de căutare este gol.</string>
     <string name="privacy_disable_history_body">Oprești salvarea activității noi de ascultare. Ce se întâmplă cu istoricul deja salvat pe acest dispozitiv?</string>
@@ -497,7 +497,7 @@
     <string name="privacy_clear_searches_body">Elimină interogările afișate când căutarea este goală.</string>
     <string name="privacy_clear_searches_confirm">Ștergi toate căutările recente?</string>
     <string name="settings_license">Licență</string>
-    <string name="settings_license_body">LatentJam este software liber licențiat sub Apache License 2.0.</string>
+    <string name="settings_license_body">Roomtone este software liber licențiat sub Apache License 2.0.</string>
     <string name="settings_open_source">Cod sursă</string>
     <string name="settings_open_source_body">Vezi proiectul pe GitHub</string>
     <string name="settings_report_issue">Raportează o problemă</string>
@@ -528,25 +528,25 @@
     <string name="settings_audio_access_not_requested">Nesolicitat</string>
     <string name="settings_audio_access_not_required">Nu este necesar</string>
     <string name="settings_sources">Surse de muzică</string>
-    <string name="settings_sources_body">Alege folderele sau colecțiile dispozitivului afișate în LatentJam. Fișierele de pe dispozitiv nu sunt modificate.</string>
+    <string name="settings_sources_body">Alege folderele sau colecțiile dispozitivului afișate în Roomtone. Fișierele de pe dispozitiv nu sunt modificate.</string>
     <string name="settings_sources_empty">Nu au fost găsite surse de muzică gestionabile.</string>
     <string name="settings_source_unnamed">Muzică de pe dispozitiv</string>
     <string name="settings_source_music_library">Bibliotecă muzicală</string>
     <string name="settings_hidden_tracks">Piese ascunse</string>
-    <string name="settings_hidden_tracks_body">Piese ascunse doar în LatentJam. Restabilește orice piesă fără a-i modifica fișierul.</string>
-    <string name="settings_hidden_tracks_empty">Nu există piese ascunse în LatentJam.</string>
+    <string name="settings_hidden_tracks_body">Piese ascunse doar în Roomtone. Restabilește orice piesă fără a-i modifica fișierul.</string>
+    <string name="settings_hidden_tracks_empty">Nu există piese ascunse în Roomtone.</string>
     <string name="settings_interrupted_saves">Salvări întrerupte</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="one">Salvarea etichetelor în %1$d fișier a fost întreruptă. LatentJam o va termina sau o va anula când va avea voie să scrie fișierul.</item>
-        <item quantity="few">Salvarea etichetelor în %1$d fișiere a fost întreruptă. LatentJam va termina sau va anula fiecare salvare când va avea voie să scrie fișierul.</item>
-        <item quantity="other">Salvarea etichetelor în %1$d de fișiere a fost întreruptă. LatentJam va termina sau va anula fiecare salvare când va avea voie să scrie fișierul.</item>
+        <item quantity="one">Salvarea etichetelor în %1$d fișier a fost întreruptă. Roomtone o va termina sau o va anula când va avea voie să scrie fișierul.</item>
+        <item quantity="few">Salvarea etichetelor în %1$d fișiere a fost întreruptă. Roomtone va termina sau va anula fiecare salvare când va avea voie să scrie fișierul.</item>
+        <item quantity="other">Salvarea etichetelor în %1$d de fișiere a fost întreruptă. Roomtone va termina sau va anula fiecare salvare când va avea voie să scrie fișierul.</item>
     </plurals>
     <string name="settings_interrupted_finish">Termină acum</string>
     <string name="settings_interrupted_being_repaired">În reparare: nu se redă până nu este terminat</string>
     <string name="settings_interrupted_forget">Uită</string>
     <string name="settings_interrupted_forget_title">Uiți această salvare?</string>
-    <string name="settings_interrupted_forget_body">Fișierul rămâne exact cum este acum, iar LatentJam nu mai încearcă să termine sau să anuleze salvarea. Acest lucru nu poate fi anulat.</string>
-    <string name="settings_interrupted_forget_damaged_body">Această salvare s-a oprit la jumătate. Fișierul poate fi deteriorat și s-ar putea să nu se redea, iar dacă o uiți se șterg copiile din care LatentJam l-ar putea repara. Acest lucru nu poate fi anulat.</string>
+    <string name="settings_interrupted_forget_body">Fișierul rămâne exact cum este acum, iar Roomtone nu mai încearcă să termine sau să anuleze salvarea. Acest lucru nu poate fi anulat.</string>
+    <string name="settings_interrupted_forget_damaged_body">Această salvare s-a oprit la jumătate. Fișierul poate fi deteriorat și s-ar putea să nu se redea, iar dacă o uiți se șterg copiile din care Roomtone l-ar putea repara. Acest lucru nu poate fi anulat.</string>
     <string name="settings_duplicates">Dubluri audio</string>
     <string name="settings_duplicates_body">Găsește copii ale aceleiași înregistrări după sunet, indiferent de etichete</string>
     <string name="settings_duplicates_scanning">Se compară toate perechile de piese…</string>
@@ -561,17 +561,17 @@
     <string name="settings_lyrics_folders_failed">Acest dosar nu poate fi folosit. Alege unul din spațiul de stocare al acestui dispozitiv.</string>
 
     <string name="settings_licenses">Licențe open-source</string>
-    <string name="settings_licenses_body">Notificări pentru LatentJam, modelele incluse și software-ul terț</string>
+    <string name="settings_licenses_body">Notificări pentru Roomtone, modelele incluse și software-ul terț</string>
     <string name="settings_license_models">Modele audio și SMART</string>
-    <string name="settings_license_models_body">Ponderile audio MobileNetV4 produse de LatentJam sunt Apache-2.0. Modelul student folosește timm (Apache-2.0) și a fost distilat din EfficientAT (MIT, copyright © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">Ponderile audio MobileNetV4 produse de Roomtone sunt Apache-2.0. Modelul student folosește timm (Apache-2.0) și a fost distilat din EfficientAT (MIT, copyright © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">Model text</string>
-    <string name="settings_license_text_model_body">Codificatorul de text inclus și vocabularul său au fost antrenate de LatentJam să reproducă sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) și sunt Apache-2.0.</string>
+    <string name="settings_license_text_model_body">Codificatorul de text inclus și vocabularul său au fost antrenate de Roomtone să reproducă sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) și sunt Apache-2.0.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">Inferența modelelor pe dispozitiv folosește Microsoft ONNX Runtime sub Licența MIT. Copyright © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz și Wikidata</string>
     <string name="settings_license_aliases_body">Datele incluse pentru căutarea aliasurilor artiștilor provin din MusicBrainz și Wikidata și sunt oferite sub CC0.</string>
     <string name="settings_license_libraries">Biblioteci terțe</string>
-    <string name="settings_license_libraries_body">LatentJam folosește Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin și Coil sub licențe permisive Apache-2.0 sau MIT. Notificările complete sunt incluse în distribuția sursă.</string>
+    <string name="settings_license_libraries_body">Roomtone folosește Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin și Coil sub licențe permisive Apache-2.0 sau MIT. Notificările complete sunt incluse în distribuția sursă.</string>
 
     <string name="sleep_timer">Temporizator de oprire</string>
     <string name="sleep_timer_off">Oprit</string>
@@ -597,7 +597,7 @@
     <string name="intelligence_rebuild_confirm">Refaci toată analiza SMART? Fișierele muzicale, playlisturile și istoricul de ascultare nu se modifică.</string>
     <string name="intelligence_how_title">Cum funcționează SMART</string>
     <string name="intelligence_notifications">Notificări de analiză</string>
-    <string name="intelligence_notifications_body">Arată progresul indexării în afara LatentJam</string>
+    <string name="intelligence_notifications_body">Arată progresul indexării în afara Roomtone</string>
     <string name="intelligence_exclusions_clear">Șterge toate excluderile</string>
 
     <string name="settings_backup">Copie de rezervă locală</string>
@@ -620,7 +620,7 @@
     </plurals>
     <string name="backup_import_partial">Unele date au fost restabilite înainte de apariția unei erori.</string>
     <string name="backup_failed">Operațiunea de backup nu a putut fi finalizată.</string>
-    <string name="backup_invalid">Aceasta nu este o copie LatentJam validă.</string>
+    <string name="backup_invalid">Aceasta nu este o copie Roomtone validă.</string>
     <string name="backup_destination_warning">Copia de rezervă conține date private ale aplicației. O destinație cloud sau terță aleasă în selectorul sistemului le poate sincroniza.</string>
     <string name="settings_stats">Statistici</string>
     <string name="settings_stats_subtitle">Ascultarea ta în cifre</string>
@@ -828,11 +828,11 @@
     <string name="stats_stuck_artists">Artiști noi care au rămas</string>
     <string name="stats_stuck_artists_recent">Artiști noi care au rămas · ultimele 3 luni</string>
     <plurals name="stats_log_age">
-        <item quantity="one">LatentJam ascultă alături de tine de %1$d zi</item>
-        <item quantity="few">LatentJam ascultă alături de tine de %1$d zile</item>
-        <item quantity="other">LatentJam ascultă alături de tine de %1$d de zile</item>
+        <item quantity="one">Roomtone ascultă alături de tine de %1$d zi</item>
+        <item quantity="few">Roomtone ascultă alături de tine de %1$d zile</item>
+        <item quantity="other">Roomtone ascultă alături de tine de %1$d de zile</item>
     </plurals>
-    <string name="stats_new_note">Primă audiție = redată prima dată în LatentJam. Biblioteca ta poate fi mai veche decât aplicația.</string>
+    <string name="stats_new_note">Primă audiție = redată prima dată în Roomtone. Biblioteca ta poate fi mai veche decât aplicația.</string>
     <plurals name="stats_locked_plays">
         <item quantity="one">Apare după %1$d redare în această perioadă</item>
         <item quantity="few">Apare după %1$d redări în această perioadă</item>
@@ -854,7 +854,7 @@
     <string name="stats_smart_mode_share">Redate în modul SMART</string>
     <string name="stats_finish_note">Proporții din toate pornirile. Până la capăt = ascultată până la 85%, sărită = părăsită în primele 30 s.</string>
     <string name="stats_slipping_away">Aproape uitate</string>
-    <string name="stats_slipping_note">Piese preferate pe care le alegeai des singur, neredate în LatentJam de cel puțin două luni.</string>
+    <string name="stats_slipping_note">Piese preferate pe care le alegeai des singur, neredate în Roomtone de cel puțin două luni.</string>
     <string name="stats_year_ago">Acum un an</string>
     <string name="stats_patterns">Obiceiurile tale</string>
     <string name="stats_same_artist_picks">Din nou același artist</string>
@@ -872,7 +872,7 @@
     <string name="stats_unlock_slipping">Aproape uitate — după trei luni de ascultare</string>
     <string name="stats_part_failed">Unele dintre aceste statistici nu au putut fi încărcate.</string>
     <string name="stats_playlist_row">Playlist</string>
-    <string name="stats_playlists_note">Redări din fiecare playlist. Nu se numără piesele adăugate de SMART și nici ascultările de dinainte ca LatentJam să înregistreze de unde a pornit o piesă.</string>
+    <string name="stats_playlists_note">Redări din fiecare playlist. Nu se numără piesele adăugate de SMART și nici ascultările de dinainte ca Roomtone să înregistreze de unde a pornit o piesă.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">Grupuri: %1$d · Copii în plus: %2$d · Se poate elibera: %3$s</string>

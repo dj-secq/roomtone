@@ -98,7 +98,7 @@ are already dangling references in the source database.
 adb -s <phone> shell "run-as io.github.nikitasud.latentjam.debug cat databases/user_music.db" > legacy/user_music.db
 adb -s <phone> shell "run-as io.github.nikitasud.latentjam.debug cat files/music_graph_debug.dot" > legacy/graph.dot
 python3 migrate_legacy_playlists.py            # writes legacy/playlists.txt
-cat legacy/playlists.txt | adb -s <target> shell "run-as io.github.nikitasud.latentjam.kmp sh -c 'cat > files/playlists.txt'"
+cat legacy/playlists.txt | adb -s <target> shell "run-as io.github.djsecq.roomtone sh -c 'cat > files/playlists.txt'"
 ```
 
 Force-stop the app before writing, or it will overwrite the file on exit.

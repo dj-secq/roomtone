@@ -7,11 +7,11 @@
   in composeResources.
 -->
 <resources>
-    <string name="widget_app_label">LatentJam</string>
+    <string name="widget_app_label">Roomtone</string>
     <string name="widget_description">Playback controls</string>
-    <string name="widget_name_pulse">LatentJam · Pulse Strip</string>
-    <string name="widget_name_portal">LatentJam · Cover Portal</string>
-    <string name="widget_name_deck">LatentJam · SMART Deck</string>
+    <string name="widget_name_pulse">Roomtone · Pulse Strip</string>
+    <string name="widget_name_portal">Roomtone · Cover Portal</string>
+    <string name="widget_name_deck">Roomtone · SMART Deck</string>
     <string name="widget_description_pulse">Artwork, track and controls in a compact strip</string>
     <string name="widget_description_portal">An immersive artwork-first player</string>
     <string name="widget_description_deck">Detailed player with time, next track and SMART controls</string>

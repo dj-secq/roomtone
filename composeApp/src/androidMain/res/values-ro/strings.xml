@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Redare</string>
-    <string name="widget_name_pulse">LatentJam · Bară Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portal copertă</string>
-    <string name="widget_name_deck">LatentJam · Panou SMART</string>
+    <string name="widget_name_pulse">Roomtone · Bară Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portal copertă</string>
+    <string name="widget_name_deck">Roomtone · Panou SMART</string>
     <string name="widget_description_pulse">Copertă, piesă și comenzi într-o bară compactă</string>
     <string name="widget_description_portal">Un player captivant axat pe copertă</string>
     <string name="widget_description_deck">Player detaliat cu timp, piesa următoare și comenzi SMART</string>

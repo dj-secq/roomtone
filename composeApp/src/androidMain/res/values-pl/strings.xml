@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Odtwarzanie</string>
-    <string name="widget_name_pulse">LatentJam · Pasek Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portal okładki</string>
-    <string name="widget_name_deck">LatentJam · Panel SMART</string>
+    <string name="widget_name_pulse">Roomtone · Pasek Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portal okładki</string>
+    <string name="widget_name_deck">Roomtone · Panel SMART</string>
     <string name="widget_description_pulse">Okładka, utwór i sterowanie na kompaktowym pasku</string>
     <string name="widget_description_portal">Wciągający odtwarzacz skupiony na okładce</string>
     <string name="widget_description_deck">Szczegółowy odtwarzacz z czasem, następnym utworem i sterowaniem SMART</string>

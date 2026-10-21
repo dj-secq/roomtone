@@ -5,9 +5,9 @@
 -->
 <resources>
     <string name="widget_description">Управление воспроизведением</string>
-    <string name="widget_name_pulse">LatentJam · Пульс</string>
-    <string name="widget_name_portal">LatentJam · Обложка</string>
-    <string name="widget_name_deck">LatentJam · SMART-пульт</string>
+    <string name="widget_name_pulse">Roomtone · Пульс</string>
+    <string name="widget_name_portal">Roomtone · Обложка</string>
+    <string name="widget_name_deck">Roomtone · SMART-пульт</string>
     <string name="widget_description_pulse">Обложка, трек и управление в компактной панели</string>
     <string name="widget_description_portal">Эффектный проигрыватель с обложкой во весь виджет</string>
     <string name="widget_description_deck">Подробный плеер со временем, следующим треком и SMART-режимом</string>

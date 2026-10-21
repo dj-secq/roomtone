@@ -8,7 +8,7 @@
   Placeholders are POSITIONAL (%1$s / %1$d) and keep their numbers.
   Apostrophes and quotation marks are written RAW: Compose Multiplatform only
   unescapes \uXXXX, \n, \t and \\, so a backslash would reach the UI.
-  "LatentJam" and "SMART" are names and stay untranslated.
+  "Roomtone" and "SMART" are names and stay untranslated.
 
   Terminology follows real players (Spotify, Deezer, Apple Music):
   morceau, file d’attente, lecture aléatoire, playlist, bibliothèque.
@@ -300,15 +300,15 @@
     <string name="info_edit_refused">Les tags de ce fichier sont dans une forme qui ne peut pas être réécrite en toute sécurité, rien n'a donc été modifié.</string>
     <string name="info_edit_failed">Impossible d'écrire dans ce fichier. Il est resté tel quel.</string>
     <string name="info_edit_no_space">Pas assez d'espace libre pour enregistrer ces tags en toute sécurité. Rien n'a été modifié.</string>
-    <string name="info_edit_recovery_pending">L'enregistrement a été interrompu. LatentJam le terminera ou l'annulera dès qu'il sera de nouveau autorisé à écrire dans le fichier.</string>
+    <string name="info_edit_recovery_pending">L'enregistrement a été interrompu. Roomtone le terminera ou l'annulera dès qu'il sera de nouveau autorisé à écrire dans le fichier.</string>
     <string name="tag_recovery_title">Terminer l'enregistrement des tags</string>
     <plurals name="tag_recovery_body">
-        <item quantity="one">LatentJam a été interrompu pendant l'enregistrement de tags dans %1$d fichier. Il peut terminer la modification maintenant, ou l'annuler si le fichier ne peut pas être terminé.</item>
-        <item quantity="other">LatentJam a été interrompu pendant l'enregistrement de tags dans %1$d fichiers. Il peut terminer les modifications maintenant, ou les annuler lorsqu'un fichier ne peut pas être terminé.</item>
+        <item quantity="one">Roomtone a été interrompu pendant l'enregistrement de tags dans %1$d fichier. Il peut terminer la modification maintenant, ou l'annuler si le fichier ne peut pas être terminé.</item>
+        <item quantity="other">Roomtone a été interrompu pendant l'enregistrement de tags dans %1$d fichiers. Il peut terminer les modifications maintenant, ou les annuler lorsqu'un fichier ne peut pas être terminé.</item>
     </plurals>
     <string name="tag_recovery_finish">Terminer</string>
     <string name="tag_recovery_later">Plus tard</string>
-    <string name="tag_problem_unsupported_format">LatentJam ne peut pas modifier ce type de fichier.</string>
+    <string name="tag_problem_unsupported_format">Roomtone ne peut pas modifier ce type de fichier.</string>
     <string name="tag_problem_damaged">Ce fichier semble endommagé ; il est donc laissé tel quel.</string>
     <string name="tag_problem_protected">Ce fichier est protégé contre la copie et ne peut pas être modifié.</string>
     <string name="tag_problem_tags_too_large">Les tags seraient trop volumineux pour ce fichier.</string>
@@ -316,7 +316,7 @@
     <string name="tag_problem_number_unreadable">Le numéro de morceau ou de disque du fichier n'est pas un nombre simple ; son total ne peut donc pas être modifié seul.</string>
     <string name="tag_problem_bad_image">L'image n'est ni au format JPEG ni au format PNG.</string>
     <string name="tag_problem_read_only_storage">Ce fichier se trouve sur un stockage qui n'est pas accessible en écriture.</string>
-    <string name="tag_problem_music_library">Les morceaux de la bibliothèque musicale ne peuvent pas être modifiés, seulement ceux importés dans LatentJam.</string>
+    <string name="tag_problem_music_library">Les morceaux de la bibliothèque musicale ne peuvent pas être modifiés, seulement ceux importés dans Roomtone.</string>
     <string name="tag_problem_unreadable">Ce fichier n'a pas pu être lu.</string>
     <string name="tag_problem_not_allowed">L'autorisation de modifier le fichier n'a pas été accordée.</string>
     <string name="tag_problem_missing">Le fichier n'est plus là.</string>
@@ -324,7 +324,7 @@
     <string name="tag_problem_cancelled">La demande d'autorisation a été fermée.</string>
     <string name="tag_problem_undone">Un enregistrement interrompu a été annulé : le fichier est tel qu'il était avant.</string>
     <string name="tag_problem_changed_elsewhere">Une autre application a modifié le fichier après l'interruption de l'enregistrement ; il a donc été laissé tel quel.</string>
-    <string name="tag_problem_lost">LatentJam n'a pas pu savoir comment cet enregistrement s'est terminé. Vérifiez les tags du fichier.</string>
+    <string name="tag_problem_lost">Roomtone n'a pas pu savoir comment cet enregistrement s'est terminé. Vérifiez les tags du fichier.</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">Paramètres</string>
@@ -339,7 +339,7 @@
     <string name="settings_intelligence">Moteur SMART</string>
     <string name="settings_smart_engine">Moteur SMART</string>
     <string name="settings_smart_engine_subtitle">Ce que le modèle embarqué sait de votre bibliothèque</string>
-    <string name="settings_about_body">LatentJam — un lecteur de musique local avec un moteur de recommandation embarqué. Rien de ce que vous écoutez ne quitte cet appareil.</string>
+    <string name="settings_about_body">Roomtone — un lecteur de musique local avec un moteur de recommandation embarqué. Rien de ce que vous écoutez ne quitte cet appareil.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Activé</string>
@@ -363,12 +363,12 @@
     <string name="engine_state_unavailable">Indisponible — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">LatentJam a besoin d’accéder à votre musique pour parcourir la bibliothèque.</string>
+    <string name="permission_audio_rationale">Roomtone a besoin d’accéder à votre musique pour parcourir la bibliothèque.</string>
     <string name="permission_grant">Autoriser l’accès</string>
-    <string name="permission_audio_settings_rationale">L’accès à la musique est bloqué. Ouvrez les réglages système et autorisez LatentJam à accéder à la musique et aux fichiers audio.</string>
+    <string name="permission_audio_settings_rationale">L’accès à la musique est bloqué. Ouvrez les réglages système et autorisez Roomtone à accéder à la musique et aux fichiers audio.</string>
     <string name="permission_open_settings">Ouvrir les réglages</string>
     <string name="permission_notifications_title">Afficher la progression de l’analyse ?</string>
-    <string name="permission_notifications_rationale">SMART analyse votre bibliothèque sur cet appareil. Autorisez les notifications pour suivre la progression et revenir à LatentJam pendant l’analyse. L’analyse continue si vous choisissez « Plus tard ».</string>
+    <string name="permission_notifications_rationale">SMART analyse votre bibliothèque sur cet appareil. Autorisez les notifications pour suivre la progression et revenir à Roomtone pendant l’analyse. L’analyse continue si vous choisissez « Plus tard ».</string>
     <string name="permission_not_now">Plus tard</string>
     <string name="permission_continue">Continuer</string>
 
@@ -390,7 +390,7 @@
     <string name="settings_playback_subtitle">Égaliseur et commandes audio</string>
     <string name="settings_privacy">Confidentialité et données</string>
     <string name="settings_privacy_subtitle">Historique d’écoute et recherches récentes</string>
-    <string name="settings_about">À propos de LatentJam</string>
+    <string name="settings_about">À propos de Roomtone</string>
     <string name="settings_about_subtitle">Licence, code source et assistance</string>
     <string name="settings_section_library">Bibliothèque</string>
     <string name="settings_section_navigation">Navigation</string>
@@ -435,18 +435,18 @@
     <string name="settings_color_theme">Thème</string>
     <string name="settings_color_theme_body">Utiliser le thème de l’application plutôt que des couleurs propres à chaque morceau.</string>
     <string name="settings_start_page">Page d’accueil</string>
-    <string name="settings_start_page_body">Utilisée à la prochaine ouverture de LatentJam.</string>
+    <string name="settings_start_page_body">Utilisée à la prochaine ouverture de Roomtone.</string>
     <string name="settings_library_count">Morceaux dans la bibliothèque</string>
     <string name="settings_library_refresh">Actualiser la bibliothèque</string>
     <string name="settings_library_refresh_body">Rechercher les nouveaux morceaux et retirer les entrées des fichiers qui ne sont plus disponibles.</string>
     <string name="settings_library_import">Importer de la musique</string>
-    <string name="settings_library_import_body">Choisir des fichiers audio à copier dans LatentJam.</string>
+    <string name="settings_library_import_body">Choisir des fichiers audio à copier dans Roomtone.</string>
     <string name="settings_library_restore">Restaurer les morceaux masqués</string>
-    <string name="settings_library_restore_body">Réafficher dans la bibliothèque tous les morceaux retirés de LatentJam. Les fichiers de l’appareil restent inchangés.</string>
+    <string name="settings_library_restore_body">Réafficher dans la bibliothèque tous les morceaux retirés de Roomtone. Les fichiers de l’appareil restent inchangés.</string>
     <string name="settings_playlist_relative_paths">Chemins relatifs dans les playlists exportées</string>
     <string name="settings_playlist_relative_paths_body">Écrit le chemin de chaque morceau à partir du dossier de la playlist (../Music/…), pour qu’elle fonctionne aussi sur d’autres appareils. Enregistrée à un emplacement sans chemin de dossier, elle garde des chemins complets.</string>
     <string name="settings_equalizer_unavailable">Indisponible pour cette sortie audio</string>
-    <string name="equalizer_unavailable_body">La sortie audio actuelle ne permet pas à LatentJam d’accéder à un égaliseur. Essayez une autre sortie. La lecture continue de fonctionner normalement.</string>
+    <string name="equalizer_unavailable_body">La sortie audio actuelle ne permet pas à Roomtone d’accéder à un égaliseur. Essayez une autre sortie. La lecture continue de fonctionner normalement.</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">Neutre</string>
     <string name="equalizer_preset_bass">Graves</string>
@@ -475,7 +475,7 @@
     <string name="foryou_mix_spoken_audio">Contenu parlé</string>
     <string name="foryou_mix_instrumental">Musique instrumentale</string>
     <string name="intelligence_how_it_works">SMART compare les empreintes sonores sur cet appareil, puis associe la proximité musicale à votre historique d’écoute. Aucun compte ni connexion Internet n’est nécessaire.</string>
-    <string name="privacy_local_body">Votre bibliothèque, votre historique d’écoute et les données SMART restent sur cet appareil. LatentJam ne nécessite aucun compte et n’envoie aucune de ces données à un serveur.</string>
+    <string name="privacy_local_body">Votre bibliothèque, votre historique d’écoute et les données SMART restent sur cet appareil. Roomtone ne nécessite aucun compte et n’envoie aucune de ces données à un serveur.</string>
     <string name="privacy_save_history_body">Enregistre les écoutes et les morceaux passés sur cet appareil pour Pour vous et les recommandations SMART.</string>
     <string name="privacy_remember_searches_body">Enregistre les recherches sur cet appareil pour les afficher lorsque le champ de recherche est vide.</string>
     <string name="privacy_disable_history_body">Arrêter d’enregistrer les nouvelles écoutes. Que faire de l’historique déjà enregistré sur cet appareil ?</string>
@@ -497,7 +497,7 @@
     <string name="privacy_clear_searches_body">Supprimer les requêtes affichées lorsque la recherche est vide.</string>
     <string name="privacy_clear_searches_confirm">Effacer toutes les recherches récentes ?</string>
     <string name="settings_license">Licence</string>
-    <string name="settings_license_body">LatentJam est un logiciel libre sous licence Apache 2.0.</string>
+    <string name="settings_license_body">Roomtone est un logiciel libre sous licence Apache 2.0.</string>
     <string name="settings_open_source">Code source</string>
     <string name="settings_open_source_body">Voir le projet sur GitHub</string>
     <string name="settings_report_issue">Signaler un problème</string>
@@ -528,24 +528,24 @@
     <string name="settings_audio_access_not_requested">Non demandé</string>
     <string name="settings_audio_access_not_required">Non requis</string>
     <string name="settings_sources">Sources musicales</string>
-    <string name="settings_sources_body">Choisissez les dossiers ou collections de l’appareil qui apparaissent dans LatentJam. Les fichiers de l’appareil restent inchangés.</string>
+    <string name="settings_sources_body">Choisissez les dossiers ou collections de l’appareil qui apparaissent dans Roomtone. Les fichiers de l’appareil restent inchangés.</string>
     <string name="settings_sources_empty">Aucune source musicale gérable n’a été trouvée.</string>
     <string name="settings_source_unnamed">Musique de l’appareil</string>
     <string name="settings_source_music_library">Bibliothèque musicale</string>
     <string name="settings_hidden_tracks">Morceaux masqués</string>
-    <string name="settings_hidden_tracks_body">Morceaux masqués uniquement dans LatentJam. Restaurez un morceau sans modifier son fichier.</string>
-    <string name="settings_hidden_tracks_empty">Aucun morceau n’est masqué dans LatentJam.</string>
+    <string name="settings_hidden_tracks_body">Morceaux masqués uniquement dans Roomtone. Restaurez un morceau sans modifier son fichier.</string>
+    <string name="settings_hidden_tracks_empty">Aucun morceau n’est masqué dans Roomtone.</string>
     <string name="settings_interrupted_saves">Enregistrements interrompus</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="one">L'enregistrement de tags dans %1$d fichier a été interrompu. LatentJam le terminera ou l'annulera dès qu'il pourra écrire dans le fichier.</item>
-        <item quantity="other">L'enregistrement de tags dans %1$d fichiers a été interrompu. LatentJam terminera ou annulera chacun d'eux dès qu'il pourra écrire dans le fichier.</item>
+        <item quantity="one">L'enregistrement de tags dans %1$d fichier a été interrompu. Roomtone le terminera ou l'annulera dès qu'il pourra écrire dans le fichier.</item>
+        <item quantity="other">L'enregistrement de tags dans %1$d fichiers a été interrompu. Roomtone terminera ou annulera chacun d'eux dès qu'il pourra écrire dans le fichier.</item>
     </plurals>
     <string name="settings_interrupted_finish">Terminer maintenant</string>
     <string name="settings_interrupted_being_repaired">En réparation : non lu tant qu'il n'est pas terminé</string>
     <string name="settings_interrupted_forget">Oublier</string>
     <string name="settings_interrupted_forget_title">Oublier cet enregistrement ?</string>
-    <string name="settings_interrupted_forget_body">Le fichier reste exactement tel qu'il est maintenant, et LatentJam cesse d'essayer de terminer ou d'annuler l'enregistrement. Cette action est irréversible.</string>
-    <string name="settings_interrupted_forget_damaged_body">Cet enregistrement s'est arrêté en cours de route. Le fichier est peut-être endommagé et risque de ne pas être lu, et l'oublier supprime les copies à partir desquelles LatentJam pourrait le réparer. Cette action est irréversible.</string>
+    <string name="settings_interrupted_forget_body">Le fichier reste exactement tel qu'il est maintenant, et Roomtone cesse d'essayer de terminer ou d'annuler l'enregistrement. Cette action est irréversible.</string>
+    <string name="settings_interrupted_forget_damaged_body">Cet enregistrement s'est arrêté en cours de route. Le fichier est peut-être endommagé et risque de ne pas être lu, et l'oublier supprime les copies à partir desquelles Roomtone pourrait le réparer. Cette action est irréversible.</string>
     <string name="settings_duplicates">Doublons audio</string>
     <string name="settings_duplicates_body">Trouve les copies d’un même enregistrement au son, quelles que soient les étiquettes</string>
     <string name="settings_duplicates_scanning">Comparaison de toutes les paires de pistes…</string>
@@ -560,17 +560,17 @@
     <string name="settings_lyrics_folders_failed">Ce dossier ne peut pas être utilisé. Choisissez-en un dans le stockage de cet appareil.</string>
 
     <string name="settings_licenses">Licences open source</string>
-    <string name="settings_licenses_body">Mentions concernant LatentJam, les modèles intégrés et les logiciels tiers</string>
+    <string name="settings_licenses_body">Mentions concernant Roomtone, les modèles intégrés et les logiciels tiers</string>
     <string name="settings_license_models">Modèles audio et SMART</string>
-    <string name="settings_license_models_body">Les poids audio MobileNetV4 produits par LatentJam sont sous licence Apache-2.0. Le modèle élève utilise timm (Apache-2.0) et a été distillé à partir d’EfficientAT (MIT, copyright © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">Les poids audio MobileNetV4 produits par Roomtone sont sous licence Apache-2.0. Le modèle élève utilise timm (Apache-2.0) et a été distillé à partir d’EfficientAT (MIT, copyright © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">Modèle de texte</string>
-    <string name="settings_license_text_model_body">L’encodeur de texte intégré et son vocabulaire ont été entraînés par LatentJam pour reproduire sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) et sont sous licence Apache-2.0.</string>
+    <string name="settings_license_text_model_body">L’encodeur de texte intégré et son vocabulaire ont été entraînés par Roomtone pour reproduire sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) et sont sous licence Apache-2.0.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">L’inférence des modèles sur l’appareil utilise Microsoft ONNX Runtime sous licence MIT. Copyright © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz et Wikidata</string>
     <string name="settings_license_aliases_body">Les données intégrées de recherche d’alias d’artistes sont dérivées de MusicBrainz et Wikidata et fournies sous CC0.</string>
     <string name="settings_license_libraries">Bibliothèques tierces</string>
-    <string name="settings_license_libraries_body">LatentJam utilise Kotlin, les coroutines, Compose Multiplatform, AndroidX Media3, Koin et Coil sous des licences permissives Apache-2.0 ou MIT. Les mentions complètes sont incluses dans la distribution du code source.</string>
+    <string name="settings_license_libraries_body">Roomtone utilise Kotlin, les coroutines, Compose Multiplatform, AndroidX Media3, Koin et Coil sous des licences permissives Apache-2.0 ou MIT. Les mentions complètes sont incluses dans la distribution du code source.</string>
 
     <string name="sleep_timer">Minuteur de sommeil</string>
     <string name="sleep_timer_off">Désactivé</string>
@@ -595,7 +595,7 @@
     <string name="intelligence_rebuild_confirm">Reconstruire toute l’analyse SMART ? Les fichiers musicaux, les playlists et l’historique d’écoute restent inchangés.</string>
     <string name="intelligence_how_title">Fonctionnement de SMART</string>
     <string name="intelligence_notifications">Notifications d’analyse</string>
-    <string name="intelligence_notifications_body">Afficher la progression de l’indexation en dehors de LatentJam</string>
+    <string name="intelligence_notifications_body">Afficher la progression de l’indexation en dehors de Roomtone</string>
     <string name="intelligence_exclusions_clear">Effacer toutes les exclusions</string>
 
     <string name="settings_backup">Sauvegarde locale</string>
@@ -617,7 +617,7 @@
     </plurals>
     <string name="backup_import_partial">Certaines données ont été restaurées avant qu’une erreur ne survienne.</string>
     <string name="backup_failed">Impossible de terminer l’opération de sauvegarde.</string>
-    <string name="backup_invalid">Ce fichier n’est pas une sauvegarde LatentJam valide.</string>
+    <string name="backup_invalid">Ce fichier n’est pas une sauvegarde Roomtone valide.</string>
     <string name="backup_destination_warning">La sauvegarde contient des données privées de l’application. Une destination cloud ou tierce choisie dans le sélecteur système peut les synchroniser.</string>
     <string name="settings_stats">Statistiques</string>
     <string name="settings_stats_subtitle">Votre écoute en chiffres</string>
@@ -805,10 +805,10 @@
     <string name="stats_stuck_artists">Nouveaux artistes adoptés</string>
     <string name="stats_stuck_artists_recent">Nouveaux artistes adoptés · 3 derniers mois</string>
     <plurals name="stats_log_age">
-        <item quantity="one">LatentJam écoute avec vous depuis %1$d jour</item>
-        <item quantity="other">LatentJam écoute avec vous depuis %1$d jours</item>
+        <item quantity="one">Roomtone écoute avec vous depuis %1$d jour</item>
+        <item quantity="other">Roomtone écoute avec vous depuis %1$d jours</item>
     </plurals>
-    <string name="stats_new_note">Première écoute = premier passage dans LatentJam. Votre bibliothèque peut être plus ancienne que l’appli.</string>
+    <string name="stats_new_note">Première écoute = premier passage dans Roomtone. Votre bibliothèque peut être plus ancienne que l’appli.</string>
     <plurals name="stats_locked_plays">
         <item quantity="one">Apparaît après %1$d lecture sur cette période</item>
         <item quantity="other">Apparaît après %1$d lectures sur cette période</item>
@@ -829,7 +829,7 @@
     <string name="stats_smart_mode_share">Lus en mode SMART</string>
     <string name="stats_finish_note">Parts de tous les lancements. Terminé = écouté jusqu’à 85 %, passé = quitté dans les 30 premières secondes.</string>
     <string name="stats_slipping_away">Un peu oubliés</string>
-    <string name="stats_slipping_note">Des favoris que vous choisissiez souvent vous-même, pas lus dans LatentJam depuis deux mois ou plus.</string>
+    <string name="stats_slipping_note">Des favoris que vous choisissiez souvent vous-même, pas lus dans Roomtone depuis deux mois ou plus.</string>
     <string name="stats_year_ago">Il y a un an</string>
     <string name="stats_patterns">Vos habitudes</string>
     <string name="stats_same_artist_picks">Encore le même artiste</string>
@@ -847,7 +847,7 @@
     <string name="stats_unlock_slipping">Un peu oubliés — après trois mois d’écoute</string>
     <string name="stats_part_failed">Certaines de ces statistiques n’ont pas pu être chargées.</string>
     <string name="stats_playlist_row">Playlist</string>
-    <string name="stats_playlists_note">Écoutes venues de chaque playlist. Les titres ajoutés par SMART et les écoutes antérieures à l’enregistrement de leur origine par LatentJam ne comptent pas.</string>
+    <string name="stats_playlists_note">Écoutes venues de chaque playlist. Les titres ajoutés par SMART et les écoutes antérieures à l’enregistrement de leur origine par Roomtone ne comptent pas.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">Groupes : %1$d · Copies en trop : %2$d · Récupérable : %3$s</string>

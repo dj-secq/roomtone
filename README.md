@@ -1,3 +1,5 @@
+> **Roomtone.** This checkout is a personal derivative of LatentJam, prepared so new features can be added here. Read [DERIVATIVE.md](DERIVATIVE.md) first. The rest of this file is the upstream README.
+
 <p align="center">
   <img src="branding/logo.svg" width="120" alt="LatentJam logo">
 </p>

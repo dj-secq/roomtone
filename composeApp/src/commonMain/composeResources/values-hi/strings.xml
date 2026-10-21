@@ -5,7 +5,7 @@
 
   Hindi (hi). Keys and ordering follow values/strings.xml.
   Apostrophes and quotation marks are RAW; only \uXXXX \n \t \\ are unescaped.
-  "LatentJam" and "SMART" are names — never translated.
+  "Roomtone" and "SMART" are names — never translated.
 -->
 <resources>
 
@@ -288,15 +288,15 @@
     <string name="info_edit_refused">इस फ़ाइल के टैग ऐसे रूप में हैं जिन्हें सुरक्षित रूप से दोबारा नहीं लिखा जा सकता, इसलिए कुछ नहीं बदला गया।</string>
     <string name="info_edit_failed">इस फ़ाइल में नहीं लिखा जा सका। इसे जैसा था वैसा ही छोड़ दिया गया।</string>
     <string name="info_edit_no_space">इन टैग को सुरक्षित रूप से सहेजने के लिए पर्याप्त खाली जगह नहीं है। कुछ भी नहीं बदला गया।</string>
-    <string name="info_edit_recovery_pending">सहेजना बीच में रुक गया। LatentJam अगली बार फ़ाइल लिखने की अनुमति मिलने पर इसे पूरा करेगा या वापस ले लेगा।</string>
+    <string name="info_edit_recovery_pending">सहेजना बीच में रुक गया। Roomtone अगली बार फ़ाइल लिखने की अनुमति मिलने पर इसे पूरा करेगा या वापस ले लेगा।</string>
     <string name="tag_recovery_title">टैग सहेजना पूरा करें</string>
     <plurals name="tag_recovery_body">
-        <item quantity="one">%1$d फ़ाइल में टैग सहेजते समय LatentJam बीच में रुक गया। यह बदलाव अभी पूरा कर सकता है, या फ़ाइल पूरी न हो सके तो उसे वापस ले सकता है।</item>
-        <item quantity="other">%1$d फ़ाइलों में टैग सहेजते समय LatentJam बीच में रुक गया। यह बदलाव अभी पूरे कर सकता है, या जो फ़ाइल पूरी न हो सके उसमें उन्हें वापस ले सकता है।</item>
+        <item quantity="one">%1$d फ़ाइल में टैग सहेजते समय Roomtone बीच में रुक गया। यह बदलाव अभी पूरा कर सकता है, या फ़ाइल पूरी न हो सके तो उसे वापस ले सकता है।</item>
+        <item quantity="other">%1$d फ़ाइलों में टैग सहेजते समय Roomtone बीच में रुक गया। यह बदलाव अभी पूरे कर सकता है, या जो फ़ाइल पूरी न हो सके उसमें उन्हें वापस ले सकता है।</item>
     </plurals>
     <string name="tag_recovery_finish">पूरा करें</string>
     <string name="tag_recovery_later">बाद में</string>
-    <string name="tag_problem_unsupported_format">LatentJam इस तरह की फ़ाइल को संपादित नहीं कर सकता।</string>
+    <string name="tag_problem_unsupported_format">Roomtone इस तरह की फ़ाइल को संपादित नहीं कर सकता।</string>
     <string name="tag_problem_damaged">यह फ़ाइल खराब लगती है, इसलिए इसे जैसी है वैसी ही छोड़ दिया गया।</string>
     <string name="tag_problem_protected">यह फ़ाइल कॉपी-सुरक्षित है और इसे बदला नहीं जा सकता।</string>
     <string name="tag_problem_tags_too_large">टैग इस फ़ाइल के लिए बहुत बड़े हो जाएँगे।</string>
@@ -304,7 +304,7 @@
     <string name="tag_problem_number_unreadable">फ़ाइल का अपना ट्रैक या डिस्क नंबर सामान्य संख्या नहीं है, इसलिए उसका कुल अकेले नहीं बदला जा सकता।</string>
     <string name="tag_problem_bad_image">यह तस्वीर JPEG या PNG नहीं है।</string>
     <string name="tag_problem_read_only_storage">यह फ़ाइल ऐसे स्टोरेज पर है जिसमें लिखा नहीं जा सकता।</string>
-    <string name="tag_problem_music_library">संगीत लाइब्रेरी के गाने संपादित नहीं किए जा सकते, केवल LatentJam में इंपोर्ट किए गए गाने संपादित किए जा सकते हैं।</string>
+    <string name="tag_problem_music_library">संगीत लाइब्रेरी के गाने संपादित नहीं किए जा सकते, केवल Roomtone में इंपोर्ट किए गए गाने संपादित किए जा सकते हैं।</string>
     <string name="tag_problem_unreadable">यह फ़ाइल पढ़ी नहीं जा सकी।</string>
     <string name="tag_problem_not_allowed">फ़ाइल बदलने की अनुमति नहीं दी गई।</string>
     <string name="tag_problem_missing">फ़ाइल अब मौजूद नहीं है।</string>
@@ -312,7 +312,7 @@
     <string name="tag_problem_cancelled">अनुमति का अनुरोध बंद कर दिया गया।</string>
     <string name="tag_problem_undone">बीच में रुका हुआ सहेजना वापस ले लिया गया: फ़ाइल पहले जैसी है।</string>
     <string name="tag_problem_changed_elsewhere">सहेजना रुकने के बाद किसी दूसरे ऐप ने फ़ाइल बदल दी, इसलिए उसे जैसी है वैसी ही छोड़ दिया गया।</string>
-    <string name="tag_problem_lost">LatentJam यह पता नहीं लगा सका कि यह सहेजना कैसे पूरा हुआ। फ़ाइल के टैग जाँचें।</string>
+    <string name="tag_problem_lost">Roomtone यह पता नहीं लगा सका कि यह सहेजना कैसे पूरा हुआ। फ़ाइल के टैग जाँचें।</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">सेटिंग</string>
@@ -327,7 +327,7 @@
     <string name="settings_intelligence">SMART इंजन</string>
     <string name="settings_smart_engine">SMART इंजन</string>
     <string name="settings_smart_engine_subtitle">डिवाइस पर मौजूद मॉडल आपकी लाइब्रेरी के बारे में क्या जानता है</string>
-    <string name="settings_about_body">LatentJam — डिवाइस पर ही चलने वाले सुझाव इंजन के साथ एक लोकल म्यूज़िक प्लेयर. आप क्या सुनते हैं, इससे जुड़ी कोई भी जानकारी इस डिवाइस से बाहर नहीं जाती.</string>
+    <string name="settings_about_body">Roomtone — डिवाइस पर ही चलने वाले सुझाव इंजन के साथ एक लोकल म्यूज़िक प्लेयर. आप क्या सुनते हैं, इससे जुड़ी कोई भी जानकारी इस डिवाइस से बाहर नहीं जाती.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">चालू</string>
@@ -351,12 +351,12 @@
     <string name="engine_state_unavailable">उपलब्ध नहीं — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">लाइब्रेरी स्कैन करने के लिए LatentJam को आपके संगीत का ऐक्सेस चाहिए.</string>
+    <string name="permission_audio_rationale">लाइब्रेरी स्कैन करने के लिए Roomtone को आपके संगीत का ऐक्सेस चाहिए.</string>
     <string name="permission_grant">ऐक्सेस दें</string>
-    <string name="permission_audio_settings_rationale">संगीत का ऐक्सेस ब्लॉक है। सिस्टम सेटिंग खोलें और LatentJam को संगीत और ऑडियो फ़ाइलों का ऐक्सेस दें।</string>
+    <string name="permission_audio_settings_rationale">संगीत का ऐक्सेस ब्लॉक है। सिस्टम सेटिंग खोलें और Roomtone को संगीत और ऑडियो फ़ाइलों का ऐक्सेस दें।</string>
     <string name="permission_open_settings">सेटिंग खोलें</string>
     <string name="permission_notifications_title">विश्लेषण की प्रगति दिखाएँ?</string>
-    <string name="permission_notifications_rationale">SMART इस डिवाइस पर आपकी लाइब्रेरी का विश्लेषण करता है। प्रगति देखने और काम के दौरान LatentJam पर लौटने के लिए सूचनाएँ चालू करें। “अभी नहीं” चुनने पर भी विश्लेषण जारी रहेगा।</string>
+    <string name="permission_notifications_rationale">SMART इस डिवाइस पर आपकी लाइब्रेरी का विश्लेषण करता है। प्रगति देखने और काम के दौरान Roomtone पर लौटने के लिए सूचनाएँ चालू करें। “अभी नहीं” चुनने पर भी विश्लेषण जारी रहेगा।</string>
     <string name="permission_not_now">अभी नहीं</string>
     <string name="permission_continue">जारी रखें</string>
 
@@ -378,7 +378,7 @@
     <string name="settings_playback_subtitle">इक्वलाइज़र और ऑडियो नियंत्रण</string>
     <string name="settings_privacy">निजता और डेटा</string>
     <string name="settings_privacy_subtitle">सुनने का इतिहास और हाल की खोजें</string>
-    <string name="settings_about">LatentJam के बारे में</string>
+    <string name="settings_about">Roomtone के बारे में</string>
     <string name="settings_about_subtitle">लाइसेंस, सोर्स कोड और सहायता</string>
     <string name="settings_section_library">लाइब्रेरी</string>
     <string name="settings_section_navigation">नेविगेशन</string>
@@ -423,18 +423,18 @@
     <string name="settings_color_theme">थीम</string>
     <string name="settings_color_theme_body">हर गाने के अलग रंगों की जगह ऐप की थीम इस्तेमाल करें।</string>
     <string name="settings_start_page">शुरुआती पेज</string>
-    <string name="settings_start_page_body">अगली बार LatentJam खोलने पर यह पेज दिखेगा।</string>
+    <string name="settings_start_page_body">अगली बार Roomtone खोलने पर यह पेज दिखेगा।</string>
     <string name="settings_library_count">लाइब्रेरी में गाने</string>
     <string name="settings_library_refresh">लाइब्रेरी रीफ़्रेश करें</string>
     <string name="settings_library_refresh_body">नया संगीत खोजें और अब उपलब्ध न रही फ़ाइलों की प्रविष्टियाँ हटाएँ।</string>
     <string name="settings_library_import">संगीत इंपोर्ट करें</string>
-    <string name="settings_library_import_body">LatentJam में कॉपी करने के लिए ऑडियो फ़ाइलें चुनें।</string>
+    <string name="settings_library_import_body">Roomtone में कॉपी करने के लिए ऑडियो फ़ाइलें चुनें।</string>
     <string name="settings_library_restore">छिपे गाने वापस लाएँ</string>
-    <string name="settings_library_restore_body">LatentJam से हटाए गए सभी गाने फिर लाइब्रेरी में दिखाएँ। डिवाइस की फ़ाइलें नहीं बदलेंगी।</string>
+    <string name="settings_library_restore_body">Roomtone से हटाए गए सभी गाने फिर लाइब्रेरी में दिखाएँ। डिवाइस की फ़ाइलें नहीं बदलेंगी।</string>
     <string name="settings_playlist_relative_paths">निर्यात की गई प्लेलिस्ट में सापेक्ष पथ</string>
     <string name="settings_playlist_relative_paths_body">हर ट्रैक का पथ प्लेलिस्ट के फ़ोल्डर के सापेक्ष लिखता है (../Music/…), ताकि प्लेलिस्ट दूसरे डिवाइस पर भी काम करे। बिना फ़ोल्डर पथ वाली जगह पर सहेजने से पूरे पथ बने रहते हैं।</string>
     <string name="settings_equalizer_unavailable">इस ऑडियो आउटपुट के लिए उपलब्ध नहीं</string>
-    <string name="equalizer_unavailable_body">मौजूदा ऑडियो आउटपुट LatentJam को इक्वलाइज़र उपलब्ध नहीं कराता। कोई दूसरा आउटपुट आज़माएँ। प्लेबैक सामान्य रूप से चलता रहेगा।</string>
+    <string name="equalizer_unavailable_body">मौजूदा ऑडियो आउटपुट Roomtone को इक्वलाइज़र उपलब्ध नहीं कराता। कोई दूसरा आउटपुट आज़माएँ। प्लेबैक सामान्य रूप से चलता रहेगा।</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">फ़्लैट</string>
     <string name="equalizer_preset_bass">बास</string>
@@ -463,7 +463,7 @@
     <string name="foryou_mix_spoken_audio">बोला गया ऑडियो</string>
     <string name="foryou_mix_instrumental">इंस्ट्रुमेंटल</string>
     <string name="intelligence_how_it_works">SMART इसी डिवाइस पर ध्वनि पहचान की तुलना करता है और संगीत की समानता को आपके सुनने के इतिहास से जोड़ता है। यह बिना खाते या इंटरनेट के काम करता है।</string>
-    <string name="privacy_local_body">आपकी लाइब्रेरी, सुनने का इतिहास और SMART डेटा इसी डिवाइस पर रहते हैं। LatentJam में खाता नहीं है और यह डेटा किसी सर्वर पर नहीं भेजा जाता।</string>
+    <string name="privacy_local_body">आपकी लाइब्रेरी, सुनने का इतिहास और SMART डेटा इसी डिवाइस पर रहते हैं। Roomtone में खाता नहीं है और यह डेटा किसी सर्वर पर नहीं भेजा जाता।</string>
     <string name="privacy_save_history_body">आपके लिए और SMART सुझावों के लिए चलाए और छोड़े गए ट्रैक इस डिवाइस पर याद रखें।</string>
     <string name="privacy_remember_searches_body">खोज फ़ील्ड खाली होने पर दिखाने के लिए खोजें इस डिवाइस पर सहेजें।</string>
     <string name="privacy_disable_history_body">सुनने की नई गतिविधि सहेजना बंद करें। इस डिवाइस पर पहले से मौजूद इतिहास का क्या करना है?</string>
@@ -485,7 +485,7 @@
     <string name="privacy_clear_searches_body">खोज खाली होने पर दिखने वाले सवाल हटाएँ।</string>
     <string name="privacy_clear_searches_confirm">हाल की सभी खोजें मिटाएँ?</string>
     <string name="settings_license">लाइसेंस</string>
-    <string name="settings_license_body">LatentJam Apache License 2.0 के तहत लाइसेंस प्राप्त मुक्त सॉफ़्टवेयर है।</string>
+    <string name="settings_license_body">Roomtone Apache License 2.0 के तहत लाइसेंस प्राप्त मुक्त सॉफ़्टवेयर है।</string>
     <string name="settings_open_source">सोर्स कोड</string>
     <string name="settings_open_source_body">GitHub पर प्रोजेक्ट देखें</string>
     <string name="settings_report_issue">समस्या की रिपोर्ट करें</string>
@@ -516,24 +516,24 @@
     <string name="settings_audio_access_not_requested">अनुरोध नहीं किया गया</string>
     <string name="settings_audio_access_not_required">ज़रूरी नहीं</string>
     <string name="settings_sources">संगीत स्रोत</string>
-    <string name="settings_sources_body">चुनें कि LatentJam में कौन-से फ़ोल्डर या डिवाइस संग्रह दिखें। डिवाइस की फ़ाइलें नहीं बदलेंगी।</string>
+    <string name="settings_sources_body">चुनें कि Roomtone में कौन-से फ़ोल्डर या डिवाइस संग्रह दिखें। डिवाइस की फ़ाइलें नहीं बदलेंगी।</string>
     <string name="settings_sources_empty">प्रबंधित किए जा सकने वाले कोई संगीत स्रोत नहीं मिले।</string>
     <string name="settings_source_unnamed">डिवाइस का संगीत</string>
     <string name="settings_source_music_library">संगीत लाइब्रेरी</string>
     <string name="settings_hidden_tracks">छिपाए गए ट्रैक</string>
-    <string name="settings_hidden_tracks_body">ट्रैक केवल LatentJam में छिपाए गए हैं। फ़ाइल बदले बिना किसी भी ट्रैक को वापस लाएँ।</string>
-    <string name="settings_hidden_tracks_empty">LatentJam में कोई ट्रैक छिपा नहीं है।</string>
+    <string name="settings_hidden_tracks_body">ट्रैक केवल Roomtone में छिपाए गए हैं। फ़ाइल बदले बिना किसी भी ट्रैक को वापस लाएँ।</string>
+    <string name="settings_hidden_tracks_empty">Roomtone में कोई ट्रैक छिपा नहीं है।</string>
     <string name="settings_interrupted_saves">बीच में रुके सहेजने</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="one">%1$d फ़ाइल में टैग सहेजना बीच में रुक गया। फ़ाइल लिखने की अनुमति मिलते ही LatentJam इसे पूरा करेगा या वापस ले लेगा।</item>
-        <item quantity="other">%1$d फ़ाइलों में टैग सहेजना बीच में रुक गया। फ़ाइल लिखने की अनुमति मिलते ही LatentJam हर एक को पूरा करेगा या वापस ले लेगा।</item>
+        <item quantity="one">%1$d फ़ाइल में टैग सहेजना बीच में रुक गया। फ़ाइल लिखने की अनुमति मिलते ही Roomtone इसे पूरा करेगा या वापस ले लेगा।</item>
+        <item quantity="other">%1$d फ़ाइलों में टैग सहेजना बीच में रुक गया। फ़ाइल लिखने की अनुमति मिलते ही Roomtone हर एक को पूरा करेगा या वापस ले लेगा।</item>
     </plurals>
     <string name="settings_interrupted_finish">अभी पूरा करें</string>
     <string name="settings_interrupted_being_repaired">मरम्मत जारी है: पूरा होने तक नहीं चलाया जाएगा</string>
     <string name="settings_interrupted_forget">भूल जाएँ</string>
     <string name="settings_interrupted_forget_title">इस सहेजने को भूल जाएँ?</string>
-    <string name="settings_interrupted_forget_body">फ़ाइल ठीक वैसी ही रहेगी जैसी अभी है, और LatentJam सहेजना पूरा करने या वापस लेने की कोशिश बंद कर देगा। इसे पूर्ववत नहीं किया जा सकता।</string>
-    <string name="settings_interrupted_forget_damaged_body">यह सहेजना बीच में ही रुक गया। फ़ाइल खराब हो सकती है और शायद न चले, और इसे भूलने से वे कॉपी मिट जाती हैं जिनसे LatentJam इसे ठीक कर सकता है। इसे पूर्ववत नहीं किया जा सकता।</string>
+    <string name="settings_interrupted_forget_body">फ़ाइल ठीक वैसी ही रहेगी जैसी अभी है, और Roomtone सहेजना पूरा करने या वापस लेने की कोशिश बंद कर देगा। इसे पूर्ववत नहीं किया जा सकता।</string>
+    <string name="settings_interrupted_forget_damaged_body">यह सहेजना बीच में ही रुक गया। फ़ाइल खराब हो सकती है और शायद न चले, और इसे भूलने से वे कॉपी मिट जाती हैं जिनसे Roomtone इसे ठीक कर सकता है। इसे पूर्ववत नहीं किया जा सकता।</string>
     <string name="settings_duplicates">ऑडियो डुप्लिकेट</string>
     <string name="settings_duplicates_body">टैग चाहे जो कहें, एक ही रिकॉर्डिंग की प्रतियाँ ध्वनि से खोजता है</string>
     <string name="settings_duplicates_scanning">सभी ट्रैक की तुलना हो रही है…</string>
@@ -548,17 +548,17 @@
     <string name="settings_lyrics_folders_failed">यह फ़ोल्डर इस्तेमाल नहीं किया जा सकता। इस डिवाइस के स्टोरेज से कोई फ़ोल्डर चुनें।</string>
 
     <string name="settings_licenses">ओपन-सोर्स लाइसेंस</string>
-    <string name="settings_licenses_body">LatentJam, साथ दिए गए मॉडल और तीसरे पक्ष के सॉफ़्टवेयर की सूचनाएँ</string>
+    <string name="settings_licenses_body">Roomtone, साथ दिए गए मॉडल और तीसरे पक्ष के सॉफ़्टवेयर की सूचनाएँ</string>
     <string name="settings_license_models">ऑडियो और SMART मॉडल</string>
-    <string name="settings_license_models_body">LatentJam के बनाए MobileNetV4 ऑडियो वेट Apache-2.0 के अंतर्गत हैं। स्टूडेंट मॉडल timm (Apache-2.0) का उपयोग करता है और इसे EfficientAT (MIT, कॉपीराइट © 2022 Florian Schmid) से डिस्टिल किया गया है।</string>
+    <string name="settings_license_models_body">Roomtone के बनाए MobileNetV4 ऑडियो वेट Apache-2.0 के अंतर्गत हैं। स्टूडेंट मॉडल timm (Apache-2.0) का उपयोग करता है और इसे EfficientAT (MIT, कॉपीराइट © 2022 Florian Schmid) से डिस्टिल किया गया है।</string>
     <string name="settings_license_text_model">टेक्स्ट मॉडल</string>
-    <string name="settings_license_text_model_body">साथ दिया गया टेक्स्ट एन्कोडर और उसकी शब्दावली LatentJam ने sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) की नकल करने के लिए प्रशिक्षित की हैं और ये Apache-2.0 के अंतर्गत हैं।</string>
+    <string name="settings_license_text_model_body">साथ दिया गया टेक्स्ट एन्कोडर और उसकी शब्दावली Roomtone ने sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) की नकल करने के लिए प्रशिक्षित की हैं और ये Apache-2.0 के अंतर्गत हैं।</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">डिवाइस पर मॉडल चलाने के लिए Microsoft ONNX Runtime का उपयोग MIT लाइसेंस के अंतर्गत किया जाता है। कॉपीराइट © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz और Wikidata</string>
     <string name="settings_license_aliases_body">साथ दिया गया कलाकार उपनाम खोज डेटा MusicBrainz और Wikidata से लिया गया है और CC0 के अंतर्गत उपलब्ध है।</string>
     <string name="settings_license_libraries">तीसरे पक्ष की लाइब्रेरी</string>
-    <string name="settings_license_libraries_body">LatentJam, Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin और Coil का उपयोग उदार Apache-2.0 या MIT लाइसेंस के अंतर्गत करता है। पूरी सूचनाएँ सोर्स वितरण में शामिल हैं।</string>
+    <string name="settings_license_libraries_body">Roomtone, Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin और Coil का उपयोग उदार Apache-2.0 या MIT लाइसेंस के अंतर्गत करता है। पूरी सूचनाएँ सोर्स वितरण में शामिल हैं।</string>
 
     <string name="sleep_timer">स्लीप टाइमर</string>
     <string name="sleep_timer_off">बंद</string>
@@ -583,7 +583,7 @@
     <string name="intelligence_rebuild_confirm">पूरा SMART विश्लेषण फिर से बनाएँ? संगीत फ़ाइलें, प्लेलिस्ट और सुनने का इतिहास नहीं बदलेंगे।</string>
     <string name="intelligence_how_title">SMART कैसे काम करता है</string>
     <string name="intelligence_notifications">विश्लेषण की सूचनाएँ</string>
-    <string name="intelligence_notifications_body">LatentJam के बाहर इंडेक्सिंग की प्रगति दिखाएँ</string>
+    <string name="intelligence_notifications_body">Roomtone के बाहर इंडेक्सिंग की प्रगति दिखाएँ</string>
     <string name="intelligence_exclusions_clear">सभी अपवाद साफ़ करें</string>
 
     <string name="settings_backup">स्थानीय बैकअप</string>
@@ -605,7 +605,7 @@
     </plurals>
     <string name="backup_import_partial">त्रुटि आने से पहले कुछ डेटा पुनर्स्थापित हो गया था।</string>
     <string name="backup_failed">बैकअप प्रक्रिया पूरी नहीं की जा सकी।</string>
-    <string name="backup_invalid">यह मान्य LatentJam बैकअप नहीं है।</string>
+    <string name="backup_invalid">यह मान्य Roomtone बैकअप नहीं है।</string>
     <string name="backup_destination_warning">बैकअप में ऐप का निजी डेटा होता है। सिस्टम पिकर में चुना गया क्लाउड या तृतीय-पक्ष स्थान इसे सिंक कर सकता है।</string>
     <string name="settings_stats">आंकड़े</string>
     <string name="settings_stats_subtitle">आपकी सुनवाई, आँकड़ों में</string>
@@ -791,10 +791,10 @@
     <string name="stats_stuck_artists">नए कलाकार जो पसंद आ गए</string>
     <string name="stats_stuck_artists_recent">नए कलाकार जो पसंद आ गए · पिछले 3 महीने</string>
     <plurals name="stats_log_age">
-        <item quantity="one">LatentJam %1$d दिन से आपके साथ सुन रहा है</item>
-        <item quantity="other">LatentJam %1$d दिनों से आपके साथ सुन रहा है</item>
+        <item quantity="one">Roomtone %1$d दिन से आपके साथ सुन रहा है</item>
+        <item quantity="other">Roomtone %1$d दिनों से आपके साथ सुन रहा है</item>
     </plurals>
-    <string name="stats_new_note">पहली बार सुने गए = LatentJam में पहली बार चलाए गए। आपकी लाइब्रेरी ऐप से पुरानी हो सकती है।</string>
+    <string name="stats_new_note">पहली बार सुने गए = Roomtone में पहली बार चलाए गए। आपकी लाइब्रेरी ऐप से पुरानी हो सकती है।</string>
     <plurals name="stats_locked_plays">
         <item quantity="one">इस अवधि में %1$d प्ले के बाद दिखेगा</item>
         <item quantity="other">इस अवधि में %1$d प्ले के बाद दिखेगा</item>
@@ -815,7 +815,7 @@
     <string name="stats_smart_mode_share">SMART मोड में चलाए गए</string>
     <string name="stats_finish_note">सभी शुरुआतों का हिस्सा। पूरे सुने = 85% तक सुने गए, छोड़े गए = पहले 30 सेकंड में छोड़े गए।</string>
     <string name="stats_slipping_away">छूटते जा रहे</string>
-    <string name="stats_slipping_note">पसंदीदा ट्रैक जिन्हें आप अक्सर खुद चुनते थे, पर LatentJam में दो महीने या उससे ज़्यादा से नहीं चले।</string>
+    <string name="stats_slipping_note">पसंदीदा ट्रैक जिन्हें आप अक्सर खुद चुनते थे, पर Roomtone में दो महीने या उससे ज़्यादा से नहीं चले।</string>
     <string name="stats_year_ago">एक साल पहले</string>
     <string name="stats_patterns">आपके पैटर्न</string>
     <string name="stats_same_artist_picks">फिर से वही कलाकार चुनना</string>
@@ -833,7 +833,7 @@
     <string name="stats_unlock_slipping">छूटते जा रहे — तीन महीने सुनने के बाद</string>
     <string name="stats_part_failed">इनमें से कुछ आँकड़े लोड नहीं हो सके।</string>
     <string name="stats_playlist_row">प्लेलिस्ट</string>
-    <string name="stats_playlists_note">हर प्लेलिस्ट से हुए प्ले। SMART के जोड़े गए ट्रैक और उससे पहले की सुनवाई जब LatentJam यह दर्ज नहीं करता था कि ट्रैक कहाँ से शुरू हुआ, गिने नहीं जाते।</string>
+    <string name="stats_playlists_note">हर प्लेलिस्ट से हुए प्ले। SMART के जोड़े गए ट्रैक और उससे पहले की सुनवाई जब Roomtone यह दर्ज नहीं करता था कि ट्रैक कहाँ से शुरू हुआ, गिने नहीं जाते।</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">समूह: %1$d · अतिरिक्त प्रतियाँ: %2$d · खाली होने वाली जगह: %3$s</string>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Reproducción</string>
-    <string name="widget_name_pulse">LatentJam · Barra Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portal de portada</string>
-    <string name="widget_name_deck">LatentJam · Panel SMART</string>
+    <string name="widget_name_pulse">Roomtone · Barra Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portal de portada</string>
+    <string name="widget_name_deck">Roomtone · Panel SMART</string>
     <string name="widget_description_pulse">Portada, canción y controles en una barra compacta</string>
     <string name="widget_description_portal">Un reproductor inmersivo centrado en la portada</string>
     <string name="widget_description_deck">Reproductor detallado con tiempo, próxima canción y controles SMART</string>

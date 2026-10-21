@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Oynatma</string>
-    <string name="widget_name_pulse">LatentJam · Pulse Şeridi</string>
-    <string name="widget_name_portal">LatentJam · Kapak Portalı</string>
-    <string name="widget_name_deck">LatentJam · SMART Paneli</string>
+    <string name="widget_name_pulse">Roomtone · Pulse Şeridi</string>
+    <string name="widget_name_portal">Roomtone · Kapak Portalı</string>
+    <string name="widget_name_deck">Roomtone · SMART Paneli</string>
     <string name="widget_description_pulse">Kompakt bir şeritte kapak, parça ve kontroller</string>
     <string name="widget_description_portal">Kapağı öne çıkaran sürükleyici bir oynatıcı</string>
     <string name="widget_description_deck">Süre, sıradaki parça ve SMART kontrolleriyle ayrıntılı oynatıcı</string>

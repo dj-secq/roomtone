@@ -8,7 +8,7 @@
   Placeholders are POSITIONAL (%1$s / %1$d) and keep their numbers.
   Apostrophes and quotation marks are written RAW: Compose Multiplatform only
   unescapes \uXXXX, \n, \t and \\, so a backslash would reach the UI.
-  "LatentJam" and "SMART" are names and stay untranslated.
+  "Roomtone" and "SMART" are names and stay untranslated.
   Indonesian has no grammatical plural, so every plurals block carries the
   single required "other" category and never reduplicates after a numeral.
 -->
@@ -275,14 +275,14 @@
     <string name="info_edit_refused">Tag file ini dalam bentuk yang tidak dapat ditulis ulang dengan aman, jadi tidak ada yang diubah.</string>
     <string name="info_edit_failed">Tidak dapat menulis ke file ini. File dibiarkan apa adanya.</string>
     <string name="info_edit_no_space">Ruang kosong tidak cukup untuk menyimpan tag ini dengan aman. Tidak ada yang diubah.</string>
-    <string name="info_edit_recovery_pending">Penyimpanan terhenti. LatentJam akan menyelesaikan atau membatalkannya saat berikutnya diizinkan menulis ke file.</string>
+    <string name="info_edit_recovery_pending">Penyimpanan terhenti. Roomtone akan menyelesaikan atau membatalkannya saat berikutnya diizinkan menulis ke file.</string>
     <string name="tag_recovery_title">Selesaikan penyimpanan tag</string>
     <plurals name="tag_recovery_body">
-        <item quantity="other">LatentJam terhenti saat menyimpan tag ke %1$d file. LatentJam dapat menyelesaikan perubahan sekarang, atau membatalkannya jika file tidak dapat diselesaikan.</item>
+        <item quantity="other">Roomtone terhenti saat menyimpan tag ke %1$d file. Roomtone dapat menyelesaikan perubahan sekarang, atau membatalkannya jika file tidak dapat diselesaikan.</item>
     </plurals>
     <string name="tag_recovery_finish">Selesaikan</string>
     <string name="tag_recovery_later">Nanti</string>
-    <string name="tag_problem_unsupported_format">LatentJam tidak dapat mengedit jenis file ini.</string>
+    <string name="tag_problem_unsupported_format">Roomtone tidak dapat mengedit jenis file ini.</string>
     <string name="tag_problem_damaged">File ini tampaknya rusak, jadi dibiarkan apa adanya.</string>
     <string name="tag_problem_protected">File ini dilindungi dari penyalinan dan tidak dapat diubah.</string>
     <string name="tag_problem_tags_too_large">Tag akan terlalu besar untuk file ini.</string>
@@ -290,7 +290,7 @@
     <string name="tag_problem_number_unreadable">Nomor lagu atau nomor disk bawaan file ini bukan angka biasa, jadi totalnya tidak dapat diubah sendiri.</string>
     <string name="tag_problem_bad_image">Gambar ini bukan gambar JPEG atau PNG.</string>
     <string name="tag_problem_read_only_storage">File ini berada di penyimpanan yang tidak dapat ditulisi.</string>
-    <string name="tag_problem_music_library">Lagu dari Pustaka musik tidak dapat diedit, hanya lagu yang diimpor ke LatentJam.</string>
+    <string name="tag_problem_music_library">Lagu dari Pustaka musik tidak dapat diedit, hanya lagu yang diimpor ke Roomtone.</string>
     <string name="tag_problem_unreadable">File ini tidak dapat dibaca.</string>
     <string name="tag_problem_not_allowed">Izin untuk mengubah file tidak diberikan.</string>
     <string name="tag_problem_missing">File sudah tidak ada.</string>
@@ -298,7 +298,7 @@
     <string name="tag_problem_cancelled">Permintaan izin ditutup.</string>
     <string name="tag_problem_undone">Penyimpanan yang terhenti telah dibatalkan: file kembali seperti semula.</string>
     <string name="tag_problem_changed_elsewhere">Aplikasi lain mengubah file setelah penyimpanan terhenti, jadi file dibiarkan apa adanya.</string>
-    <string name="tag_problem_lost">LatentJam tidak dapat mengetahui bagaimana penyimpanan ini berakhir. Periksa tag file tersebut.</string>
+    <string name="tag_problem_lost">Roomtone tidak dapat mengetahui bagaimana penyimpanan ini berakhir. Periksa tag file tersebut.</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">Setelan</string>
@@ -313,7 +313,7 @@
     <string name="settings_intelligence">Mesin SMART</string>
     <string name="settings_smart_engine">Mesin SMART</string>
     <string name="settings_smart_engine_subtitle">Apa yang diketahui model di perangkat tentang pustaka Anda</string>
-    <string name="settings_about_body">LatentJam — pemutar musik lokal dengan mesin rekomendasi yang berjalan di perangkat. Tidak ada informasi tentang apa yang Anda dengarkan yang meninggalkan perangkat ini.</string>
+    <string name="settings_about_body">Roomtone — pemutar musik lokal dengan mesin rekomendasi yang berjalan di perangkat. Tidak ada informasi tentang apa yang Anda dengarkan yang meninggalkan perangkat ini.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Aktif</string>
@@ -337,12 +337,12 @@
     <string name="engine_state_unavailable">Tidak tersedia — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">LatentJam memerlukan akses ke musik Anda untuk memindai pustaka.</string>
+    <string name="permission_audio_rationale">Roomtone memerlukan akses ke musik Anda untuk memindai pustaka.</string>
     <string name="permission_grant">Berikan akses</string>
-    <string name="permission_audio_settings_rationale">Akses musik diblokir. Buka setelan sistem dan izinkan LatentJam mengakses musik dan file audio.</string>
+    <string name="permission_audio_settings_rationale">Akses musik diblokir. Buka setelan sistem dan izinkan Roomtone mengakses musik dan file audio.</string>
     <string name="permission_open_settings">Buka setelan</string>
     <string name="permission_notifications_title">Tampilkan progres analisis?</string>
-    <string name="permission_notifications_rationale">SMART menganalisis pustaka Anda di perangkat ini. Izinkan notifikasi untuk melihat progres dan kembali ke LatentJam saat proses berlangsung. Analisis tetap berjalan jika Anda memilih “Jangan sekarang”.</string>
+    <string name="permission_notifications_rationale">SMART menganalisis pustaka Anda di perangkat ini. Izinkan notifikasi untuk melihat progres dan kembali ke Roomtone saat proses berlangsung. Analisis tetap berjalan jika Anda memilih “Jangan sekarang”.</string>
     <string name="permission_not_now">Jangan sekarang</string>
     <string name="permission_continue">Lanjutkan</string>
 
@@ -364,7 +364,7 @@
     <string name="settings_playback_subtitle">Ekualiser dan kontrol audio</string>
     <string name="settings_privacy">Privasi dan data</string>
     <string name="settings_privacy_subtitle">Riwayat dengar dan pencarian terbaru</string>
-    <string name="settings_about">Tentang LatentJam</string>
+    <string name="settings_about">Tentang Roomtone</string>
     <string name="settings_about_subtitle">Lisensi, kode sumber, dan dukungan</string>
     <string name="settings_section_library">Pustaka</string>
     <string name="settings_section_navigation">Navigasi</string>
@@ -409,18 +409,18 @@
     <string name="settings_color_theme">Tema</string>
     <string name="settings_color_theme_body">Gunakan tema aplikasi, bukan warna khusus setiap lagu.</string>
     <string name="settings_start_page">Halaman awal</string>
-    <string name="settings_start_page_body">Digunakan saat Anda membuka LatentJam berikutnya.</string>
+    <string name="settings_start_page_body">Digunakan saat Anda membuka Roomtone berikutnya.</string>
     <string name="settings_library_count">Lagu di pustaka</string>
     <string name="settings_library_refresh">Perbarui pustaka</string>
     <string name="settings_library_refresh_body">Temukan musik yang baru ditambahkan dan hapus entri file yang sudah tidak tersedia.</string>
     <string name="settings_library_import">Impor musik</string>
-    <string name="settings_library_import_body">Pilih file audio untuk disalin ke LatentJam.</string>
+    <string name="settings_library_import_body">Pilih file audio untuk disalin ke Roomtone.</string>
     <string name="settings_library_restore">Pulihkan lagu tersembunyi</string>
-    <string name="settings_library_restore_body">Kembalikan semua lagu yang dihapus dari LatentJam ke pustaka. File di perangkat tidak berubah.</string>
+    <string name="settings_library_restore_body">Kembalikan semua lagu yang dihapus dari Roomtone ke pustaka. File di perangkat tidak berubah.</string>
     <string name="settings_playlist_relative_paths">Jalur relatif di playlist yang diekspor</string>
     <string name="settings_playlist_relative_paths_body">Menulis jalur setiap lagu relatif terhadap folder playlist (../Music/…) agar playlist juga bisa dipakai di perangkat lain. Jika disimpan di tempat tanpa jalur folder, jalur lengkap tetap dipakai.</string>
     <string name="settings_equalizer_unavailable">Tidak tersedia untuk keluaran audio ini</string>
-    <string name="equalizer_unavailable_body">Keluaran audio saat ini tidak memberikan akses ekualiser kepada LatentJam. Coba keluaran lain. Pemutaran tetap berfungsi seperti biasa.</string>
+    <string name="equalizer_unavailable_body">Keluaran audio saat ini tidak memberikan akses ekualiser kepada Roomtone. Coba keluaran lain. Pemutaran tetap berfungsi seperti biasa.</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">Datar</string>
     <string name="equalizer_preset_bass">Bas</string>
@@ -449,7 +449,7 @@
     <string name="foryou_mix_spoken_audio">Audio lisan</string>
     <string name="foryou_mix_instrumental">Musik instrumental</string>
     <string name="intelligence_how_it_works">SMART membandingkan sidik suara di perangkat ini, lalu menggabungkan kemiripan musik dengan riwayat dengar Anda. Fitur ini bekerja tanpa akun atau koneksi internet.</string>
-    <string name="privacy_local_body">Pustaka, riwayat dengar, dan data SMART Anda tetap berada di perangkat ini. LatentJam tidak memakai akun dan tidak mengirim data tersebut ke server.</string>
+    <string name="privacy_local_body">Pustaka, riwayat dengar, dan data SMART Anda tetap berada di perangkat ini. Roomtone tidak memakai akun dan tidak mengirim data tersebut ke server.</string>
     <string name="privacy_save_history_body">Simpan pemutaran dan lompatan di perangkat ini untuk Untuk Anda dan rekomendasi SMART.</string>
     <string name="privacy_remember_searches_body">Simpan pencarian di perangkat ini agar ditampilkan saat kolom pencarian kosong.</string>
     <string name="privacy_disable_history_body">Berhenti menyimpan aktivitas mendengarkan baru. Apa yang harus dilakukan dengan riwayat yang sudah ada di perangkat ini?</string>
@@ -470,7 +470,7 @@
     <string name="privacy_clear_searches_body">Hapus kueri yang ditampilkan saat pencarian kosong.</string>
     <string name="privacy_clear_searches_confirm">Hapus semua pencarian terbaru?</string>
     <string name="settings_license">Lisensi</string>
-    <string name="settings_license_body">LatentJam adalah perangkat lunak bebas dengan lisensi Apache 2.0.</string>
+    <string name="settings_license_body">Roomtone adalah perangkat lunak bebas dengan lisensi Apache 2.0.</string>
     <string name="settings_open_source">Kode sumber</string>
     <string name="settings_open_source_body">Lihat proyek di GitHub</string>
     <string name="settings_report_issue">Laporkan masalah</string>
@@ -501,23 +501,23 @@
     <string name="settings_audio_access_not_requested">Belum diminta</string>
     <string name="settings_audio_access_not_required">Tidak diperlukan</string>
     <string name="settings_sources">Sumber musik</string>
-    <string name="settings_sources_body">Pilih folder atau koleksi perangkat yang muncul di LatentJam. File di perangkat tidak berubah.</string>
+    <string name="settings_sources_body">Pilih folder atau koleksi perangkat yang muncul di Roomtone. File di perangkat tidak berubah.</string>
     <string name="settings_sources_empty">Tidak ditemukan sumber musik yang dapat dikelola.</string>
     <string name="settings_source_unnamed">Musik perangkat</string>
     <string name="settings_source_music_library">Pustaka musik</string>
     <string name="settings_hidden_tracks">Trek tersembunyi</string>
-    <string name="settings_hidden_tracks_body">Trek yang disembunyikan hanya di LatentJam. Pulihkan trek tanpa mengubah filenya.</string>
-    <string name="settings_hidden_tracks_empty">Tidak ada trek yang disembunyikan di LatentJam.</string>
+    <string name="settings_hidden_tracks_body">Trek yang disembunyikan hanya di Roomtone. Pulihkan trek tanpa mengubah filenya.</string>
+    <string name="settings_hidden_tracks_empty">Tidak ada trek yang disembunyikan di Roomtone.</string>
     <string name="settings_interrupted_saves">Penyimpanan yang terhenti</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="other">Penyimpanan tag ke %1$d file terhenti. LatentJam akan menyelesaikan atau membatalkannya saat diizinkan menulis ke file.</item>
+        <item quantity="other">Penyimpanan tag ke %1$d file terhenti. Roomtone akan menyelesaikan atau membatalkannya saat diizinkan menulis ke file.</item>
     </plurals>
     <string name="settings_interrupted_finish">Selesaikan sekarang</string>
     <string name="settings_interrupted_being_repaired">Sedang diperbaiki: tidak diputar sampai selesai</string>
     <string name="settings_interrupted_forget">Lupakan</string>
     <string name="settings_interrupted_forget_title">Lupakan penyimpanan ini?</string>
-    <string name="settings_interrupted_forget_body">File tetap persis seperti sekarang, dan LatentJam berhenti mencoba menyelesaikan atau membatalkan penyimpanan. Ini tidak dapat dibatalkan.</string>
-    <string name="settings_interrupted_forget_damaged_body">Penyimpanan ini berhenti di tengah jalan. File mungkin rusak dan tidak dapat diputar, dan melupakannya akan menghapus salinan yang dapat digunakan LatentJam untuk memperbaikinya. Ini tidak dapat dibatalkan.</string>
+    <string name="settings_interrupted_forget_body">File tetap persis seperti sekarang, dan Roomtone berhenti mencoba menyelesaikan atau membatalkan penyimpanan. Ini tidak dapat dibatalkan.</string>
+    <string name="settings_interrupted_forget_damaged_body">Penyimpanan ini berhenti di tengah jalan. File mungkin rusak dan tidak dapat diputar, dan melupakannya akan menghapus salinan yang dapat digunakan Roomtone untuk memperbaikinya. Ini tidak dapat dibatalkan.</string>
     <string name="settings_duplicates">Duplikat audio</string>
     <string name="settings_duplicates_body">Menemukan salinan rekaman yang sama dari suaranya, apa pun tag-nya</string>
     <string name="settings_duplicates_scanning">Membandingkan semua pasangan trek…</string>
@@ -532,17 +532,17 @@
     <string name="settings_lyrics_folders_failed">Folder ini tidak dapat digunakan. Pilih folder di penyimpanan perangkat ini.</string>
 
     <string name="settings_licenses">Lisensi sumber terbuka</string>
-    <string name="settings_licenses_body">Pemberitahuan untuk LatentJam, model bawaan, dan perangkat lunak pihak ketiga</string>
+    <string name="settings_licenses_body">Pemberitahuan untuk Roomtone, model bawaan, dan perangkat lunak pihak ketiga</string>
     <string name="settings_license_models">Model audio dan SMART</string>
-    <string name="settings_license_models_body">Bobot audio MobileNetV4 buatan LatentJam berlisensi Apache-2.0. Model student memakai timm (Apache-2.0) dan didistilasi dari EfficientAT (MIT, hak cipta © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">Bobot audio MobileNetV4 buatan Roomtone berlisensi Apache-2.0. Model student memakai timm (Apache-2.0) dan didistilasi dari EfficientAT (MIT, hak cipta © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">Model teks</string>
-    <string name="settings_license_text_model_body">Enkoder teks bawaan dan kosakatanya dilatih oleh LatentJam untuk meniru sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) dan berlisensi Apache-2.0.</string>
+    <string name="settings_license_text_model_body">Enkoder teks bawaan dan kosakatanya dilatih oleh Roomtone untuk meniru sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) dan berlisensi Apache-2.0.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">Inferensi model di perangkat memakai Microsoft ONNX Runtime dengan Lisensi MIT. Hak cipta © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz dan Wikidata</string>
     <string name="settings_license_aliases_body">Data pencarian alias artis bawaan berasal dari MusicBrainz dan Wikidata dan disediakan dengan CC0.</string>
     <string name="settings_license_libraries">Pustaka pihak ketiga</string>
-    <string name="settings_license_libraries_body">LatentJam memakai Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin, dan Coil dengan lisensi permisif Apache-2.0 atau MIT. Pemberitahuan lengkap disertakan dalam distribusi sumber.</string>
+    <string name="settings_license_libraries_body">Roomtone memakai Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin, dan Coil dengan lisensi permisif Apache-2.0 atau MIT. Pemberitahuan lengkap disertakan dalam distribusi sumber.</string>
 
     <string name="sleep_timer">Timer tidur</string>
     <string name="sleep_timer_off">Nonaktif</string>
@@ -567,7 +567,7 @@
     <string name="intelligence_rebuild_confirm">Bangun ulang semua analisis SMART? File musik, daftar putar, dan riwayat dengar tidak berubah.</string>
     <string name="intelligence_how_title">Cara kerja SMART</string>
     <string name="intelligence_notifications">Notifikasi analisis</string>
-    <string name="intelligence_notifications_body">Tampilkan progres pengindeksan di luar LatentJam</string>
+    <string name="intelligence_notifications_body">Tampilkan progres pengindeksan di luar Roomtone</string>
     <string name="intelligence_exclusions_clear">Hapus semua pengecualian</string>
 
     <string name="settings_backup">Cadangan lokal</string>
@@ -588,7 +588,7 @@
     </plurals>
     <string name="backup_import_partial">Sebagian data dipulihkan sebelum terjadi kesalahan.</string>
     <string name="backup_failed">Tidak dapat menyelesaikan operasi pencadangan.</string>
-    <string name="backup_invalid">Ini bukan cadangan LatentJam yang valid.</string>
+    <string name="backup_invalid">Ini bukan cadangan Roomtone yang valid.</string>
     <string name="backup_destination_warning">Cadangan berisi data pribadi aplikasi. Tujuan cloud atau pihak ketiga yang dipilih di pemilih sistem dapat menyinkronkannya.</string>
     <string name="settings_stats">Statistik</string>
     <string name="settings_stats_subtitle">Pendengaran Anda dalam angka</string>
@@ -754,9 +754,9 @@
     <string name="stats_stuck_artists">Artis baru yang bertahan</string>
     <string name="stats_stuck_artists_recent">Artis baru yang bertahan · 3 bulan terakhir</string>
     <plurals name="stats_log_age">
-        <item quantity="other">LatentJam sudah ikut mendengarkan selama %1$d hari</item>
+        <item quantity="other">Roomtone sudah ikut mendengarkan selama %1$d hari</item>
     </plurals>
-    <string name="stats_new_note">Baru Anda dengar = pertama kali diputar di LatentJam. Koleksi Anda mungkin lebih tua daripada aplikasinya.</string>
+    <string name="stats_new_note">Baru Anda dengar = pertama kali diputar di Roomtone. Koleksi Anda mungkin lebih tua daripada aplikasinya.</string>
     <plurals name="stats_locked_plays">
         <item quantity="other">Muncul setelah %1$d pemutaran dalam periode ini</item>
     </plurals>
@@ -776,7 +776,7 @@
     <string name="stats_smart_mode_share">Diputar dalam mode SMART</string>
     <string name="stats_finish_note">Persentase dari semua pemutaran yang dimulai. Selesai = didengar hingga 85%, dilewati = ditinggalkan dalam 30 detik pertama.</string>
     <string name="stats_slipping_away">Mulai terlupakan</string>
-    <string name="stats_slipping_note">Favorit yang sering Anda pilih sendiri, tetapi tidak diputar di LatentJam selama dua bulan atau lebih.</string>
+    <string name="stats_slipping_note">Favorit yang sering Anda pilih sendiri, tetapi tidak diputar di Roomtone selama dua bulan atau lebih.</string>
     <string name="stats_year_ago">Setahun lalu</string>
     <string name="stats_patterns">Pola Anda</string>
     <string name="stats_same_artist_picks">Memilih artis yang sama lagi</string>
@@ -794,7 +794,7 @@
     <string name="stats_unlock_slipping">Mulai terlupakan — setelah tiga bulan mendengarkan</string>
     <string name="stats_part_failed">Sebagian statistik ini tidak dapat dimuat.</string>
     <string name="stats_playlist_row">Playlist</string>
-    <string name="stats_playlists_note">Putaran dari setiap playlist. Lagu yang ditambahkan SMART dan dengaran sebelum LatentJam mencatat dari mana lagu diputar tidak dihitung.</string>
+    <string name="stats_playlists_note">Putaran dari setiap playlist. Lagu yang ditambahkan SMART dan dengaran sebelum Roomtone mencatat dari mana lagu diputar tidak dihitung.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">Grup: %1$d · Salinan berlebih: %2$d · Bisa dibebaskan: %3$s</string>

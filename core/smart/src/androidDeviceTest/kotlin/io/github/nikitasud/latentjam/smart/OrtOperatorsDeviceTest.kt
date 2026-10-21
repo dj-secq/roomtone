@@ -77,7 +77,7 @@ class OrtOperatorsDeviceTest {
     }
 
     private companion object {
-        const val APP_PACKAGE = "io.github.nikitasud.latentjam.kmp"
+        const val APP_PACKAGE = "io.github.djsecq.roomtone"
         const val PATH_VARIABLE = "LJ_Q4_PATH"
         const val WINDOW = 320_000
         const val RATE = 32_000.0

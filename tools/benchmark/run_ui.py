@@ -11,7 +11,7 @@ import shlex
 import subprocess
 from datetime import datetime, timezone
 
-PACKAGE = "io.github.nikitasud.latentjam.kmp.benchmark"
+PACKAGE = "io.github.djsecq.roomtone.benchmark"
 TEST_PACKAGE = "io.github.nikitasud.latentjam.benchmark"
 SCENARIOS = ("scrollTracks", "changeTrackSort", "openClosePlayer", "coldStartAndFirstList")
 ROOT = Path(__file__).resolve().parents[2]

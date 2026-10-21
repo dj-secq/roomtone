@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">التشغيل</string>
-    <string name="widget_name_pulse">LatentJam · شريط النبض</string>
-    <string name="widget_name_portal">LatentJam · بوابة الغلاف</string>
-    <string name="widget_name_deck">LatentJam · لوحة SMART</string>
+    <string name="widget_name_pulse">Roomtone · شريط النبض</string>
+    <string name="widget_name_portal">Roomtone · بوابة الغلاف</string>
+    <string name="widget_name_deck">Roomtone · لوحة SMART</string>
     <string name="widget_description_pulse">الغلاف والمقطع وعناصر التحكم في شريط مدمج</string>
     <string name="widget_description_portal">مشغّل غامر يبرز الغلاف</string>
     <string name="widget_description_deck">مشغّل مفصّل مع الوقت والمقطع التالي وعناصر تحكم SMART</string>

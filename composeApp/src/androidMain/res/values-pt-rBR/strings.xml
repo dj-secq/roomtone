@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Reprodução</string>
-    <string name="widget_name_pulse">LatentJam · Faixa Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portal da capa</string>
-    <string name="widget_name_deck">LatentJam · Painel SMART</string>
+    <string name="widget_name_pulse">Roomtone · Faixa Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portal da capa</string>
+    <string name="widget_name_deck">Roomtone · Painel SMART</string>
     <string name="widget_description_pulse">Capa, música e controles em uma faixa compacta</string>
     <string name="widget_description_portal">Um player imersivo com foco na capa</string>
     <string name="widget_description_deck">Player detalhado com tempo, próxima música e controles SMART</string>

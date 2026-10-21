@@ -5,7 +5,7 @@
 
   Turkish (tr). Keys and ordering follow values/strings.xml.
   Apostrophes and quotation marks are RAW; only \uXXXX \n \t \\ are unescaped.
-  "LatentJam" and "SMART" are names — never translated.
+  "Roomtone" and "SMART" are names — never translated.
 -->
 <resources>
 
@@ -288,15 +288,15 @@
     <string name="info_edit_refused">Bu dosyanın etiketleri güvenle yeniden yazılamayacak bir yapıda olduğu için hiçbir şey değiştirilmedi.</string>
     <string name="info_edit_failed">Bu dosyaya yazılamadı. Olduğu gibi bırakıldı.</string>
     <string name="info_edit_no_space">Bu etiketleri güvenle kaydetmek için yeterli boş alan yok. Hiçbir şey değiştirilmedi.</string>
-    <string name="info_edit_recovery_pending">Kaydetme yarıda kesildi. LatentJam, dosyaya yazmasına yeniden izin verildiğinde bunu tamamlayacak veya geri alacak.</string>
+    <string name="info_edit_recovery_pending">Kaydetme yarıda kesildi. Roomtone, dosyaya yazmasına yeniden izin verildiğinde bunu tamamlayacak veya geri alacak.</string>
     <string name="tag_recovery_title">Etiketlerin kaydedilmesini tamamla</string>
     <plurals name="tag_recovery_body">
-        <item quantity="one">LatentJam, %1$d dosyaya etiket kaydederken yarıda kesildi. Değişikliği şimdi tamamlayabilir veya dosya tamamlanamıyorsa geri alabilir.</item>
-        <item quantity="other">LatentJam, %1$d dosyaya etiket kaydederken yarıda kesildi. Değişiklikleri şimdi tamamlayabilir veya tamamlanamayan dosyalarda geri alabilir.</item>
+        <item quantity="one">Roomtone, %1$d dosyaya etiket kaydederken yarıda kesildi. Değişikliği şimdi tamamlayabilir veya dosya tamamlanamıyorsa geri alabilir.</item>
+        <item quantity="other">Roomtone, %1$d dosyaya etiket kaydederken yarıda kesildi. Değişiklikleri şimdi tamamlayabilir veya tamamlanamayan dosyalarda geri alabilir.</item>
     </plurals>
     <string name="tag_recovery_finish">Tamamla</string>
     <string name="tag_recovery_later">Sonra</string>
-    <string name="tag_problem_unsupported_format">LatentJam bu tür bir dosyayı düzenleyemez.</string>
+    <string name="tag_problem_unsupported_format">Roomtone bu tür bir dosyayı düzenleyemez.</string>
     <string name="tag_problem_damaged">Bu dosya hasarlı görünüyor, bu yüzden olduğu gibi bırakıldı.</string>
     <string name="tag_problem_protected">Bu dosya kopyalamaya karşı korumalı ve değiştirilemez.</string>
     <string name="tag_problem_tags_too_large">Etiketler bu dosya için çok büyük olurdu.</string>
@@ -304,7 +304,7 @@
     <string name="tag_problem_number_unreadable">Dosyanın kendi parça veya disk numarası basit bir sayı değil, bu yüzden toplamı tek başına değiştirilemez.</string>
     <string name="tag_problem_bad_image">Görsel JPEG veya PNG biçiminde değil.</string>
     <string name="tag_problem_read_only_storage">Bu dosya, yazılamayan bir depolama alanında.</string>
-    <string name="tag_problem_music_library">Müzik arşivindeki şarkılar düzenlenemez, yalnızca LatentJam'e aktarılan şarkılar düzenlenebilir.</string>
+    <string name="tag_problem_music_library">Müzik arşivindeki şarkılar düzenlenemez, yalnızca Roomtone'e aktarılan şarkılar düzenlenebilir.</string>
     <string name="tag_problem_unreadable">Bu dosya okunamadı.</string>
     <string name="tag_problem_not_allowed">Dosyayı değiştirme izni verilmedi.</string>
     <string name="tag_problem_missing">Dosya artık yok.</string>
@@ -312,7 +312,7 @@
     <string name="tag_problem_cancelled">İzin isteği kapatıldı.</string>
     <string name="tag_problem_undone">Yarıda kalan bir kaydetme geri alındı: dosya eskisi gibi.</string>
     <string name="tag_problem_changed_elsewhere">Kaydetme yarıda kesildikten sonra başka bir uygulama dosyayı değiştirdi, bu yüzden olduğu gibi bırakıldı.</string>
-    <string name="tag_problem_lost">LatentJam bu kaydetmenin nasıl sonuçlandığını öğrenemedi. Dosyanın etiketlerini kontrol edin.</string>
+    <string name="tag_problem_lost">Roomtone bu kaydetmenin nasıl sonuçlandığını öğrenemedi. Dosyanın etiketlerini kontrol edin.</string>
 
     <!-- =========================================================== settings -->
     <string name="settings_title">Ayarlar</string>
@@ -327,7 +327,7 @@
     <string name="settings_intelligence">SMART motoru</string>
     <string name="settings_smart_engine">SMART motoru</string>
     <string name="settings_smart_engine_subtitle">Cihazdaki modelin kitaplığınız hakkında bildikleri</string>
-    <string name="settings_about_body">LatentJam — cihaz üzerinde çalışan bir öneri motoruna sahip yerel müzik çalar. Ne dinlediğinize dair hiçbir şey bu cihazdan dışarı çıkmaz.</string>
+    <string name="settings_about_body">Roomtone — cihaz üzerinde çalışan bir öneri motoruna sahip yerel müzik çalar. Ne dinlediğinize dair hiçbir şey bu cihazdan dışarı çıkmaz.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Açık</string>
@@ -351,12 +351,12 @@
     <string name="engine_state_unavailable">Kullanılamıyor — %1$s</string>
 
     <!-- ========================================================= permission -->
-    <string name="permission_audio_rationale">LatentJam'in kitaplığınızı tarayabilmesi için müziğinize erişmesi gerekiyor.</string>
+    <string name="permission_audio_rationale">Roomtone'in kitaplığınızı tarayabilmesi için müziğinize erişmesi gerekiyor.</string>
     <string name="permission_grant">Erişim izni ver</string>
-    <string name="permission_audio_settings_rationale">Müzik erişimi engellendi. Sistem ayarlarını açın ve LatentJam’in müzik ile ses dosyalarına erişmesine izin verin.</string>
+    <string name="permission_audio_settings_rationale">Müzik erişimi engellendi. Sistem ayarlarını açın ve Roomtone’in müzik ile ses dosyalarına erişmesine izin verin.</string>
     <string name="permission_open_settings">Ayarları aç</string>
     <string name="permission_notifications_title">Analiz ilerlemesi gösterilsin mi?</string>
-    <string name="permission_notifications_rationale">SMART, kitaplığınızı bu cihazda analiz eder. İlerlemeyi görmek ve çalışma sürerken LatentJam’e dönmek için bildirimlere izin verin. “Şimdi değil”i seçerseniz analiz devam eder.</string>
+    <string name="permission_notifications_rationale">SMART, kitaplığınızı bu cihazda analiz eder. İlerlemeyi görmek ve çalışma sürerken Roomtone’e dönmek için bildirimlere izin verin. “Şimdi değil”i seçerseniz analiz devam eder.</string>
     <string name="permission_not_now">Şimdi değil</string>
     <string name="permission_continue">Devam</string>
 
@@ -378,7 +378,7 @@
     <string name="settings_playback_subtitle">Ekolayzır ve ses kontrolleri</string>
     <string name="settings_privacy">Gizlilik ve veriler</string>
     <string name="settings_privacy_subtitle">Dinleme geçmişi ve son aramalar</string>
-    <string name="settings_about">LatentJam hakkında</string>
+    <string name="settings_about">Roomtone hakkında</string>
     <string name="settings_about_subtitle">Lisans, kaynak kodu ve destek</string>
     <string name="settings_section_library">Kitaplık</string>
     <string name="settings_section_navigation">Gezinme</string>
@@ -423,18 +423,18 @@
     <string name="settings_color_theme">Tema</string>
     <string name="settings_color_theme_body">Parçaya özel renkler yerine uygulama temasını kullan.</string>
     <string name="settings_start_page">Başlangıç sayfası</string>
-    <string name="settings_start_page_body">LatentJam bir sonraki açılışında kullanılır.</string>
+    <string name="settings_start_page_body">Roomtone bir sonraki açılışında kullanılır.</string>
     <string name="settings_library_count">Kitaplıktaki parçalar</string>
     <string name="settings_library_refresh">Kitaplığı yenile</string>
     <string name="settings_library_refresh_body">Yeni eklenen müzikleri bul ve artık kullanılamayan dosyaların kayıtlarını kaldır.</string>
     <string name="settings_library_import">Müzik içe aktar</string>
-    <string name="settings_library_import_body">LatentJam’e kopyalanacak ses dosyalarını seç.</string>
+    <string name="settings_library_import_body">Roomtone’e kopyalanacak ses dosyalarını seç.</string>
     <string name="settings_library_restore">Gizli parçaları geri getir</string>
-    <string name="settings_library_restore_body">LatentJam’den kaldırılan tüm parçaları kitaplığa geri getir. Cihazdaki dosyalar değişmez.</string>
+    <string name="settings_library_restore_body">Roomtone’den kaldırılan tüm parçaları kitaplığa geri getir. Cihazdaki dosyalar değişmez.</string>
     <string name="settings_playlist_relative_paths">Dışa aktarılan çalma listelerinde göreli yollar</string>
     <string name="settings_playlist_relative_paths_body">Her parçanın yolunu çalma listesinin klasörüne göre yazar (../Music/…), böylece liste başka cihazlarda da çalışır. Klasör yolu olmayan bir yere kaydedildiğinde tam yollar korunur.</string>
     <string name="settings_equalizer_unavailable">Bu ses çıkışı için kullanılamıyor</string>
-    <string name="equalizer_unavailable_body">Geçerli ses çıkışı LatentJam’e bir ekolayzır sunmuyor. Başka bir çıkış deneyin. Oynatma normal şekilde çalışmaya devam eder.</string>
+    <string name="equalizer_unavailable_body">Geçerli ses çıkışı Roomtone’e bir ekolayzır sunmuyor. Başka bir çıkış deneyin. Oynatma normal şekilde çalışmaya devam eder.</string>
     <string name="equalizer_bass_value">%1$d\u0025</string>
     <string name="equalizer_preset_flat">Düz</string>
     <string name="equalizer_preset_bass">Bas</string>
@@ -463,7 +463,7 @@
     <string name="foryou_mix_spoken_audio">Konuşma kayıtları</string>
     <string name="foryou_mix_instrumental">Enstrümantal</string>
     <string name="intelligence_how_it_works">SMART bu cihazdaki ses parmak izlerini karşılaştırır, ardından müzikal benzerliği dinleme geçmişinle birleştirir. Hesap veya internet bağlantısı olmadan çalışır.</string>
-    <string name="privacy_local_body">Kitaplığın, dinleme geçmişin ve SMART verilerin bu cihazda kalır. LatentJam hesap kullanmaz ve bu verileri bir sunucuya göndermez.</string>
+    <string name="privacy_local_body">Kitaplığın, dinleme geçmişin ve SMART verilerin bu cihazda kalır. Roomtone hesap kullanmaz ve bu verileri bir sunucuya göndermez.</string>
     <string name="privacy_save_history_body">Çalma ve atlamaları Sizin İçin ve SMART önerileri için bu cihazda saklayın.</string>
     <string name="privacy_remember_searches_body">Arama alanı boşken göstermek için aramaları bu cihazda saklayın.</string>
     <string name="privacy_disable_history_body">Yeni dinleme etkinliği kaydedilmesin. Bu cihazda zaten bulunan geçmişe ne yapılsın?</string>
@@ -485,7 +485,7 @@
     <string name="privacy_clear_searches_body">Arama boşken gösterilen sorguları kaldır.</string>
     <string name="privacy_clear_searches_confirm">Tüm son aramalar temizlensin mi?</string>
     <string name="settings_license">Lisans</string>
-    <string name="settings_license_body">LatentJam, Apache License 2.0 ile lisanslanan özgür yazılımdır.</string>
+    <string name="settings_license_body">Roomtone, Apache License 2.0 ile lisanslanan özgür yazılımdır.</string>
     <string name="settings_open_source">Kaynak kodu</string>
     <string name="settings_open_source_body">Projeyi GitHub’da görüntüle</string>
     <string name="settings_report_issue">Sorun bildir</string>
@@ -516,24 +516,24 @@
     <string name="settings_audio_access_not_requested">İstenmedi</string>
     <string name="settings_audio_access_not_required">Gerekli değil</string>
     <string name="settings_sources">Müzik kaynakları</string>
-    <string name="settings_sources_body">LatentJam’de görünecek klasörleri veya cihaz koleksiyonlarını seçin. Cihazdaki dosyalar değişmez.</string>
+    <string name="settings_sources_body">Roomtone’de görünecek klasörleri veya cihaz koleksiyonlarını seçin. Cihazdaki dosyalar değişmez.</string>
     <string name="settings_sources_empty">Yönetilebilir müzik kaynağı bulunamadı.</string>
     <string name="settings_source_unnamed">Cihaz müziği</string>
     <string name="settings_source_music_library">Müzik arşivi</string>
     <string name="settings_hidden_tracks">Gizli parçalar</string>
-    <string name="settings_hidden_tracks_body">Yalnızca LatentJam’de gizlenen parçalar. Dosyayı değiştirmeden istediğiniz parçayı geri yükleyin.</string>
-    <string name="settings_hidden_tracks_empty">LatentJam’de gizli parça yok.</string>
+    <string name="settings_hidden_tracks_body">Yalnızca Roomtone’de gizlenen parçalar. Dosyayı değiştirmeden istediğiniz parçayı geri yükleyin.</string>
+    <string name="settings_hidden_tracks_empty">Roomtone’de gizli parça yok.</string>
     <string name="settings_interrupted_saves">Yarıda kalan kaydetmeler</string>
     <plurals name="settings_interrupted_saves_body">
-        <item quantity="one">%1$d dosyaya etiket kaydetme yarıda kesildi. LatentJam, dosyaya yazmasına izin verildiğinde bunu tamamlayacak veya geri alacak.</item>
-        <item quantity="other">%1$d dosyaya etiket kaydetme yarıda kesildi. LatentJam, dosyaya yazmasına izin verildiğinde her birini tamamlayacak veya geri alacak.</item>
+        <item quantity="one">%1$d dosyaya etiket kaydetme yarıda kesildi. Roomtone, dosyaya yazmasına izin verildiğinde bunu tamamlayacak veya geri alacak.</item>
+        <item quantity="other">%1$d dosyaya etiket kaydetme yarıda kesildi. Roomtone, dosyaya yazmasına izin verildiğinde her birini tamamlayacak veya geri alacak.</item>
     </plurals>
     <string name="settings_interrupted_finish">Şimdi tamamla</string>
     <string name="settings_interrupted_being_repaired">Onarılıyor: tamamlanana kadar çalınmaz</string>
     <string name="settings_interrupted_forget">Unut</string>
     <string name="settings_interrupted_forget_title">Bu kaydetme unutulsun mu?</string>
-    <string name="settings_interrupted_forget_body">Dosya şu anki haliyle kalır ve LatentJam kaydetmeyi tamamlamaya veya geri almaya çalışmayı bırakır. Bu geri alınamaz.</string>
-    <string name="settings_interrupted_forget_damaged_body">Bu kaydetme yarıda kesildi. Dosya hasar görmüş olabilir ve çalınmayabilir; unutmak, LatentJam'in dosyayı onarabileceği kopyaları siler. Bu geri alınamaz.</string>
+    <string name="settings_interrupted_forget_body">Dosya şu anki haliyle kalır ve Roomtone kaydetmeyi tamamlamaya veya geri almaya çalışmayı bırakır. Bu geri alınamaz.</string>
+    <string name="settings_interrupted_forget_damaged_body">Bu kaydetme yarıda kesildi. Dosya hasar görmüş olabilir ve çalınmayabilir; unutmak, Roomtone'in dosyayı onarabileceği kopyaları siler. Bu geri alınamaz.</string>
     <string name="settings_duplicates">Ses kopyaları</string>
     <string name="settings_duplicates_body">Aynı kaydın kopyalarını etiketlere bakmadan sesten bulur</string>
     <string name="settings_duplicates_scanning">Tüm parça çiftleri karşılaştırılıyor…</string>
@@ -548,17 +548,17 @@
     <string name="settings_lyrics_folders_failed">Bu klasör kullanılamaz. Bu cihazın depolama alanından bir klasör seçin.</string>
 
     <string name="settings_licenses">Açık kaynak lisansları</string>
-    <string name="settings_licenses_body">LatentJam, paketli modeller ve üçüncü taraf yazılımlara ait bildirimler</string>
+    <string name="settings_licenses_body">Roomtone, paketli modeller ve üçüncü taraf yazılımlara ait bildirimler</string>
     <string name="settings_license_models">Ses ve SMART modelleri</string>
-    <string name="settings_license_models_body">LatentJam’in ürettiği MobileNetV4 ses ağırlıkları Apache-2.0 lisanslıdır. Öğrenci model timm (Apache-2.0) kullanır ve EfficientAT’den damıtılmıştır (MIT, telif hakkı © 2022 Florian Schmid).</string>
+    <string name="settings_license_models_body">Roomtone’in ürettiği MobileNetV4 ses ağırlıkları Apache-2.0 lisanslıdır. Öğrenci model timm (Apache-2.0) kullanır ve EfficientAT’den damıtılmıştır (MIT, telif hakkı © 2022 Florian Schmid).</string>
     <string name="settings_license_text_model">Metin modeli</string>
-    <string name="settings_license_text_model_body">Paketli metin kodlayıcı ve sözlüğü, LatentJam tarafından sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) modelini yeniden üretecek şekilde eğitildi ve Apache-2.0 lisanslıdır.</string>
+    <string name="settings_license_text_model_body">Paketli metin kodlayıcı ve sözlüğü, Roomtone tarafından sentence-transformers/all-MiniLM-L6-v2 (Apache-2.0) modelini yeniden üretecek şekilde eğitildi ve Apache-2.0 lisanslıdır.</string>
     <string name="settings_license_runtime">ONNX Runtime</string>
     <string name="settings_license_runtime_body">Cihazdaki model çıkarımı, MIT Lisansı altındaki Microsoft ONNX Runtime’ı kullanır. Telif hakkı © Microsoft Corporation.</string>
     <string name="settings_license_aliases">MusicBrainz ve Wikidata</string>
     <string name="settings_license_aliases_body">Paketli sanatçı diğer ad arama verileri MusicBrainz ve Wikidata’dan türetilmiş ve CC0 kapsamında sunulmuştur.</string>
     <string name="settings_license_libraries">Üçüncü taraf kitaplıklar</string>
-    <string name="settings_license_libraries_body">LatentJam; Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin ve Coil’i izin verici Apache-2.0 veya MIT lisanslarıyla kullanır. Tam bildirimler kaynak dağıtımına dahildir.</string>
+    <string name="settings_license_libraries_body">Roomtone; Kotlin, coroutines, Compose Multiplatform, AndroidX Media3, Koin ve Coil’i izin verici Apache-2.0 veya MIT lisanslarıyla kullanır. Tam bildirimler kaynak dağıtımına dahildir.</string>
 
     <string name="sleep_timer">Uyku zamanlayıcısı</string>
     <string name="sleep_timer_off">Kapalı</string>
@@ -583,7 +583,7 @@
     <string name="intelligence_rebuild_confirm">Tüm SMART analizi yeniden oluşturulsun mu? Müzik dosyaları, çalma listeleri ve dinleme geçmişi değişmez.</string>
     <string name="intelligence_how_title">SMART nasıl çalışır</string>
     <string name="intelligence_notifications">Analiz bildirimleri</string>
-    <string name="intelligence_notifications_body">Dizinleme ilerlemesini LatentJam dışında göster</string>
+    <string name="intelligence_notifications_body">Dizinleme ilerlemesini Roomtone dışında göster</string>
     <string name="intelligence_exclusions_clear">Tüm hariç tutmaları temizle</string>
 
     <string name="settings_backup">Yerel yedek</string>
@@ -605,7 +605,7 @@
     </plurals>
     <string name="backup_import_partial">Hata oluşmadan önce bazı veriler geri yüklendi.</string>
     <string name="backup_failed">Yedekleme işlemi tamamlanamadı.</string>
-    <string name="backup_invalid">Bu geçerli bir LatentJam yedeği değil.</string>
+    <string name="backup_invalid">Bu geçerli bir Roomtone yedeği değil.</string>
     <string name="backup_destination_warning">Yedek, özel uygulama verileri içerir. Sistem seçicisinde belirlenen bulut veya üçüncü taraf hedefi bu verileri eşitleyebilir.</string>
     <string name="settings_stats">İstatistikler</string>
     <string name="settings_stats_subtitle">Dinlemeleriniz rakamlarla</string>
@@ -791,10 +791,10 @@
     <string name="stats_stuck_artists">Kalıcı olan yeni sanatçılar</string>
     <string name="stats_stuck_artists_recent">Kalıcı olan yeni sanatçılar · son 3 ay</string>
     <plurals name="stats_log_age">
-        <item quantity="one">LatentJam %1$d gündür sizinle birlikte dinliyor</item>
-        <item quantity="other">LatentJam %1$d gündür sizinle birlikte dinliyor</item>
+        <item quantity="one">Roomtone %1$d gündür sizinle birlikte dinliyor</item>
+        <item quantity="other">Roomtone %1$d gündür sizinle birlikte dinliyor</item>
     </plurals>
-    <string name="stats_new_note">İlk kez dinlenen = LatentJam’de ilk kez çalınan. Arşiviniz uygulamadan daha eski olabilir.</string>
+    <string name="stats_new_note">İlk kez dinlenen = Roomtone’de ilk kez çalınan. Arşiviniz uygulamadan daha eski olabilir.</string>
     <plurals name="stats_locked_plays">
         <item quantity="one">Bu dönemde %1$d çalmadan sonra görünür</item>
         <item quantity="other">Bu dönemde %1$d çalmadan sonra görünür</item>
@@ -815,7 +815,7 @@
     <string name="stats_smart_mode_share">SMART modunda çalınan</string>
     <string name="stats_finish_note">Tüm başlatmalar içindeki oranlar. Tamamlanan = %85’ine kadar dinlenen, atlanan = ilk 30 sn içinde bırakılan.</string>
     <string name="stats_slipping_away">Unutulmaya yüz tutanlar</string>
-    <string name="stats_slipping_note">Sık sık kendiniz seçtiğiniz, ancak iki ay veya daha uzun süredir LatentJam’de çalınmayan favoriler.</string>
+    <string name="stats_slipping_note">Sık sık kendiniz seçtiğiniz, ancak iki ay veya daha uzun süredir Roomtone’de çalınmayan favoriler.</string>
     <string name="stats_year_ago">Bir yıl önce</string>
     <string name="stats_patterns">Alışkanlıklarınız</string>
     <string name="stats_same_artist_picks">Yine aynı sanatçıyı seçmek</string>
@@ -833,7 +833,7 @@
     <string name="stats_unlock_slipping">Unutulmaya yüz tutanlar — üç aylık dinlemeden sonra</string>
     <string name="stats_part_failed">Bu istatistiklerin bir kısmı yüklenemedi.</string>
     <string name="stats_playlist_row">Çalma listesi</string>
-    <string name="stats_playlists_note">Her çalma listesinden yapılan dinlemeler. SMART’ın eklediği parçalar ve LatentJam bir parçanın nereden başlatıldığını kaydetmeden önceki dinlemeler sayılmaz.</string>
+    <string name="stats_playlists_note">Her çalma listesinden yapılan dinlemeler. SMART’ın eklediği parçalar ve Roomtone bir parçanın nereden başlatıldığını kaydetmeden önceki dinlemeler sayılmaz.</string>
 
     <!-- Duplicate finder -->
     <string name="duplicates_summary">Gruplar: %1$d · Fazla kopya: %2$d · Boşaltılabilir: %3$s</string>

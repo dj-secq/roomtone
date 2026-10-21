@@ -1,3 +1,12 @@
+Roomtone
+Copyright (c) 2026 dj
+
+This tree is a derivative of the LatentJam monorepo. The product name in the
+UI strings, the Android application id, and the iOS bundle id were changed
+to Roomtone / io.github.djsecq.roomtone. Kotlin packages are unchanged.
+Copyright in the source files remains with the LatentJam Project.
+Licensed under the Apache License, Version 2.0.
+
 LatentJam Monorepo
 Copyright (c) 2026 LatentJam Project
 

@@ -35,7 +35,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "latentjam-monorepo"
+rootProject.name = "roomtone"
 
 include(":core:smart")
 include(":core:ort-ops")

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">播放</string>
-    <string name="widget_name_pulse">LatentJam · 脉动条</string>
-    <string name="widget_name_portal">LatentJam · 封面门户</string>
-    <string name="widget_name_deck">LatentJam · SMART 控制台</string>
+    <string name="widget_name_pulse">Roomtone · 脉动条</string>
+    <string name="widget_name_portal">Roomtone · 封面门户</string>
+    <string name="widget_name_deck">Roomtone · SMART 控制台</string>
     <string name="widget_description_pulse">紧凑条中的封面、歌曲和播放控件</string>
     <string name="widget_description_portal">以封面为中心的沉浸式播放器</string>
     <string name="widget_description_deck">显示时间、下一首歌曲和 SMART 控件的详细播放器</string>

@@ -10,6 +10,6 @@
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <queries>
-        <package android:name="io.github.nikitasud.latentjam.kmp" />
+        <package android:name="io.github.djsecq.roomtone" />
     </queries>
 </manifest>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">Riproduzione</string>
-    <string name="widget_name_pulse">LatentJam · Barra Pulse</string>
-    <string name="widget_name_portal">LatentJam · Portale copertina</string>
-    <string name="widget_name_deck">LatentJam · Deck SMART</string>
+    <string name="widget_name_pulse">Roomtone · Barra Pulse</string>
+    <string name="widget_name_portal">Roomtone · Portale copertina</string>
+    <string name="widget_name_deck">Roomtone · Deck SMART</string>
     <string name="widget_description_pulse">Copertina, brano e controlli in una barra compatta</string>
     <string name="widget_description_portal">Un lettore immersivo incentrato sulla copertina</string>
     <string name="widget_description_deck">Lettore dettagliato con tempo, prossimo brano e controlli SMART</string>

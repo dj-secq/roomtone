@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_description">再生</string>
-    <string name="widget_name_pulse">LatentJam · パルスバー</string>
-    <string name="widget_name_portal">LatentJam · カバーポータル</string>
-    <string name="widget_name_deck">LatentJam · SMARTデッキ</string>
+    <string name="widget_name_pulse">Roomtone · パルスバー</string>
+    <string name="widget_name_portal">Roomtone · カバーポータル</string>
+    <string name="widget_name_deck">Roomtone · SMARTデッキ</string>
     <string name="widget_description_pulse">コンパクトなバーにジャケット、曲、操作ボタンを表示</string>
     <string name="widget_description_portal">ジャケットを主役にした没入型プレーヤー</string>
     <string name="widget_description_deck">時間、次の曲、SMART操作を備えた詳細プレーヤー</string>
