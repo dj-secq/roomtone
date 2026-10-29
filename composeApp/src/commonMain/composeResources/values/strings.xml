@@ -116,6 +116,11 @@
         <item quantity="other">You played this %1$d times</item>
     </plurals>
     <string name="foryou_kicker_never_played">Never played</string>
+    <string name="foryou_section_radio">Start a radio</string>
+    <!-- Header action on Start a radio: the next set of songs, without waiting for midnight. -->
+    <string name="foryou_radio_refresh">New radio starts</string>
+    <string name="foryou_caption_calmer">Guessed calmer</string>
+    <string name="foryou_caption_brighter">Guessed brighter</string>
     <!-- Card caption: how often this was played back when it was in rotation. -->
     <plurals name="foryou_caption_played_before">
         <item quantity="one">%1$d× before</item>
@@ -1004,4 +1009,40 @@
     <string name="equalizer_peak_hint">Strong boosts can reduce the level of the whole track.</string>
     <string name="map_memory_limited">Not enough free memory to calculate the map. Close other apps and reopen the map.</string>
     <string name="map_unavailable">The map could not be calculated. Reopen it to try again.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Your radio</string>
+    <string name="radio_open">Your radio</string>
+    <string name="radio_smart_off">SMART is off. Start from a song to steer the mix.</string>
+    <string name="radio_play_this">Play this song with SMART</string>
+    <string name="radio_find_song">Find a starting song</string>
+    <string name="radio_no_matches">No matching songs</string>
+    <string name="radio_starting">Starting song</string>
+    <string name="radio_this_song">This song</string>
+    <string name="radio_upcoming">Coming up</string>
+    <string name="radio_upcoming_empty">SMART has not added any songs yet.</string>
+    <string name="radio_for_this_listen">For this listen</string>
+    <string name="radio_while_playing">While this plays</string>
+    <string name="radio_using_default">Using your saved SMART setting</string>
+    <string name="radio_keep_default">Keep as my default</string>
+    <string name="radio_sound">Sound</string>
+    <string name="radio_sound_balanced">Balanced</string>
+    <string name="radio_sound_body">Stay close and Explore are not available yet. This listen uses the current SMART balance.</string>
+    <string name="radio_feedback_body">These last until you leave SMART. Not this keeps that song out of the rest of this listen. Don’t recommend is unchanged.</string>
+    <string name="radio_more_like_this">More like this</string>
+    <string name="radio_too_repetitive">Too repetitive</string>
+    <string name="radio_not_for_now">Not this, for now</string>
+    <string name="radio_exclusions">Songs and artists you don’t recommend</string>
+    <string name="radio_save_queue">Save queue as playlist</string>
+    <string name="radio_stations">Stations</string>
+    <string name="radio_station_name">Station name</string>
+    <string name="radio_save_station">Save station</string>
+    <string name="radio_no_stations">No saved stations yet.</string>
+    <string name="radio_station_missing">That song is not in the library.</string>
+    <string name="radio_remove_station">Remove station</string>
+    <string name="radio_travel">Travel to this song</string>
+    <string name="radio_travel_none">No path between these songs.</string>
+    <string name="radio_filter_folder">This folder</string>
+    <string name="radio_filter_decade">This decade</string>
+    <string name="radio_filter_instrumental">Guessed instrumental</string>
 </resources>

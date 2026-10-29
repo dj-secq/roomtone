@@ -702,13 +702,15 @@ internal class SmartChain(
                 // Seed gravity toward the user's actual pick — or, on an exhausted tail hop, toward
                 // the re-anchored effective seed (effSeed).
                 val seedCos = seedGravityCos(effSeed, seedRow, row)
-                score += seedPull * ChainConfig.CHAIN_SEED_GRAVITY * seedCos
+                val audioGravity = tuning.audioSeedGravity()
+                score += seedPull * audioGravity * seedCos
                 // Semantic gravity/blend: same shape as the audio terms, in the descriptor+text
                 // spaces and pool-normalized (see zSeed/zPrev construction). Zero when the seed or
                 // anchor has no semantic vector or too few pool members do, leaving score unchanged.
                 // zSeedActive == zSeed except on an exhausted tail hop (medoid reference). A bonus
                 // needs the candidate to sound like its reference (soundBackedZ).
-                val semantic = seedPull * ChainConfig.SEM_CHAIN_SEED_GRAVITY * soundBackedZ(zSeedActive[i], seedCos) +
+                val semanticGravity = tuning.semanticSeedGravity()
+                val semantic = seedPull * semanticGravity * soundBackedZ(zSeedActive[i], seedCos) +
                     ChainConfig.SEM_CHAIN_PREV_BLEND * soundBackedZ(zPrev[i], anchorCos)
                 score += if (tuning.semanticWeight == 1f) semantic else tuning.semanticWeight * semantic
                 // Typicality: the axis centering removes. Off (0f) unless the caller opts in, so
@@ -782,7 +784,7 @@ internal class SmartChain(
                 hopScored[i] = true
                 if (hopTerms != null) {
                     val previousTerm = ChainConfig.COSINE_BLEND_WEIGHT * anchorCos
-                    val seedTerm = seedPull * ChainConfig.CHAIN_SEED_GRAVITY * seedCos
+                    val seedTerm = seedPull * audioGravity * seedCos
                     val semanticTerm = if (tuning.semanticWeight == 1f) semantic else tuning.semanticWeight * semantic
                     hopTerms[i] = floatArrayOf(
                         scorerTerm, previousTerm, seedTerm, semanticTerm, ln(multiplier), artistPenalty,

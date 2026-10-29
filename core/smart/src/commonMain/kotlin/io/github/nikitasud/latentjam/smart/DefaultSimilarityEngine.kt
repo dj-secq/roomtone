@@ -75,8 +75,16 @@ internal class DefaultSimilarityEngine(
     @Volatile
     private var artistRunPenalty = config.artistRunPenalty.coerceAtLeast(0f)
 
+    /** 1 matches the shipped seed pull. See ChainTuning.seedGravityScale. */
+    @Volatile
+    private var seedGravityScale = 1f
+
     override fun setArtistRunPenalty(penalty: Float) {
         artistRunPenalty = penalty.coerceAtLeast(0f)
+    }
+
+    override fun setSeedGravityScale(scale: Float) {
+        seedGravityScale = if (scale.isFinite() && scale >= 0f) scale else 1f
     }
     private val mutableState = MutableStateFlow<EngineState>(EngineState.Uninitialized)
     private val knownTracks = LinkedHashMap<TrackId, TrackDescriptor>()
@@ -610,6 +618,15 @@ internal class DefaultSimilarityEngine(
             }
         }
 
+    override suspend fun cachedTrackSemantics(ids: List<TrackId>): Map<TrackId, TrackSemantics> =
+        withContext(dispatcher) {
+            mutex.withLock {
+                if (ids.isEmpty()) return@withLock emptyMap()
+                val wanted = ids.toHashSet()
+                semanticCache.filterKeys { it in wanted }
+            }
+        }
+
     override suspend fun ensureMetadataVectors(library: List<TrackDescriptor>): Int =
         ensureMetadataVectors(library, persistAfterBatch = true)
 
@@ -806,9 +823,13 @@ internal class DefaultSimilarityEngine(
                     soundFloor = Rerank.SOUND_FLOOR,
                     artistRunPenalty = runPenalty,
                     companionPoints = Rerank.COMPANION_POINTS,
+                    seedGravityScale = seedGravityScale,
                 )
             } else {
-                ChainTuning(continueAfterExhaustion = config.continueAfterExhaustion)
+                ChainTuning(
+                    continueAfterExhaustion = config.continueAfterExhaustion,
+                    seedGravityScale = seedGravityScale,
+                )
             }
             val planner = SmartChain(
                 snapshot,
@@ -1472,6 +1493,7 @@ internal class DefaultSimilarityEngine(
         textIndex,
         history,
         companionGroups,
+        seedGravityScale = seedGravityScale,
     )
 
     /** [semanticCount] rebuilds the snapshot once more tracks have semantics, and so energy. */

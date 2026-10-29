@@ -81,6 +81,7 @@ import io.github.nikitasud.latentjam.app.generated.resources.player_mode_off
 import io.github.nikitasud.latentjam.app.generated.resources.player_mode_shuffle
 import io.github.nikitasud.latentjam.app.generated.resources.player_mode_smart
 import io.github.nikitasud.latentjam.app.generated.resources.player_mode_title
+import io.github.nikitasud.latentjam.app.generated.resources.radio_open
 import io.github.nikitasud.latentjam.playback.PlaybackController
 import io.github.nikitasud.latentjam.playback.ShuffleMode
 import kotlinx.coroutines.Job
@@ -261,6 +262,7 @@ internal fun ModeButton(
     onSelect: (ShuffleMode) -> Unit,
     smartQueueLength: Int,
     onSmartQueueLength: (Int) -> Unit,
+    onOpenRadio: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val haptics = LocalHapticFeedback.current
@@ -339,6 +341,10 @@ internal fun ModeButton(
                     onSmartQueueLength(length)
                 }
             },
+            onOpenRadio = {
+                menuOpen = false
+                onOpenRadio()
+            },
         )
     }
 }
@@ -352,6 +358,7 @@ private fun PlaybackModeMenu(
     onDismiss: () -> Unit,
     onSelect: (ShuffleMode) -> Unit,
     onSmartQueueLength: (Int) -> Unit,
+    onOpenRadio: () -> Unit,
 ) {
     val reduceMotion = rememberReduceMotion()
     var showExplanation by remember(expanded) { mutableStateOf(false) }
@@ -448,6 +455,17 @@ private fun PlaybackModeMenu(
                     )
                 }
             }
+        }
+        TextButton(
+            onClick = onOpenRadio,
+            modifier = Modifier.padding(horizontal = 8.dp).fillMaxWidth().heightIn(min = 48.dp),
+            colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
+        ) {
+            Text(
+                stringResource(Res.string.radio_open),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.weight(1f),
+            )
         }
         TextButton(
             onClick = { showExplanation = !showExplanation },

@@ -8,8 +8,10 @@ import io.github.nikitasud.latentjam.history.ListenEvent
 import io.github.nikitasud.latentjam.history.localTimePoint
 import io.github.nikitasud.latentjam.history.TrackStats
 import io.github.nikitasud.latentjam.library.Playlist
+import io.github.nikitasud.latentjam.smart.SemanticLabel
 import io.github.nikitasud.latentjam.smart.TrackDescriptor
 import io.github.nikitasud.latentjam.smart.TrackId
+import io.github.nikitasud.latentjam.smart.TrackSemantics
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorld
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldContent
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldNameSource
@@ -23,6 +25,12 @@ import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldSemanticTitle
  * in English would force every caller, the unit tests included, to speak it too.
  */
 enum class ForYouSectionKind {
+    /**
+     * A few songs that each start a living SMART radio. The first row under the hero, so choosing
+     * what to put on does not mean opening the player first.
+     */
+    RADIO,
+
     /** Tracks left unfinished. */
     CONTINUE,
 
@@ -84,6 +92,18 @@ sealed interface ForYouCaption {
      * receipt that makes one unexpected card trustworthy instead of random.
      */
     data class LeftTurnFrom(val title: String) : ForYouCaption
+
+    /** Owned, and this radio start has never been heard. */
+    data object NeverPlayed : ForYouCaption
+
+    /** A world's evidence-backed name. A generic discovery label is not one of these. */
+    data class WorldName(val name: String) : ForYouCaption
+
+    /** A guess from the sound model: lower energy than most of the library. */
+    data object CalmerGuess : ForYouCaption
+
+    /** A guess from the sound model: higher energy than most of the library. */
+    data object BrighterGuess : ForYouCaption
 }
 
 /**
@@ -302,6 +322,12 @@ object ForYouBuilder {
     /** Rows are short on purpose: attention falls off sharply past the first few items. */
     const val ROW_LIMIT = 8
 
+    /**
+     * Starts the radio row offers at once. The other rows stay short; this one is the menu of
+     * songs a radio can begin from, so a large library can scroll it.
+     */
+    const val RADIO_CHOICES = 24
+
     /** One artist cannot own a row. A crude calibration, but the one that matters most. */
     const val MAX_PER_ARTIST = 2
 
@@ -388,6 +414,17 @@ object ForYouBuilder {
          * null approximates it with the oldest last play in [stats].
          */
         logStartMs: Long? = null,
+        /**
+         * Sound-model scores already computed for this library. Empty when SMART has not classified
+         * the tracks: the radio row then omits its calmer and brighter cards rather than guessing.
+         */
+        semantics: Map<TrackId, TrackSemantics> = emptyMap(),
+        /**
+         * How many radio windows to skip past today's. Zero is this local day's set. The day and
+         * a refresh share one step: each moves a full window of unheard starts, the next rested
+         * favourite, and the next world's representative. The other rows keep the real day.
+         */
+        radioShift: Int = 0,
     ): ForYouPage {
         val byId = library.associateBy { it.id }
         // Accumulates across the page, so a track shown once is not shown again further down.
@@ -416,6 +453,18 @@ object ForYouBuilder {
         hero?.let { used.add(it.track.id) }
 
         val sections = mutableListOf<ForYouSection>()
+        radioPicks(
+            library = library,
+            stats = stats,
+            worlds = worlds,
+            used = used,
+            heroId = hero?.track?.id,
+            dayIndex = dayIndex,
+            quietMs = quietMs,
+            nowMs = nowMs,
+            semantics = semantics,
+            radioShift = radioShift,
+        )?.let(sections::add)
         continueListening(byId, recentEvents, nowMs, used)?.let(sections::add)
         // Directly under the resume row: timing is the cheapest magic there is, and this is the
         // one section whose claim is about RIGHT NOW.
@@ -451,7 +500,206 @@ object ForYouBuilder {
             library, stats, nowMs, used, cooledDiscoveries, retiredDiscoveries, dayIndex, localDayOf,
         )?.let(sections::add)
 
-        return ForYouPage(hero, sections)
+        return ForYouPage(hero, sections.capped())
+    }
+
+    /** The page stays readable: six rows, and the never-played row is the one that yields. */
+    internal const val MAX_SECTIONS = 6
+
+    internal fun List<ForYouSection>.capped(): List<ForYouSection> {
+        if (size <= MAX_SECTIONS) return this
+        val withoutNeverPlayed = filterNot { it.kind == ForYouSectionKind.NEVER_PLAYED }
+        return if (withoutNeverPlayed.size < size) withoutNeverPlayed else this
+    }
+
+    /**
+     * Songs that start a radio. The front of the row is one of each kind: a quiet favourite,
+     * today's unheard pick, another region's center, then a calmer and a brighter guess when
+     * the sound model already has a clear winner.
+     *
+     * The tail is more unheard songs, up to [RADIO_CHOICES], so a large library scrolls instead
+     * of stopping at one stranger. A spare pool too small for two full windows shows half of
+     * what it can spare, so the next step is another set. The local day and [radioShift] share
+     * one step, and each step jumps that whole window.
+     * [ROW_LIMIT] unheard songs stay for the never-played row, and
+     * a shorter library keeps today's single unheard pick. No artist holds more than
+     * [MAX_PER_ARTIST] of those extra starts. An unheard start shows the row on its own.
+     * Played-only starts stay hidden below three, and hidden picks are not removed from the
+     * rows below.
+     */
+    private fun radioPicks(
+        library: List<TrackDescriptor>,
+        stats: Map<TrackId, TrackStats>,
+        worlds: List<LibraryWorld>,
+        used: MutableSet<TrackId>,
+        heroId: TrackId?,
+        dayIndex: Int,
+        quietMs: Long,
+        nowMs: Long,
+        semantics: Map<TrackId, TrackSemantics>,
+        radioShift: Int,
+    ): ForYouSection? {
+        val claimed = HashSet<TrackId>()
+        val cards = mutableListOf<ForYouCard>()
+        fun take(track: TrackDescriptor, caption: ForYouCaption?, capArtist: Boolean = false): Boolean {
+            if (cards.size >= RADIO_CHOICES) return false
+            if (track.id in used || track.id in claimed) return false
+            if (capArtist &&
+                cards.count { primaryArtistKey(it.track) == primaryArtistKey(track) } >= MAX_PER_ARTIST
+            ) {
+                return false
+            }
+            claimed.add(track.id)
+            cards += ForYouCard(track, caption)
+            return true
+        }
+        val unheard = library
+            .filter { it.id !in used && (stats[it.id]?.plays ?: 0) == 0 }
+            .sortedBy { it.id.value }
+        // One stranger on a short library. Past a full never-played row's worth, keep offering
+        // starts and leave that row its own [ROW_LIMIT] songs. A spare pool that cannot hold
+        // two full windows shows half, so the next step has somewhere else to land.
+        val step = dayIndex + radioShift
+        val unheardBudget = when {
+            unheard.isEmpty() -> 0
+            unheard.size <= ROW_LIMIT -> 1
+            else -> {
+                val spare = unheard.size - ROW_LIMIT
+                if (spare >= 2 * RADIO_CHOICES) RADIO_CHOICES else (spare / 2).coerceAtLeast(1)
+            }
+        }
+        val rotated = if (unheard.isEmpty()) {
+            emptyList()
+        } else {
+            // Each day and each refresh jump by a full window of this circle.
+            val stride = unheardBudget.coerceAtLeast(1)
+            val start = (step * stride).mod(unheard.size)
+            unheard.drop(start) + unheard.take(start)
+        }
+        quietRadioSeed(stats, library, used, quietMs, nowMs, step)?.let { (track, stat) ->
+            take(track, ForYouCaption.PlayedBefore(stat.listens))
+        }
+        if (unheardBudget > 0) {
+            for (track in rotated) {
+                if (take(track, ForYouCaption.NeverPlayed)) break
+            }
+        }
+        for (world in worldRadioSeed(worlds, used + claimed, heroId, step)) {
+            val caption = if (world.nameSource == LibraryWorldNameSource.GENERIC) {
+                null
+            } else {
+                ForYouCaption.WorldName(world.name)
+            }
+            if (take(world.representative, caption)) break
+        }
+        energyRadioSeed(
+            library, semantics, used + claimed, SemanticLabel.ENERGY_LOW,
+        )?.let { track -> take(track, ForYouCaption.CalmerGuess) }
+        energyRadioSeed(
+            library, semantics, used + claimed, SemanticLabel.ENERGY_HIGH,
+        )?.let { track -> take(track, ForYouCaption.BrighterGuess) }
+        var claimedUnheard = rotated.count { it.id in claimed }
+        for (track in rotated) {
+            if (claimedUnheard >= unheardBudget || cards.size >= RADIO_CHOICES) break
+            if (take(track, ForYouCaption.NeverPlayed, capArtist = true)) claimedUnheard++
+        }
+        // An unheard song is enough. A library with no rested favourite, and no sound-model
+        // scores yet, was hiding the whole row: the three-start gate never filled, so For You
+        // showed mixes and never-played cards with no way to start a radio. Played-only starts
+        // still wait for three, so one rested favourite does not become a one-card row.
+        val hasUnheardStart = cards.any { it.caption == ForYouCaption.NeverPlayed }
+        if (cards.size < RADIO_MIN_CARDS && !hasUnheardStart) return null
+        cards.forEach { used.add(it.track.id) }
+        return ForYouSection(kind = ForYouSectionKind.RADIO, cards = cards)
+    }
+
+    private const val RADIO_MIN_CARDS = 3
+
+    /**
+     * The rested favourite for [step]. Qualifiers stay in completion order; the step rotates
+     * which of them leads, and one qualifier is that song on every step.
+     */
+    private fun quietRadioSeed(
+        stats: Map<TrackId, TrackStats>,
+        library: List<TrackDescriptor>,
+        used: Set<TrackId>,
+        quietMs: Long,
+        nowMs: Long,
+        step: Int,
+    ): Pair<TrackDescriptor, TrackStats>? {
+        val byId = library.associateBy { it.id }
+        val qualifying = stats.entries
+            .filter { (id, stat) ->
+                id !in used &&
+                    byId.containsKey(id) &&
+                    stat.listens >= MIN_PLAYS_TO_COUNT &&
+                    stat.lastPlayedAtMs > 0 &&
+                    nowMs - stat.lastPlayedAtMs >= quietMs &&
+                    stat.completions >= stat.skips
+            }
+            .sortedWith(
+                compareByDescending<Map.Entry<TrackId, TrackStats>> { it.value.completions }
+                    .thenBy { it.key.value },
+            )
+        if (qualifying.isEmpty()) return null
+        val chosen = qualifying[step.mod(qualifying.size)]
+        return byId.getValue(chosen.key) to chosen.value
+    }
+
+    /**
+     * Eligible worlds in turn order for [step]. The first entry is the mix start; the caller
+     * walks forward when that representative was just claimed by another card.
+     */
+    private fun worldRadioSeed(
+        worlds: List<LibraryWorld>,
+        used: Set<TrackId>,
+        heroId: TrackId?,
+        step: Int,
+    ): List<LibraryWorld> {
+        val eligible = worlds.filter { world ->
+            world.representative.id !in used &&
+                (heroId == null || world.tracks.none { it.id == heroId })
+        }
+        if (eligible.isEmpty()) return emptyList()
+        val start = step.mod(eligible.size)
+        return eligible.drop(start) + eligible.take(start)
+    }
+
+    /**
+     * The unused track with the strongest [label] among music that beats speech and effects, when
+     * that score is strictly above the middle of the scored library. Ties break toward the later id.
+     */
+    private fun energyRadioSeed(
+        library: List<TrackDescriptor>,
+        semantics: Map<TrackId, TrackSemantics>,
+        used: Set<TrackId>,
+        label: SemanticLabel,
+    ): TrackDescriptor? {
+        if (semantics.isEmpty()) return null
+        val scored = library.mapNotNull { track ->
+            val row = semantics[track.id] ?: return@mapNotNull null
+            val music = row.probability(SemanticLabel.MUSIC)
+            if (music <= row.probability(SemanticLabel.SPEECH)) return@mapNotNull null
+            if (music <= row.probability(SemanticLabel.SOUND_EFFECTS)) return@mapNotNull null
+            val score = row.probability(label)
+            if (!score.isFinite()) return@mapNotNull null
+            track to score
+        }
+        if (scored.size < 3) return null
+        val values = scored.map { it.second }.sorted()
+        val mid = values.size / 2
+        val median = if (values.size % 2 == 1) {
+            values[mid]
+        } else {
+            (values[mid - 1] + values[mid]) / 2f
+        }
+        val winner = scored
+            .filter { it.first.id !in used }
+            .maxWithOrNull(
+                compareBy<Pair<TrackDescriptor, Float>> { it.second }
+                    .thenByDescending { it.first.id.value },
+            ) ?: return null
+        return winner.first.takeIf { winner.second > median }
     }
 
     /**

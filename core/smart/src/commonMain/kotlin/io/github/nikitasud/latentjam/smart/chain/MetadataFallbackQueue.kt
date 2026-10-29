@@ -27,6 +27,8 @@ internal object MetadataFallbackQueue {
         textIndex: VectorIndex?,
         historyEvents: List<SmartHistoryEvent> = emptyList(),
         companionGroups: List<Set<TrackId>> = emptyList(),
+        /** 1 keeps [ChainConfig.CHAIN_SEED_GRAVITY] bit-for-bit. See [ChainTuning.seedGravityScale]. */
+        seedGravityScale: Float = 1f,
     ): List<TrackId> {
         if (length <= 0 || textIndex == null) return emptyList()
         // Only read, under the engine's lock, so the stored vectors serve as they are: copies would
@@ -82,8 +84,10 @@ internal object MetadataFallbackQueue {
                     durationSanityMultiplier(meta.durationMs) *
                     recency.multiplier(candidate.track.id))
                     .coerceIn(ChainConfig.MULTIPLIER_MIN, ChainConfig.MULTIPLIER_MAX)
+                val seedGravity = if (seedGravityScale == 1f) ChainConfig.CHAIN_SEED_GRAVITY
+                    else ChainConfig.CHAIN_SEED_GRAVITY * seedGravityScale.coerceAtLeast(0f)
                 val score = ChainConfig.COSINE_BLEND_WEIGHT * cosine(anchorVector, candidate.vector) +
-                    ChainConfig.CHAIN_SEED_GRAVITY * cosine(seedVector, candidate.vector) +
+                    seedGravity * cosine(seedVector, candidate.vector) +
                     ln(multiplier) +
                     if (companions.sharesGroup(anchorCompanionRow, candidate.companionRow)) {
                         ChainConfig.COMPANION_BONUS *

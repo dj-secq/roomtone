@@ -101,6 +101,14 @@ internal class IosAppSettings : AppSettings {
     override val rememberSearches: StateFlow<Boolean> = mutableRememberSearches.asStateFlow()
     private val mutableResumePlayback = MutableStateFlow(readResumePlayback())
     override val resumePlayback: StateFlow<ResumePlayback?> = mutableResumePlayback.asStateFlow()
+    private val mutableRadioListen = MutableStateFlow(
+        decodeRadioListen(defaults.stringForKey(KEY_RADIO_LISTEN)),
+    )
+    override val radioListen: StateFlow<RadioListen?> = mutableRadioListen.asStateFlow()
+    private val mutableRadioStations = MutableStateFlow(
+        decodeRadioStations(defaults.stringForKey(KEY_RADIO_STATIONS)),
+    )
+    override val radioStations: StateFlow<List<RadioStation>> = mutableRadioStations.asStateFlow()
 
     override fun setThemeMode(mode: ThemeMode) {
         defaults.setObject(mode.name, KEY_THEME)
@@ -168,6 +176,22 @@ internal class IosAppSettings : AppSettings {
         val sanitized = sanitizeArtistVariety(level)
         defaults.setInteger(sanitized.toLong(), KEY_ARTIST_VARIETY)
         mutableArtistVariety.value = sanitized
+    }
+
+    override fun setRadioListen(listen: RadioListen?) {
+        val stored = listen?.takeIf { it.isRemembered() }
+        val encoded = encodeRadioListen(stored)
+        if (encoded.isEmpty()) defaults.removeObjectForKey(KEY_RADIO_LISTEN)
+        else defaults.setObject(encoded, KEY_RADIO_LISTEN)
+        mutableRadioListen.value = stored
+    }
+
+    override fun setRadioStations(stations: List<RadioStation>) {
+        val stored = decodeRadioStations(encodeRadioStations(stations))
+        val encoded = encodeRadioStations(stored)
+        if (encoded.isEmpty()) defaults.removeObjectForKey(KEY_RADIO_STATIONS)
+        else defaults.setObject(encoded, KEY_RADIO_STATIONS)
+        mutableRadioStations.value = stored
     }
 
     override fun setSongSort(choice: SortChoice<SongSort>) {
@@ -380,6 +404,8 @@ internal class IosAppSettings : AppSettings {
         const val KEY_CROSSFADE_SECONDS = "crossfade_seconds"
         const val KEY_RELATIVE_PLAYLIST_PATHS = "relative_playlist_paths"
         const val KEY_ARTIST_VARIETY = "artist_variety"
+        const val KEY_RADIO_LISTEN = "radio_listen_v1"
+        const val KEY_RADIO_STATIONS = "radio_stations_v1"
         const val KEY_SONG_SORT = "song_sort"
         const val KEY_ALBUM_SORT = "album_sort"
         const val KEY_GROUP_SORT = "group_sort_orders"

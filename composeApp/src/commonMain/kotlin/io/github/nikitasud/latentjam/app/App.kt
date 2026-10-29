@@ -260,6 +260,18 @@ private fun AppShell(
     val pageHeaderStyle by settings.pageHeaderStyle.collectAsState()
     val smartQueueLength by settings.smartQueueLength.collectAsState()
     val artistVariety by settings.artistVariety.collectAsState()
+    val radioListen by settings.radioListen.collectAsState()
+    val radioStations by settings.radioStations.collectAsState()
+    val shuffleMode by remember(playback) {
+        playback.state.map { it.shuffleMode }.distinctUntilChanged()
+    }.collectAsState(playback.state.value.shuffleMode)
+    val resumeIsSmart by remember(settings) {
+        settings.resumePlayback.map { it?.shuffleMode == ShuffleMode.SMART.name }.distinctUntilChanged()
+    }.collectAsState(settings.resumePlayback.value?.shuffleMode == ShuffleMode.SMART.name)
+    var radioRestoreSettled by remember { mutableStateOf(false) }
+    var showRadio by remember { mutableStateOf(false) }
+    var travelUnplotted by remember { mutableStateOf(false) }
+    var instrumentalAvailable by remember { mutableStateOf(false) }
     val includeNoveltyMixes by settings.includeNoveltyMixes.collectAsState()
     val recordedHistoryRevision by AppGraph.historyRevision.collectAsState()
     // The recorder's revision moves only when a listen is recorded, but clearing the log or
@@ -284,8 +296,15 @@ private fun AppShell(
                 invalidateSmartFuture = { playback.invalidateSmartFuture() },
             )
         }
-        LaunchedEffect(artistVarietyApplier, artistVariety) {
-            artistVarietyApplier.apply(artistVariety)
+        val engineVariety = engineArtistVariety(
+            savedLevel = artistVariety,
+            listen = radioListen,
+            playbackIsSmart = shuffleMode == ShuffleMode.SMART,
+            resumeIsSmart = resumeIsSmart,
+            restoreSettled = radioRestoreSettled,
+        )
+        LaunchedEffect(artistVarietyApplier, engineVariety) {
+            artistVarietyApplier.apply(engineVariety)
         }
         val snackbar = remember { SnackbarHostState() }
         var tracks by remember { mutableStateOf<List<TrackDescriptor>?>(null) }
@@ -692,6 +711,42 @@ private fun AppShell(
         val currentTrack by remember(playback) {
             playback.state.map { it.track }.distinctUntilChanged()
         }.collectAsState(playback.state.value.track)
+        // A SMART listen keeps its seed and its "not this" tracks. It is cleared only after
+        // launch restore has settled on a mode that is not SMART, so the saved listen is not
+        // wiped while playback still says OFF during startup.
+        LaunchedEffect(shuffleMode, currentTrack?.id, radioRestoreSettled) {
+            if (!radioRestoreSettled) {
+                AppGraph.radioSuppressed.value = suppressedAsTrackIds(settings.radioListen.value)
+                return@LaunchedEffect
+            }
+            if (shuffleMode != ShuffleMode.SMART) {
+                if (settings.radioListen.value != null) settings.setRadioListen(null)
+                AppGraph.radioSuppressed.value = emptySet()
+                AppGraph.radioGate.value = RadioCandidateGate.Open
+                return@LaunchedEffect
+            }
+            val seeded = withSeedIfMissing(
+                settings.radioListen.value,
+                currentTrack?.id?.value,
+                smartOn = true,
+            )
+            if (seeded != settings.radioListen.value) settings.setRadioListen(seeded)
+            AppGraph.radioSuppressed.value = suppressedAsTrackIds(seeded)
+            AppGraph.radioGate.value = radioGateFor(seeded, tracks.orEmpty(), AppGraph.radioSemantics.value)
+        }
+        // Reads the semantic cache only. Opening the sheet or changing library does not load a model.
+        LaunchedEffect(tracks, shuffleMode, radioListen, showRadio) {
+            val library = tracks.orEmpty()
+            val cached = if (library.isEmpty()) {
+                emptyMap()
+            } else {
+                engine.cachedTrackSemantics(library.map { it.id })
+            }
+            instrumentalAvailable = cached.isNotEmpty()
+            AppGraph.radioSemantics.value = cached
+            val listenNow = if (shuffleMode == ShuffleMode.SMART) settings.radioListen.value else null
+            AppGraph.radioGate.value = radioGateFor(listenNow, library, cached)
+        }
         // Play/pause transitions only — never the position ticks — so the now-playing badge's
         // motion state recomposes exactly when sound starts or stops.
         val currentTrackPlaying by remember(playback) {
@@ -985,6 +1040,7 @@ private fun AppShell(
             semanticMixLabels,
             includeNoveltyMixes,
             forYouPage.personalizationRevision,
+            forYouPage.radioShift,
             historyRevision,
             smartExclusionState,
             playlistPresentationIdentity,
@@ -1012,6 +1068,7 @@ private fun AppShell(
                 forYouPage.builtForYouExclusions == smartExclusionState &&
                 forYouPage.builtIncludeNoveltyMixes == includeNoveltyMixes &&
                 forYouPage.builtPersonalizationRevision == forYouPage.personalizationRevision &&
+                forYouPage.builtRadioShift == forYouPage.radioShift &&
                 (
                     forYouPage.currentSinceShown ||
                         (
@@ -1089,6 +1146,7 @@ private fun AppShell(
             } catch (failure: Throwable) {
                 ForYouShownHistory()
             }
+            val radioSemantics = engine.cachedTrackSemantics(loaded.map { it.id })
             val rebuiltPage = withContext(Dispatchers.Default) {
                 ForYouBuilder.build(
                     library = loaded,
@@ -1106,6 +1164,8 @@ private fun AppShell(
                     daypartShownDays = shown.daypart,
                     retiredDiscoveries = shown.retired,
                     logStartMs = firstListenAtMs,
+                    semantics = radioSemantics,
+                    radioShift = forYouPage.radioShift,
                 )
             }
             // Commit the page and its input key together. If this effect is cancelled while the
@@ -1121,6 +1181,7 @@ private fun AppShell(
             forYouPage.builtForYouExclusions = smartExclusionState
             forYouPage.builtIncludeNoveltyMixes = includeNoveltyMixes
             forYouPage.builtPersonalizationRevision = forYouPage.personalizationRevision
+            forYouPage.builtRadioShift = forYouPage.radioShift
             forYouPage.builtHistoryRevision = historyRevision
             forYouPage.builtDay = localTimePoint(nowForPage).epochDay
             forYouPage.builtDaypart = ForYouRhythm.daypartOf(localTimePoint(nowForPage).hourOfDay)
@@ -1231,6 +1292,7 @@ private fun AppShell(
             onUnavailable = {
                 scope.launch { snackbar.showSnackbar(getString(Res.string.snack_audio_open_unavailable)) }
             },
+            onRestoreSettled = { radioRestoreSettled = true },
         )
 
         // Library clustering serves these pages only. Starting playback or browsing
@@ -2705,6 +2767,31 @@ private fun AppShell(
                                                 })
                                             },
                                             onOpenWorld = { sheets.worldTarget = it },
+                                            onRefreshRadio = { forYouPage.radioShift += 1 },
+                                            onStartRadio = { track ->
+                                                AppGraph.queueSource.value =
+                                                    QueueSource(QueueSourceKind.FOR_YOU)
+                                                scope.launch {
+                                                    beginRadio(
+                                                        seed = track,
+                                                        setListen = { listen ->
+                                                            AppGraph.settings.setRadioListen(listen)
+                                                            AppGraph.radioGate.value = radioGateFor(
+                                                                listen,
+                                                                tracks.orEmpty(),
+                                                                AppGraph.radioSemantics.value,
+                                                            )
+                                                        },
+                                                        clearSuppressed = {
+                                                            AppGraph.radioSuppressed.value = emptySet()
+                                                        },
+                                                        setShuffleSmart = {
+                                                            playback.setShuffleMode(ShuffleMode.SMART)
+                                                        },
+                                                        playSeed = { playback.play(listOf(track), 0) },
+                                                    )
+                                                }
+                                            },
                                         )
                                         }
                                         }
@@ -3815,6 +3902,7 @@ private fun AppShell(
                             settingsRoute = SETTINGS_ROUTE_EQUALIZER
                             showSettings = true
                         },
+                        onOpenRadio = { showRadio = true },
                         onAddQueueToPlaylist = {
                             playback.state.value.queue
                                 .takeIf { it.isNotEmpty() }
@@ -4505,6 +4593,187 @@ private fun AppShell(
                         snackbar.showSnackbar(tagReportNoticeText(notice))
                     }
                 }
+            }
+        }
+
+        if (showRadio) {
+            AppModalSheet(onDismissRequest = { showRadio = false }) {
+                RadioScreen(
+                    playback = playback,
+                    tracks = tracks.orEmpty(),
+                    savedVariety = artistVariety,
+                    listen = radioListen,
+                    stations = radioStations,
+                    smartQueueLength = smartQueueLength,
+                    onSmartQueueLength = settings::setSmartQueueLength,
+                    onSessionVariety = { level ->
+                        val current = settings.radioListen.value ?: RadioListen()
+                        settings.setRadioListen(current.copy(artistVariety = sanitizeArtistVariety(level)))
+                    },
+                    onKeepDefault = {
+                        // Write the saved level first so the override and the default agree
+                        // before the override is cleared. The other order replans twice.
+                        val effective = sanitizeArtistVariety(
+                            settings.radioListen.value?.artistVariety ?: settings.artistVariety.value,
+                        )
+                        settings.setArtistVariety(effective)
+                        val cleared = settings.radioListen.value
+                            ?.copy(artistVariety = null)
+                            ?.takeIf { it.isRemembered() }
+                        settings.setRadioListen(cleared)
+                    },
+                    onMoreLikeThis = {
+                        val track = playback.state.value.track
+                        scope.launch {
+                            applyMoreLikeThis(
+                                trackId = track?.id?.value,
+                                listen = settings.radioListen.value,
+                                setListen = { updated ->
+                                    settings.setRadioListen(updated)
+                                    AppGraph.radioSuppressed.value = suppressedAsTrackIds(updated)
+                                    AppGraph.radioGate.value = radioGateFor(
+                                        updated,
+                                        tracks.orEmpty(),
+                                        AppGraph.radioSemantics.value,
+                                    )
+                                },
+                                invalidate = { playback.invalidateSmartFuture() },
+                            )
+                        }
+                    },
+                    onTooRepetitive = {
+                        val bumped = bumpArtistVariety(settings.radioListen.value, settings.artistVariety.value)
+                        if (bumped != null && bumped != settings.radioListen.value) settings.setRadioListen(bumped)
+                    },
+                    onNotForNow = {
+                        val track = playback.state.value.track
+                        val updated = track?.let { suppressForNow(settings.radioListen.value, it.id.value) }
+                        if (updated != null) {
+                            settings.setRadioListen(updated)
+                            AppGraph.radioSuppressed.value = suppressedAsTrackIds(updated)
+                            scope.launch {
+                                playback.invalidateSmartFuture()
+                                playback.next()
+                            }
+                        }
+                    },
+                    onPlayAt = { index -> scope.launch { playback.playAt(index) } },
+                    onStartSmart = { track ->
+                        scope.launch {
+                            beginRadio(
+                                seed = track,
+                                setListen = { listen ->
+                                    settings.setRadioListen(listen)
+                                    AppGraph.radioGate.value = radioGateFor(
+                                        listen,
+                                        tracks.orEmpty(),
+                                        AppGraph.radioSemantics.value,
+                                    )
+                                },
+                                clearSuppressed = { AppGraph.radioSuppressed.value = emptySet() },
+                                setShuffleSmart = { playback.setShuffleMode(ShuffleMode.SMART) },
+                                playSeed = { playback.play(listOf(track), 0) },
+                            )
+                        }
+                    },
+                    onSaveQueue = {
+                        val queue = playback.state.value.queue
+                        if (queue.isNotEmpty()) {
+                            showRadio = false
+                            sheets.addToPlaylistSelection = queue
+                        }
+                    },
+                    onExclusions = {
+                        showRadio = false
+                        settingsRoute = SETTINGS_ROUTE_SMART_EXCLUSIONS
+                        showSettings = true
+                    },
+                    onSaveStation = { name ->
+                        val seed = settings.radioListen.value?.seedTrackId
+                            ?: playback.state.value.track?.id?.value
+                        if (seed != null) {
+                            val variety = sanitizeArtistVariety(
+                                settings.radioListen.value?.artistVariety ?: settings.artistVariety.value,
+                            )
+                            settings.setRadioStations(
+                                saveNamedStation(
+                                    existing = settings.radioStations.value,
+                                    name = name,
+                                    seedTrackId = seed,
+                                    artistVariety = variety,
+                                    nowMs = epochMillis(),
+                                ),
+                            )
+                        }
+                    },
+                    onStartStation = { station ->
+                        val seedTrack = tracks.orEmpty().firstOrNull { it.id.value == station.seedTrackId }
+                        if (seedTrack != null) {
+                            val level = sanitizeArtistVariety(station.artistVariety)
+                            val listen = listenForStation(station)
+                            engine.setArtistRunPenalty(ARTIST_VARIETY_PENALTIES[level])
+                            settings.setRadioListen(listen)
+                            AppGraph.radioSuppressed.value = emptySet()
+                            AppGraph.radioGate.value = radioGateFor(
+                                listen,
+                                tracks.orEmpty(),
+                                AppGraph.radioSemantics.value,
+                            )
+                            scope.launch {
+                                playback.setShuffleMode(ShuffleMode.SMART)
+                                playback.play(listOf(seedTrack), 0)
+                            }
+                        }
+                    },
+                    onRemoveStation = { id ->
+                        settings.setRadioStations(removeRadioStation(settings.radioStations.value, id))
+                    },
+                    onFilter = { next ->
+                        val updated = (settings.radioListen.value ?: RadioListen()).copy(filter = next)
+                        settings.setRadioListen(updated)
+                        AppGraph.radioGate.value = radioGateFor(
+                            updated,
+                            tracks.orEmpty(),
+                            AppGraph.radioSemantics.value,
+                        )
+                        scope.launch { playback.invalidateSmartFuture() }
+                    },
+                    onClearTravelNote = { travelUnplotted = false },
+                    travelUnplotted = travelUnplotted,
+                    instrumentalAvailable = instrumentalAvailable,
+                    onTravel = { destination ->
+                        val from = playback.state.value.track
+                        scope.launch {
+                            val library = tracks.orEmpty()
+                            val byId = library.associateBy { it.id }
+                            val path = if (from == null) {
+                                null
+                            } else {
+                                freshTravelPath(
+                                    libraryIds = library.map { it.id },
+                                    from = from.id,
+                                    to = destination.id,
+                                    artistKeyOf = { id -> travelArtistKey(byId[id]) },
+                                    loadSpace = { ids -> engine.libraryMixVectors(ids) },
+                                )
+                            }
+                            val started = playTravel(
+                                path = path,
+                                clearListen = {
+                                    settings.setRadioListen(null)
+                                    AppGraph.radioGate.value = RadioCandidateGate.Open
+                                },
+                                clearSuppressed = { AppGraph.radioSuppressed.value = emptySet() },
+                                setShuffleOff = { playback.setShuffleMode(ShuffleMode.OFF) },
+                                play = { ids ->
+                                    val queue = ids.mapNotNull { byId[it] }
+                                    if (queue.size >= 2) playback.play(queue, 0)
+                                },
+                            )
+                            travelUnplotted = !started
+                        }
+                    },
+                )
             }
         }
 

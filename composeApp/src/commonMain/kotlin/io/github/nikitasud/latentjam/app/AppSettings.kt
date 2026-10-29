@@ -521,6 +521,17 @@ interface AppSettings {
     /** See [setSaveListeningHistory]; the same persistence guarantee applies to search history. */
     suspend fun setRememberSearches(enabled: Boolean): Result<Unit>
 
+    /**
+     * Mix choices for the SMART listen in progress. Null when nothing is overridden.
+     * Device-local, like the resumed queue. A build that does not store it keeps the default.
+     */
+    val radioListen: StateFlow<RadioListen?> get() = EMPTY_RADIO_LISTEN
+    fun setRadioListen(listen: RadioListen?) {}
+
+    /** Named SMART recipes. Empty when this settings store does not keep them. */
+    val radioStations: StateFlow<List<RadioStation>> get() = EMPTY_RADIO_STATIONS
+    fun setRadioStations(stations: List<RadioStation>) {}
+
     /** The playback session to restore at launch, or null when nothing was saved. */
     val resumePlayback: StateFlow<ResumePlayback?>
 
@@ -584,6 +595,12 @@ internal fun ResumePlayback.sameSessionExceptPosition(other: ResumePlayback): Bo
         sourceQueuePersisted == other.sourceQueuePersisted &&
         smartContinuationIds == other.smartContinuationIds &&
         smartPlanPositions == other.smartPlanPositions
+
+private val EMPTY_RADIO_LISTEN: StateFlow<RadioListen?> =
+    kotlinx.coroutines.flow.MutableStateFlow(null)
+
+private val EMPTY_RADIO_STATIONS: StateFlow<List<RadioStation>> =
+    kotlinx.coroutines.flow.MutableStateFlow(emptyList())
 
 private val DEFAULT_NOTIFICATION_FAVORITE: StateFlow<Boolean> =
     kotlinx.coroutines.flow.MutableStateFlow(false)

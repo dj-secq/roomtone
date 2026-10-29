@@ -114,6 +114,9 @@
         <item quantity="other">Słuchałeś tego %1$d raza</item>
     </plurals>
     <string name="foryou_kicker_never_played">Nigdy nieodtwarzane</string>
+    <string name="foryou_section_radio">Włącz radio</string>
+    <string name="foryou_caption_calmer">Spokojniej, na oko</string>
+    <string name="foryou_caption_brighter">Jaśniej, na oko</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">Wcześniej %1$d raz</item>
         <item quantity="few">Wcześniej %1$d razy</item>
@@ -1004,4 +1007,40 @@
     <string name="equalizer_peak_hint">Silne wzmocnienie może obniżyć głośność całego utworu.</string>
     <string name="map_memory_limited">Za mało wolnej pamięci, aby obliczyć mapę. Zamknij inne aplikacje i otwórz mapę ponownie.</string>
     <string name="map_unavailable">Nie udało się obliczyć mapy. Otwórz ją ponownie, aby spróbować jeszcze raz.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Twoje radio</string>
+    <string name="radio_open">Twoje radio</string>
+    <string name="radio_smart_off">SMART jest wyłączone. Zacznij od utworu, żeby kierować miksem.</string>
+    <string name="radio_play_this">Odtwórz ten utwór przez SMART</string>
+    <string name="radio_find_song">Znajdź utwór startowy</string>
+    <string name="radio_no_matches">Brak pasujących utworów</string>
+    <string name="radio_starting">Utwór startowy</string>
+    <string name="radio_this_song">Ten utwór</string>
+    <string name="radio_upcoming">Dalej</string>
+    <string name="radio_upcoming_empty">SMART nie dodał jeszcze utworów.</string>
+    <string name="radio_for_this_listen">Na to słuchanie</string>
+    <string name="radio_while_playing">Podczas grania</string>
+    <string name="radio_using_default">Twoje zapisane ustawienie SMART</string>
+    <string name="radio_keep_default">Zostaw jako domyślne</string>
+    <string name="radio_sound">Dźwięk</string>
+    <string name="radio_sound_balanced">Zrównoważone</string>
+    <string name="radio_sound_body">Bliżej i Eksploruj nie są jeszcze dostępne. To słuchanie używa obecnej równowagi SMART.</string>
+    <string name="radio_feedback_body">Działają, dopóki nie wyjdziesz z SMART. Nie teraz zostawia ten utwór poza resztą słuchania. Nie polecaj pozostaje bez zmian.</string>
+    <string name="radio_more_like_this">Więcej takiego</string>
+    <string name="radio_too_repetitive">Zbyt powtarzalne</string>
+    <string name="radio_not_for_now">Nie teraz</string>
+    <string name="radio_exclusions">Utwory i wykonawcy, których nie polecasz</string>
+    <string name="radio_save_queue">Zapisz kolejkę jako playlistę</string>
+    <string name="radio_stations">Stacje</string>
+    <string name="radio_station_name">Nazwa stacji</string>
+    <string name="radio_save_station">Zapisz stację</string>
+    <string name="radio_no_stations">Nie ma jeszcze zapisanych stacji.</string>
+    <string name="radio_station_missing">Tego utworu nie ma w bibliotece.</string>
+    <string name="radio_remove_station">Usuń stację</string>
+    <string name="radio_travel">Podróż do tego utworu</string>
+    <string name="radio_travel_none">Nie ma drogi między tymi utworami.</string>
+    <string name="radio_filter_folder">Ten folder</string>
+    <string name="radio_filter_decade">Ta dekada</string>
+    <string name="radio_filter_instrumental">Przypuszczalnie instrumental</string>
 </resources>

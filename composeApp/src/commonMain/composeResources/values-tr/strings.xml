@@ -100,6 +100,9 @@
         <item quantity="other">Bunu %1$d kez dinledin</item>
     </plurals>
     <string name="foryou_kicker_never_played">Hiç çalınmadı</string>
+    <string name="foryou_section_radio">Radyo başlat</string>
+    <string name="foryou_caption_calmer">Daha sakin tahmin</string>
+    <string name="foryou_caption_brighter">Daha parlak tahmin</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">Daha önce %1$d kez</item>
         <item quantity="other">Daha önce %1$d kez</item>
@@ -908,4 +911,40 @@
     <string name="equalizer_peak_hint">Güçlü artırmalar parçanın tamamının ses düzeyini azaltabilir.</string>
     <string name="map_memory_limited">Haritayı hesaplamak için yeterli boş bellek yok. Diğer uygulamaları kapatıp haritayı yeniden açın.</string>
     <string name="map_unavailable">Harita hesaplanamadı. Tekrar denemek için haritayı yeniden açın.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Senin radyon</string>
+    <string name="radio_open">Senin radyon</string>
+    <string name="radio_smart_off">SMART kapalı. Karışımı yönlendirmek için bir şarkıyla başla.</string>
+    <string name="radio_play_this">Bu şarkıyı SMART ile çal</string>
+    <string name="radio_find_song">Başlangıç şarkısı ara</string>
+    <string name="radio_no_matches">Eşleşen şarkı yok</string>
+    <string name="radio_starting">Başlangıç şarkısı</string>
+    <string name="radio_this_song">Bu şarkı</string>
+    <string name="radio_upcoming">Sırada</string>
+    <string name="radio_upcoming_empty">SMART henüz şarkı eklemedi.</string>
+    <string name="radio_for_this_listen">Bu dinleme için</string>
+    <string name="radio_while_playing">Bu çalarken</string>
+    <string name="radio_using_default">Kayıtlı SMART ayarın</string>
+    <string name="radio_keep_default">Varsayılanım olarak tut</string>
+    <string name="radio_sound">Ses</string>
+    <string name="radio_sound_balanced">Dengeli</string>
+    <string name="radio_sound_body">Yakın dur ve Keşfet henüz yok. Bu dinleme mevcut SMART dengesini kullanır.</string>
+    <string name="radio_feedback_body">SMART’tan çıkana kadar sürer. Şimdi değil, bu şarkıyı dinlemenin geri kalanından çıkarır. Önerme değişmez.</string>
+    <string name="radio_more_like_this">Daha çok böyle</string>
+    <string name="radio_too_repetitive">Fazla tekrarlı</string>
+    <string name="radio_not_for_now">Şimdi değil</string>
+    <string name="radio_exclusions">Önermediğin şarkılar ve sanatçılar</string>
+    <string name="radio_save_queue">Kuyruğu liste olarak kaydet</string>
+    <string name="radio_stations">İstasyonlar</string>
+    <string name="radio_station_name">İstasyon adı</string>
+    <string name="radio_save_station">İstasyonu kaydet</string>
+    <string name="radio_no_stations">Kayıtlı istasyon yok.</string>
+    <string name="radio_station_missing">Bu şarkı kitaplıkta yok.</string>
+    <string name="radio_remove_station">İstasyonu kaldır</string>
+    <string name="radio_travel">Bu şarkıya yolculuk</string>
+    <string name="radio_travel_none">Bu şarkılar arasında bir yol yok.</string>
+    <string name="radio_filter_folder">Bu klasör</string>
+    <string name="radio_filter_decade">Bu on yıl</string>
+    <string name="radio_filter_instrumental">Tahmini enstrümantal</string>
 </resources>

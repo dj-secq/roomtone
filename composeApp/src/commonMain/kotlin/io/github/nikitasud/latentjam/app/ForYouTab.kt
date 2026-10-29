@@ -31,9 +31,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.QueueMusic
 import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -63,6 +65,8 @@ import androidx.compose.ui.unit.sp
 import io.github.nikitasud.latentjam.app.generated.resources.Res
 import io.github.nikitasud.latentjam.app.generated.resources.action_play
 import io.github.nikitasud.latentjam.app.generated.resources.count_tracks
+import io.github.nikitasud.latentjam.app.generated.resources.foryou_caption_brighter
+import io.github.nikitasud.latentjam.app.generated.resources.foryou_caption_calmer
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_caption_left_turn
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_caption_played_before
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_daypart_day
@@ -70,6 +74,8 @@ import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_dayp
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_daypart_morning
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_daypart_night
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_on_a_roll
+import io.github.nikitasud.latentjam.app.generated.resources.foryou_radio_refresh
+import io.github.nikitasud.latentjam.app.generated.resources.foryou_section_radio
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_empty
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_kicker_never_played
 import io.github.nikitasud.latentjam.app.generated.resources.foryou_kicker_played_times
@@ -128,6 +134,10 @@ fun ForYouTab(
      */
     onPlayCollection: (ForYouCollection) -> Unit = {},
     onOpenWorld: (ForYouCard) -> Unit = {},
+    /** Starts a living SMART radio from this track. The radio row's cards, not a finite mix. */
+    onStartRadio: (TrackDescriptor) -> Unit = {},
+    /** Asks for the next set of radio starts. The header control on Start a radio. */
+    onRefreshRadio: () -> Unit = {},
     /** Current presentation only: changing artwork must not rebuild or reorder recommendations. */
     playlistArtworkUris: Map<String, String> = emptyMap(),
     /**
@@ -208,21 +218,33 @@ fun ForYouTab(
                             ),
                         ),
                     ) {
-                        Text(
-                            text = section.title(),
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                letterSpacing = 0.4.sp,
-                            ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontWeight = FontWeight.Medium,
-                            modifier = Modifier.padding(
-                                start = 20.dp,
-                                end = 20.dp,
-                                top = 18.dp,
-                                bottom = 8.dp,
-                            ),
-                        )
+                        if (section.kind == ForYouSectionKind.RADIO) {
+                            RadioRefreshHeader(
+                                title = section.title(),
+                                enabled = !isLoading,
+                                onRefresh = onRefreshRadio,
+                            )
+                        } else {
+                            Text(
+                                text = section.title(),
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    letterSpacing = 0.4.sp,
+                                ),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                fontWeight = FontWeight.Medium,
+                                modifier = Modifier.padding(
+                                    start = 20.dp,
+                                    end = 20.dp,
+                                    top = 18.dp,
+                                    bottom = 8.dp,
+                                ),
+                            )
+                        }
                         val rowState = rememberLazyListState()
+                        if (section.kind == ForYouSectionKind.RADIO) {
+                            val radioIds = section.cards.map { it.track.id }
+                            LaunchedEffect(radioIds) { rowState.scrollToItem(0) }
+                        }
                         // The section is recorded under the identifier the builder already uses for
                         // its own offer list, not under the enum name: one spelling per section, or
                         // the impression log ends up holding two names for the same row.
@@ -266,6 +288,8 @@ fun ForYouTab(
                                                 ?: card.track.artworkUri,
                                         onClick = {
                                             when {
+                                                section.kind == ForYouSectionKind.RADIO ->
+                                                    onStartRadio(card.track)
                                                 // A world is a hundred-odd tracks, and there are two
                                                 // reasonable things to do with one. Guessing which was the
                                                 // previous build's mistake: it played immediately, and the
@@ -319,6 +343,7 @@ private const val HERO_SECTION = "hero"
  * free-form by design, and two names for one row make it unreadable.
  */
 private fun ForYouSectionKind.impressionSection(): String = when (this) {
+    ForYouSectionKind.RADIO -> "radio"
     ForYouSectionKind.DAYPART -> "daypart"
     ForYouSectionKind.NEVER_PLAYED -> "never-played"
     ForYouSectionKind.CONTINUE -> "continue"
@@ -388,6 +413,37 @@ private fun ObserveShownCards(
     }
 }
 
+/** Start a radio's heading, plus the control that asks for the next set of songs. */
+@Composable
+private fun RadioRefreshHeader(
+    title: String,
+    enabled: Boolean,
+    onRefresh: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 20.dp, end = 4.dp, top = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 0.4.sp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.weight(1f),
+        )
+        IconButton(onClick = onRefresh, enabled = enabled, modifier = Modifier.size(48.dp)) {
+            Icon(
+                imageVector = Icons.Rounded.Refresh,
+                contentDescription = stringResource(Res.string.foryou_radio_refresh),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(22.dp),
+            )
+        }
+    }
+}
+
 /**
  * The builder emits a section KIND; the heading is written here.
  *
@@ -396,6 +452,7 @@ private fun ObserveShownCards(
  */
 @Composable
 private fun ForYouSection.title(): String = when (kind) {
+    ForYouSectionKind.RADIO -> stringResource(Res.string.foryou_section_radio).uppercaseForDisplay()
     ForYouSectionKind.CONTINUE -> stringResource(Res.string.foryou_section_continue).uppercaseForDisplay()
     ForYouSectionKind.DAYPART -> stringResource(
         when (daypart) {
@@ -545,6 +602,10 @@ private fun ForYouCaption.text(): String = when (this) {
         pluralStringResource(Res.plurals.count_tracks, tracks, tracks)
     is ForYouCaption.LeftTurnFrom ->
         stringResource(Res.string.foryou_caption_left_turn, bidiWrap(title))
+    ForYouCaption.NeverPlayed -> stringResource(Res.string.foryou_kicker_never_played)
+    is ForYouCaption.WorldName -> bidiWrap(name)
+    ForYouCaption.CalmerGuess -> stringResource(Res.string.foryou_caption_calmer)
+    ForYouCaption.BrighterGuess -> stringResource(Res.string.foryou_caption_brighter)
 }
 
 @Composable

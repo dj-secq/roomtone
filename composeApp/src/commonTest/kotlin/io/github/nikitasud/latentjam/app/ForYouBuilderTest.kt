@@ -7,14 +7,17 @@ package io.github.nikitasud.latentjam.app
 import io.github.nikitasud.latentjam.history.ListenEvent
 import io.github.nikitasud.latentjam.history.TrackStats
 import io.github.nikitasud.latentjam.library.Playlist
+import io.github.nikitasud.latentjam.smart.SemanticLabel
 import io.github.nikitasud.latentjam.smart.TrackDescriptor
 import io.github.nikitasud.latentjam.smart.TrackId
+import io.github.nikitasud.latentjam.smart.TrackSemantics
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorld
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldContent
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldNameSource
 import io.github.nikitasud.latentjam.smart.cluster.LibraryWorldSemanticTitle
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /**
@@ -168,10 +171,12 @@ class ForYouBuilderTest {
     }
 
     @Test
-    fun `an empty history yields only what needs no history`() {
+    fun `an empty history offers a radio start and no history row`() {
         val library = listOf(track("1"), track("2", artist = "B"))
-        val result = sections(library = library)
-        assertEquals(listOf(ForYouSectionKind.NEVER_PLAYED), result.map { it.kind })
+        val result = page(library = library)
+        assertEquals(listOf(ForYouSectionKind.RADIO), result.sections.map { it.kind })
+        assertEquals(ForYouCaption.NeverPlayed, result.sections.single().cards.single().caption)
+        assertEquals(ForYouKicker.NeverPlayed, result.hero?.kicker)
     }
 
     @Test
@@ -629,9 +634,10 @@ class ForYouBuilderTest {
         val recent = track("recent", artist = "Recent")
         val unheard = track("unheard", artist = "Unheard")
         val older = track("older", artist = "Older")
+        val spare = track("aaa", artist = "Spare")
         val world = listOf(recent, unheard, older)
         val result = ForYouBuilder.build(
-            library = listOf(hero) + world,
+            library = listOf(hero, spare) + world,
             stats = mapOf(
                 hero.id to stats(plays = 20, last = now - 200 * day),
                 recent.id to stats(plays = 8, last = now - day),
@@ -908,8 +914,11 @@ class ForYouBuilderTest {
         // The hero claims the newest unheard track; it is not by the binged artist, so it cannot
         // stand in for one of the cuts under test.
         val bait = track("bait", artist = "Bait", added = 900)
+        // The radio row claims one unheard start. This spare is that start, so the binge cuts
+        // stay in the row under test.
+        val spare = track("0-spare", artist = "Spare")
         val page = ForYouBuilder.build(
-            library = listOf(played, cooled) + strangers + bait,
+            library = listOf(played, cooled) + strangers + bait + spare,
             stats = mapOf(played.id to stats(plays = 12, last = now - day)),
             // Twelve plays in the phase window and none of this artist before it: the strongest
             // binge signal, over a log old enough (a month) for a "phase" to mean something.
@@ -952,10 +961,11 @@ class ForYouBuilderTest {
         val played = track("played", artist = "Kanno")
         val cuts = (1..3).map { track("cut$it", artist = "Kanno") }
         val bait = track("bait", artist = "Bait", added = 900)
+        val spare = track("0-spare", artist = "Spare")
         // Everything the listener plays was played this week, and the recent events reach back
         // only days: neither says that the log is a year old.
         fun page(logStartMs: Long?) = ForYouBuilder.build(
-            library = listOf(played) + cuts + bait,
+            library = listOf(played) + cuts + bait + spare,
             stats = mapOf(played.id to stats(plays = 12, last = now - day)),
             recentEvents = (1..12).map { n ->
                 ListenEvent(
@@ -1014,8 +1024,11 @@ class ForYouBuilderTest {
     fun `never played leads with tracks added this month`() {
         val old = (1..5).map { track("old$it", artist = "Old$it", added = now - (400 + it) * day) }
         val recent = track("recent", artist = "New", added = now - 3 * day)
+        // Radio claims one unheard start. This one sorts first, so the recent addition stays
+        // at the head of never played.
+        val spare = track("aaa", artist = "Spare")
         val result = ForYouBuilder.build(
-            old + recent, emptyMap(), emptyList(), now, localDayOf = utcDay,
+            old + recent + spare, emptyMap(), emptyList(), now, localDayOf = utcDay,
             // Offered yesterday and ignored: a plain cooled track steps back, a recent addition
             // still leads the row.
             cooledDiscoveries = setOf(recent.id),
@@ -1131,5 +1144,417 @@ class ForYouBuilderTest {
         // alternates instead of the strongest favourite returning every other day.
         assertEquals("1", hero(mapOf("1" to today - 2, "2" to today - 1)))
         assertEquals("2", hero(mapOf("1" to today - 1, "2" to today - 2)))
+    }
+
+    @Test
+    fun `an unheard song is enough to show the radio row`() {
+        val loved = track("loved")
+        val fresh = track("fresh", artist = "B")
+        val result = page(
+            library = listOf(loved, fresh),
+            stats = mapOf(loved.id to stats(plays = 8, last = now - 200 * day)),
+        )
+        val radio = result.sections.first { it.kind == ForYouSectionKind.RADIO }
+        assertEquals(listOf(fresh.id), radio.cards.map { it.track.id })
+        assertEquals(ForYouCaption.NeverPlayed, radio.cards.single().caption)
+        assertTrue(result.sections.none { it.kind == ForYouSectionKind.NEVER_PLAYED })
+    }
+
+    @Test
+    fun `played starts stay hidden until three of them line up`() {
+        val loved = (1..2).map { track("q$it", artist = "Quiet$it") }
+        val result = sections(
+            library = loved,
+            stats = loved.associate { it.id to stats(plays = 8, last = now - 200 * day) },
+        )
+        assertTrue(result.none { it.kind == ForYouSectionKind.RADIO })
+    }
+
+    @Test
+    fun `a large unheard library offers a scroll of radio starts`() {
+        val library = (1..40).map { track("u%02d".format(it), artist = "Artist$it") }
+        fun built(dayKey: Long) = ForYouBuilder.build(
+            library = library,
+            stats = emptyMap(),
+            recentEvents = emptyList(),
+            nowMs = now,
+            localDayOf = { dayKey },
+        )
+        val today = built(0)
+        val radio = today.sections.first { it.kind == ForYouSectionKind.RADIO }
+        // 40 unheard tracks, one claimed by the hero, eight held for never-played: the spare
+        // is under two full windows, so the row shows half of it.
+        assertEquals(15, radio.cards.size)
+        assertTrue(radio.cards.all { it.caption == ForYouCaption.NeverPlayed })
+        assertEquals(radio.cards.map { it.track.id }.distinct().size, radio.cards.size)
+        assertTrue(radio.cards.none { it.track.id == today.hero?.track?.id })
+        assertEquals(radio.cards, built(0).sections.first { it.kind == ForYouSectionKind.RADIO }.cards)
+        val neverPlayed = today.sections.first { it.kind == ForYouSectionKind.NEVER_PLAYED }
+        assertEquals(ForYouBuilder.ROW_LIMIT, neverPlayed.cards.size)
+        val radioIds = radio.cards.map { it.track.id }.toSet()
+        assertTrue(neverPlayed.cards.none { it.track.id in radioIds })
+        val tomorrow = built(1).sections.first { it.kind == ForYouSectionKind.RADIO }.cards
+        assertTrue(radioIds.intersect(tomorrow.map { it.track.id }.toSet()).isEmpty())
+    }
+
+    @Test
+    fun `a radio refresh jumps to a different set of starts`() {
+        // The played favourite keeps the hero off the unheard pool, so a new day and a refresh
+        // are the same step over the same 57 songs.
+        val fresh = (1..57).map { track("u%02d".format(it), artist = "Artist$it") }
+        val loved = track("loved", artist = "Loved")
+        fun built(dayKey: Long, shift: Int) = ForYouBuilder.build(
+            library = listOf(loved) + fresh,
+            stats = mapOf(loved.id to stats(plays = 12, last = now - 200 * day)),
+            recentEvents = emptyList(),
+            nowMs = now,
+            localDayOf = { dayKey },
+            radioShift = shift,
+        )
+        fun ids(dayKey: Long, shift: Int) =
+            built(dayKey, shift).sections.first { it.kind == ForYouSectionKind.RADIO }.cards.map { it.track.id }
+        val today = ids(0, 0)
+        val refreshed = ids(0, 1)
+        assertEquals(ForYouBuilder.RADIO_CHOICES, today.size)
+        assertEquals(today.size, refreshed.size)
+        assertTrue(today.toSet().intersect(refreshed.toSet()).isEmpty())
+        assertEquals(today, ids(0, 0))
+        assertEquals(refreshed, ids(1, 0))
+    }
+
+    @Test
+    fun `a medium unheard pool replaces its radio starts on refresh`() {
+        val library = (1..30).map { track("u%02d".format(it), artist = "Artist$it") }
+        fun ids(shift: Int) = ForYouBuilder.build(
+            library = library,
+            stats = emptyMap(),
+            recentEvents = emptyList(),
+            nowMs = now,
+            localDayOf = { 0L },
+            radioShift = shift,
+        ).sections.first { it.kind == ForYouSectionKind.RADIO }.cards.map { it.track.id }
+        val today = ids(0)
+        val refreshed = ids(1)
+        assertEquals(10, today.size)
+        assertEquals(today.size, refreshed.size)
+        assertTrue(today.all { it != library.first().id })
+        assertTrue(today.toSet().intersect(refreshed.toSet()).isEmpty())
+    }
+
+    @Test
+    fun `a rested radio favourite takes its turn with the day and the refresh`() {
+        val loved = listOf(
+            track("q1", artist = "Quiet1"),
+            track("q2", artist = "Quiet2"),
+            track("q3", artist = "Quiet3"),
+        )
+        val fresh = track("n1", artist = "New")
+        val stats = loved.withIndex().associate { (index, track) ->
+            track.id to stats(plays = 12 - index * 3, last = now - 200 * day)
+        }
+        fun quietId(dayKey: Long, shift: Int) = ForYouBuilder.build(
+            library = loved + fresh,
+            stats = stats,
+            recentEvents = emptyList(),
+            nowMs = now,
+            localDayOf = { dayKey },
+            radioShift = shift,
+        ).sections.first { it.kind == ForYouSectionKind.RADIO }
+            .cards.first { it.caption is ForYouCaption.PlayedBefore }
+            .track.id.value
+        assertEquals("q2", quietId(0, 0))
+        assertEquals("q3", quietId(0, 1))
+        assertEquals(quietId(0, 1), quietId(1, 0))
+        assertEquals("q2", quietId(0, 2))
+    }
+
+    @Test
+    fun `the mix radio start moves to the next world`() {
+        val loved = track("loved")
+        val fresh = track("fresh", artist = "Fresh")
+        val jazz = (1..3).map { track("a$it", artist = "Jazz$it") }
+        val soul = (1..3).map { track("b$it", artist = "Soul$it") }
+        val library = listOf(loved, fresh) + jazz + soul
+        val stats = mapOf(loved.id to stats(plays = 12, last = now - 200 * day)) +
+            (jazz + soul).associate { it.id to stats(plays = 1, last = now - day) }
+        val two = listOf(LibraryWorld("Jazz", jazz), LibraryWorld("Soul", soul))
+        fun worldCard(worlds: List<LibraryWorld>, dayKey: Long, shift: Int) = ForYouBuilder.build(
+            library = library,
+            stats = stats,
+            recentEvents = emptyList(),
+            nowMs = now,
+            worlds = worlds,
+            localDayOf = { dayKey },
+            radioShift = shift,
+        ).sections.first { it.kind == ForYouSectionKind.RADIO }
+            .cards.first { it.caption is ForYouCaption.WorldName }
+        val today = worldCard(two, 0, 0)
+        val refreshed = worldCard(two, 0, 1)
+        assertEquals("a1", today.track.id.value)
+        assertEquals(ForYouCaption.WorldName("Jazz"), today.caption)
+        assertEquals("b1", refreshed.track.id.value)
+        assertEquals(ForYouCaption.WorldName("Soul"), refreshed.caption)
+        assertEquals(refreshed, worldCard(two, 1, 0))
+        val onlyJazz = worldCard(listOf(LibraryWorld("Jazz", jazz)), 0, 1)
+        assertEquals("a1", onlyJazz.track.id.value)
+        assertEquals(ForYouCaption.WorldName("Jazz"), onlyJazz.caption)
+    }
+
+    @Test
+    fun `extra radio starts do not let one artist fill the row`() {
+        val library = (1..30).map { track("a%02d".format(it), artist = "Same") } +
+            (1..30).map { track("b%02d".format(it), artist = "Other$it") }
+        val radio = ForYouBuilder.build(
+            library = library,
+            stats = emptyMap(),
+            recentEvents = emptyList(),
+            nowMs = now,
+            localDayOf = { 0L },
+        ).sections.first { it.kind == ForYouSectionKind.RADIO }
+        assertEquals(ForYouBuilder.RADIO_CHOICES, radio.cards.size)
+        val perArtist = radio.cards.groupingBy { it.track.artist }.eachCount()
+        assertTrue(perArtist.values.all { it <= ForYouBuilder.MAX_PER_ARTIST })
+        assertTrue((perArtist["Same"] ?: 0) <= ForYouBuilder.MAX_PER_ARTIST)
+    }
+
+    @Test
+    fun `a radio start skips the hero and leaves never played on a short page`() {
+        val page = radioPage(dayKey = 0)
+        val radio = page.sections.first { it.kind == ForYouSectionKind.RADIO }
+        assertEquals(page.hero?.track?.id, track("q-strong").id)
+        assertTrue(radio.cards.none { it.track.id == page.hero?.track?.id })
+        assertEquals(
+            listOf("q-next", "a-new", "w1"),
+            radio.cards.map { it.track.id.value },
+        )
+        assertEquals(ForYouCaption.PlayedBefore(8), radio.cards[0].caption)
+        assertEquals(ForYouCaption.NeverPlayed, radio.cards[1].caption)
+        assertEquals(ForYouCaption.WorldName("Jazz"), radio.cards[2].caption)
+        assertTrue(page.sections.any { it.kind == ForYouSectionKind.NEVER_PLAYED })
+        assertTrue(page.sections.size <= ForYouBuilder.MAX_SECTIONS)
+    }
+
+    @Test
+    fun `radio picks hold for a local day and the unheard start moves the next day`() {
+        val today = radioPage(dayKey = 0)
+        val again = radioPage(dayKey = 0)
+        val tomorrow = radioPage(dayKey = 1)
+        val todayRadio = today.sections.first { it.kind == ForYouSectionKind.RADIO }.cards
+        assertEquals(todayRadio, again.sections.first { it.kind == ForYouSectionKind.RADIO }.cards)
+        val tomorrowRadio = tomorrow.sections.first { it.kind == ForYouSectionKind.RADIO }.cards
+        assertEquals(todayRadio[0], tomorrowRadio[0])
+        assertEquals(todayRadio[2], tomorrowRadio[2])
+        assertEquals("b-new", tomorrowRadio[1].track.id.value)
+    }
+
+    @Test
+    fun `a generic world name is not a radio caption`() {
+        val loved = track("loved")
+        val next = track("next", artist = "Next")
+        val fresh = track("fresh", artist = "Fresh")
+        val members = (1..3).map { track("g$it", artist = "Region$it") }
+        val page = ForYouBuilder.build(
+            library = listOf(loved, next, fresh) + members,
+            stats = mapOf(
+                loved.id to stats(plays = 9, last = now - 200 * day),
+                next.id to stats(plays = 6, last = now - 200 * day),
+            ),
+            recentEvents = emptyList(),
+            nowMs = now,
+            worlds = listOf(LibraryWorld("Discovery mix", members, LibraryWorldNameSource.GENERIC)),
+            localDayOf = { 0L },
+        )
+        val radio = page.sections.first { it.kind == ForYouSectionKind.RADIO }
+        assertNull(radio.cards.first { it.track.id == members.first().id }.caption)
+    }
+
+    @Test
+    fun `an excluded track is not offered as a radio start`() {
+        val loved = track("loved")
+        val blocked = track("blocked", artist = "Blocked")
+        val fresh = track("fresh", artist = "Fresh")
+        val members = (1..3).map { track("m$it", artist = "Region$it") }
+        val page = ForYouBuilder.build(
+            library = listOf(loved, blocked, fresh) + members,
+            stats = mapOf(
+                loved.id to stats(plays = 9, last = now - 200 * day),
+                blocked.id to stats(plays = 8, last = now - 200 * day),
+            ),
+            recentEvents = emptyList(),
+            nowMs = now,
+            excluded = setOf(blocked.id),
+            worlds = listOf(LibraryWorld("Jazz", members)),
+            localDayOf = { 0L },
+        )
+        assertTrue(page.sections.flatMap { it.cards }.none { it.track.id == blocked.id })
+        assertTrue(page.hero?.track?.id != blocked.id)
+    }
+
+    @Test
+    fun `calmer and brighter appear only when the sound model has a clear winner`() {
+        val library = energyLibrary()
+        val without = energyPage(library, emptyMap())
+        assertTrue(
+            without.cards.none { it.caption == ForYouCaption.CalmerGuess || it.caption == ForYouCaption.BrighterGuess },
+        )
+        val flat = energyPage(library, energyScores(low = 0.5f, high = 0.5f))
+        assertTrue(
+            flat.cards.none { it.caption == ForYouCaption.CalmerGuess || it.caption == ForYouCaption.BrighterGuess },
+        )
+        val clear = energyPage(
+            library,
+            mapOf(
+                TrackId("e-low") to energyRow(low = 0.9f, high = 0.1f),
+                TrackId("e-high") to energyRow(low = 0.1f, high = 0.9f),
+                TrackId("e-mid") to energyRow(low = 0.4f, high = 0.4f),
+                TrackId("e-speech") to energyRow(low = 0.99f, high = 0.99f, music = 0.2f, speech = 0.9f),
+                TrackId("e-other") to energyRow(low = 0.3f, high = 0.3f),
+            ),
+        )
+        assertEquals("e-low", clear.cards.first { it.caption == ForYouCaption.CalmerGuess }.track.id.value)
+        assertEquals("e-high", clear.cards.first { it.caption == ForYouCaption.BrighterGuess }.track.id.value)
+        assertEquals(5, clear.cards.size)
+    }
+
+    @Test
+    fun `never played yields only when the radio row would make a seventh section`() {
+        val kept = ForYouSectionKind.entries.filterNot { it == ForYouSectionKind.NEVER_PLAYED }
+        val seven = ForYouSectionKind.entries.map { ForYouSection(it, emptyList()) }
+        with(ForYouBuilder) {
+            assertEquals(kept, seven.capped().map { it.kind })
+            assertEquals(kept, kept.map { ForYouSection(it, emptyList()) }.capped().map { it.kind })
+            val sixWithNeverPlayed = seven.drop(1)
+            assertEquals(sixWithNeverPlayed, sixWithNeverPlayed.capped())
+        }
+
+        val full = busyPage(includeWorld = true)
+        assertEquals(
+            listOf(
+                ForYouSectionKind.RADIO,
+                ForYouSectionKind.CONTINUE,
+                ForYouSectionKind.DAYPART,
+                ForYouSectionKind.WORTH_REVISITING,
+                ForYouSectionKind.ON_A_ROLL,
+                ForYouSectionKind.WORLDS,
+            ),
+            full.sections.map { it.kind },
+            "sections were ${full.sections.map { it.kind }}",
+        )
+        val withoutWorld = busyPage(includeWorld = false)
+        assertTrue(withoutWorld.sections.any { it.kind == ForYouSectionKind.NEVER_PLAYED })
+        assertTrue(withoutWorld.sections.any { it.kind == ForYouSectionKind.RADIO })
+    }
+
+    private fun radioPage(dayKey: Long) = ForYouBuilder.build(
+        library = listOf(
+            track("q-strong"),
+            track("q-next", artist = "Next"),
+            track("a-new", artist = "NewA"),
+            track("b-new", artist = "NewB"),
+        ) + (1..3).map { track("w$it", artist = "Region$it") },
+        stats = mapOf(
+            TrackId("q-strong") to stats(plays = 12, last = now - 200 * day),
+            TrackId("q-next") to stats(plays = 8, last = now - 200 * day),
+        ),
+        recentEvents = emptyList(),
+        nowMs = now,
+        worlds = listOf(LibraryWorld("Jazz", (1..3).map { track("w$it", artist = "Region$it") })),
+        localDayOf = { dayKey },
+    )
+
+    private fun energyLibrary(): List<TrackDescriptor> = listOf(
+        track("loved"),
+        track("next", artist = "Next"),
+        track("fresh", artist = "Fresh"),
+        track("e-low", artist = "Low"),
+        track("e-high", artist = "High"),
+        track("e-mid", artist = "Mid"),
+        track("e-speech", artist = "Speech"),
+        track("e-other", artist = "Other"),
+    ) + (1..3).map { track("w$it", artist = "Region$it") }
+
+    private fun energyPage(
+        library: List<TrackDescriptor>,
+        semantics: Map<TrackId, TrackSemantics>,
+    ) = ForYouBuilder.build(
+        library = library,
+        stats = mapOf(
+            TrackId("loved") to stats(plays = 9, last = now - 200 * day),
+            TrackId("next") to stats(plays = 6, last = now - 200 * day),
+            TrackId("e-low") to stats(plays = 1, last = now - day),
+            TrackId("e-high") to stats(plays = 1, last = now - day),
+            TrackId("e-mid") to stats(plays = 1, last = now - day),
+            TrackId("e-speech") to stats(plays = 1, last = now - day),
+            TrackId("e-other") to stats(plays = 1, last = now - day),
+        ),
+        recentEvents = emptyList(),
+        nowMs = now,
+        worlds = listOf(LibraryWorld("Jazz", (1..3).map { track("w$it", artist = "Region$it") })),
+        localDayOf = { 0L },
+        semantics = semantics,
+    ).sections.first { it.kind == ForYouSectionKind.RADIO }
+
+    private fun energyScores(low: Float, high: Float) = listOf("e-low", "e-high", "e-mid", "e-other")
+        .associate { TrackId(it) to energyRow(low, high) }
+
+    private fun energyRow(
+        low: Float,
+        high: Float,
+        music: Float = 0.8f,
+        speech: Float = 0.1f,
+        effects: Float = 0.1f,
+    ): TrackSemantics {
+        val scores = FloatArray(TrackSemantics.OUTPUT_SIZE)
+        scores[SemanticLabel.MUSIC.modelIndex] = music
+        scores[SemanticLabel.SPEECH.modelIndex] = speech
+        scores[SemanticLabel.SOUND_EFFECTS.modelIndex] = effects
+        scores[SemanticLabel.ENERGY_LOW.modelIndex] = low
+        scores[SemanticLabel.ENERGY_HIGH.modelIndex] = high
+        return checkNotNull(TrackSemantics.fromModelOutput(scores))
+    }
+
+    private fun busyPage(includeWorld: Boolean): ForYouPage {
+        val quiet = (1..5).map { index ->
+            track("q$index", artist = "Quiet$index") to stats(plays = 12 - index, last = now - 200 * day)
+        }
+        val dawn = (1..5).map { track("d$it", artist = "Dawn$it") }
+        val resume = listOf(track("r1", artist = "Resume"), track("r2", artist = "ResumeTwo"))
+        val played = track("k-played", artist = "Kanno")
+        val cuts = (1..4).map { track("k$it", artist = "Kanno") }
+        val fresh = listOf(track("0radio", artist = "Radio"), track("n1", artist = "New1"), track("n2", artist = "New2"))
+        val region = (1..3).map { track("w$it", artist = "Region$it") }
+        val library = quiet.map { it.first } + dawn + resume + played + cuts + fresh + region
+        val stats = quiet.associate { (descriptor, stat) -> descriptor.id to stat } +
+            dawn.associate { it.id to stats(plays = 5, last = now - 2 * day) } +
+            resume.associate { it.id to stats(plays = 1, last = now - hour) } +
+            mapOf(played.id to stats(plays = 12, last = now - hour))
+        fun event(id: TrackId, at: Long, done: Boolean, playedMs: Long, durationMs: Long) = ListenEvent(
+            trackId = id,
+            startedAtMs = at,
+            playedMs = playedMs,
+            trackDurationMs = durationMs,
+            completed = done,
+            skipped = false,
+        )
+        val events = listOf(
+            event(resume[0].id, now - hour, done = false, playedMs = 90_000, durationMs = 600_000),
+            event(resume[1].id, now - 2 * hour, done = false, playedMs = 90_000, durationMs = 600_000),
+        ) + dawn.flatMapIndexed { index, track ->
+            (1..5).map { n ->
+                event(track.id, now - 2 * day - (index * 5L + n) * hour, done = true, playedMs = 120_000, durationMs = 120_000)
+            }
+        } + (1..12).map { n ->
+            event(played.id, now - (n % 6) * day - n * hour, done = true, playedMs = 120_000, durationMs = 120_000)
+        }
+        return ForYouBuilder.build(
+            library = library,
+            stats = stats,
+            recentEvents = events,
+            nowMs = now,
+            worlds = if (includeWorld) listOf(LibraryWorld("Jazz", region)) else emptyList(),
+            localDayOf = { 0L },
+            localHourOf = { 9 },
+            logStartMs = now - 365 * day,
+        )
     }
 }

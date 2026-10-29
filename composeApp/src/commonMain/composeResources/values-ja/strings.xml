@@ -95,6 +95,9 @@
         <item quantity="other">%1$d回再生しました</item>
     </plurals>
     <string name="foryou_kicker_never_played">未再生</string>
+    <string name="foryou_section_radio">ラジオを始める</string>
+    <string name="foryou_caption_calmer">落ち着き気味の推測</string>
+    <string name="foryou_caption_brighter">明るめの推測</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="other">以前%1$d回</item>
     </plurals>
@@ -863,4 +866,40 @@
     <string name="equalizer_peak_hint">大幅な増幅により、曲全体の音量が下がる場合があります。</string>
     <string name="map_memory_limited">マップの計算に必要な空きメモリが不足しています。他のアプリを閉じて、マップを開き直してください。</string>
     <string name="map_unavailable">マップを計算できませんでした。開き直して、もう一度お試しください。</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">あなたのラジオ</string>
+    <string name="radio_open">あなたのラジオ</string>
+    <string name="radio_smart_off">SMARTはオフです。曲から始めてミックスを動かします。</string>
+    <string name="radio_play_this">この曲をSMARTで再生</string>
+    <string name="radio_find_song">開始曲を探す</string>
+    <string name="radio_no_matches">一致する曲はありません</string>
+    <string name="radio_starting">開始曲</string>
+    <string name="radio_this_song">この曲</string>
+    <string name="radio_upcoming">次に来る曲</string>
+    <string name="radio_upcoming_empty">SMARTはまだ曲を追加していません。</string>
+    <string name="radio_for_this_listen">この聴取のために</string>
+    <string name="radio_while_playing">再生中の操作</string>
+    <string name="radio_using_default">保存したSMARTの設定を使用中</string>
+    <string name="radio_keep_default">既定として残す</string>
+    <string name="radio_sound">音</string>
+    <string name="radio_sound_balanced">均衡</string>
+    <string name="radio_sound_body">近くに留まる、と探索はまだ使えません。この聴取は今のSMARTの均衡を使います。</string>
+    <string name="radio_feedback_body">SMARTを離れるまで続きます。今は違うは、この曲をこの聴取の残りから外します。おすすめしないはそのままです。</string>
+    <string name="radio_more_like_this">もっとこれ</string>
+    <string name="radio_too_repetitive">繰り返しが多い</string>
+    <string name="radio_not_for_now">今は違う</string>
+    <string name="radio_exclusions">おすすめしない曲とアーティスト</string>
+    <string name="radio_save_queue">キューをプレイリストとして保存</string>
+    <string name="radio_stations">局</string>
+    <string name="radio_station_name">局の名前</string>
+    <string name="radio_save_station">局を保存</string>
+    <string name="radio_no_stations">保存した局はまだありません。</string>
+    <string name="radio_station_missing">その曲はライブラリにありません。</string>
+    <string name="radio_remove_station">ステーションを削除</string>
+    <string name="radio_travel">この曲へ向かう</string>
+    <string name="radio_travel_none">この2曲の間に道がありません。</string>
+    <string name="radio_filter_folder">このフォルダ</string>
+    <string name="radio_filter_decade">この年代</string>
+    <string name="radio_filter_instrumental">器楽と推定</string>
 </resources>

@@ -101,6 +101,9 @@
         <item quantity="other">你听过 %1$d 次</item>
     </plurals>
     <string name="foryou_kicker_never_played">从未播放</string>
+    <string name="foryou_section_radio">开始电台</string>
+    <string name="foryou_caption_calmer">猜是更安静</string>
+    <string name="foryou_caption_brighter">猜是更明亮</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="other">此前 %1$d 次</item>
     </plurals>
@@ -869,4 +872,40 @@
     <string name="equalizer_peak_hint">大幅提升频段可能会降低整首曲目的音量。</string>
     <string name="map_memory_limited">可用内存不足，无法计算地图。请关闭其他应用后重新打开地图。</string>
     <string name="map_unavailable">无法计算地图。请重新打开以重试。</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">你的电台</string>
+    <string name="radio_open">你的电台</string>
+    <string name="radio_smart_off">SMART已关闭。从一首歌开始，来调整这段混音。</string>
+    <string name="radio_play_this">用SMART播放这首歌</string>
+    <string name="radio_find_song">查找起始歌曲</string>
+    <string name="radio_no_matches">没有匹配的歌曲</string>
+    <string name="radio_starting">起始歌曲</string>
+    <string name="radio_this_song">这首歌</string>
+    <string name="radio_upcoming">即将播放</string>
+    <string name="radio_upcoming_empty">SMART还没有加入歌曲。</string>
+    <string name="radio_for_this_listen">这一次收听</string>
+    <string name="radio_while_playing">播放期间</string>
+    <string name="radio_using_default">正在使用已保存的SMART设置</string>
+    <string name="radio_keep_default">保留为我的默认</string>
+    <string name="radio_sound">声音</string>
+    <string name="radio_sound_balanced">均衡</string>
+    <string name="radio_sound_body">靠近和探索还不可用。这一次收听使用当前的SMART均衡。</string>
+    <string name="radio_feedback_body">这些选择会保持到你离开SMART。先不要会让这首歌离开这次收听的其余部分。不再推荐保持不变。</string>
+    <string name="radio_more_like_this">多来一点这样的</string>
+    <string name="radio_too_repetitive">太重复了</string>
+    <string name="radio_not_for_now">先不要</string>
+    <string name="radio_exclusions">你不再推荐的歌曲和艺人</string>
+    <string name="radio_save_queue">把队列存为播放列表</string>
+    <string name="radio_stations">电台</string>
+    <string name="radio_station_name">电台名称</string>
+    <string name="radio_save_station">保存电台</string>
+    <string name="radio_no_stations">还没有保存的电台。</string>
+    <string name="radio_station_missing">曲库里没有这首歌。</string>
+    <string name="radio_remove_station">移除电台</string>
+    <string name="radio_travel">走到这首歌</string>
+    <string name="radio_travel_none">这两首歌之间没有路径。</string>
+    <string name="radio_filter_folder">此文件夹</string>
+    <string name="radio_filter_decade">这个十年</string>
+    <string name="radio_filter_instrumental">推测为器乐</string>
 </resources>

@@ -92,6 +92,10 @@ internal class AndroidAppSettings(context: Context) : AppSettings {
     override val rememberSearches: StateFlow<Boolean> = mutableRememberSearches.asStateFlow()
     private val mutableResumePlayback = MutableStateFlow(readResumePlayback())
     override val resumePlayback: StateFlow<ResumePlayback?> = mutableResumePlayback.asStateFlow()
+    private val mutableRadioListen = MutableStateFlow(decodeRadioListen(readString(KEY_RADIO_LISTEN)))
+    override val radioListen: StateFlow<RadioListen?> = mutableRadioListen.asStateFlow()
+    private val mutableRadioStations = MutableStateFlow(decodeRadioStations(readString(KEY_RADIO_STATIONS)))
+    override val radioStations: StateFlow<List<RadioStation>> = mutableRadioStations.asStateFlow()
 
     override fun setThemeMode(mode: ThemeMode) {
         preferences.edit().putString(KEY_THEME, mode.name).apply()
@@ -166,6 +170,24 @@ internal class AndroidAppSettings(context: Context) : AppSettings {
         val sanitized = sanitizeArtistVariety(level)
         preferences.edit().putInt(KEY_ARTIST_VARIETY, sanitized).apply()
         mutableArtistVariety.value = sanitized
+    }
+
+    override fun setRadioListen(listen: RadioListen?) {
+        val stored = listen?.takeIf { it.isRemembered() }
+        val encoded = encodeRadioListen(stored)
+        preferences.edit().apply {
+            if (encoded.isEmpty()) remove(KEY_RADIO_LISTEN) else putString(KEY_RADIO_LISTEN, encoded)
+        }.apply()
+        mutableRadioListen.value = stored
+    }
+
+    override fun setRadioStations(stations: List<RadioStation>) {
+        val stored = decodeRadioStations(encodeRadioStations(stations))
+        val encoded = encodeRadioStations(stored)
+        preferences.edit().apply {
+            if (encoded.isEmpty()) remove(KEY_RADIO_STATIONS) else putString(KEY_RADIO_STATIONS, encoded)
+        }.apply()
+        mutableRadioStations.value = stored
     }
 
     override fun setSongSort(choice: SortChoice<SongSort>) {
@@ -379,6 +401,8 @@ internal class AndroidAppSettings(context: Context) : AppSettings {
         const val KEY_CROSSFADE_SECONDS = "crossfade_seconds"
         const val KEY_RELATIVE_PLAYLIST_PATHS = "relative_playlist_paths"
         const val KEY_ARTIST_VARIETY = "artist_variety"
+        const val KEY_RADIO_LISTEN = "radio_listen_v1"
+        const val KEY_RADIO_STATIONS = "radio_stations_v1"
         const val KEY_SONG_SORT = "song_sort"
         const val KEY_ALBUM_SORT = "album_sort"
         const val KEY_GROUP_SORT = "group_sort_orders"

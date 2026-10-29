@@ -73,6 +73,12 @@ internal data class ChainTuning(
      */
     val artistRunPenalty: Float = 0f,
     /**
+     * Pull toward the seed, as a share of the shipped gravity. 1 is that gravity exactly, so a
+     * plan that leaves this at the default matches the recorded chain. Below 1 the walk may drift
+     * further; above 1 it stays closer to the song the listen started from.
+     */
+    val seedGravityScale: Float = 1f,
+    /**
      * A learned correction added to every candidate's score: one weight per [Rerank] feature, in
      * score units. Null is off. EXPERIMENTAL.
      */
@@ -110,6 +116,16 @@ internal data class ChainTuning(
  * the hop's candidate scores like [ChainTuning.artistRunPenalty], each times the playlist's
  * specificity ([CompanionMembership.weight]). Nothing is guaranteed: a candidate still has to fit.
  */
+/** Shipped seed gravity when [ChainTuning.seedGravityScale] is 1, otherwise that gravity times the scale. */
+internal fun ChainTuning.audioSeedGravity(): Float =
+    if (seedGravityScale == 1f) ChainConfig.CHAIN_SEED_GRAVITY
+    else ChainConfig.CHAIN_SEED_GRAVITY * seedGravityScale.coerceAtLeast(0f)
+
+/** The semantic twin of [audioSeedGravity]. Previous-track blend is not scaled. */
+internal fun ChainTuning.semanticSeedGravity(): Float =
+    if (seedGravityScale == 1f) ChainConfig.SEM_CHAIN_SEED_GRAVITY
+    else ChainConfig.SEM_CHAIN_SEED_GRAVITY * seedGravityScale.coerceAtLeast(0f)
+
 internal data class CompanionPoints(
     /** For a candidate that shares a marked playlist with the previous pick. */
     val together: Float,

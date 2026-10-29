@@ -128,6 +128,9 @@
         <item quantity="other">شغّلته %1$d مرة</item>
     </plurals>
     <string name="foryou_kicker_never_played">لم يُشغَّل قط</string>
+    <string name="foryou_section_radio">ابدأ راديو</string>
+    <string name="foryou_caption_calmer">تخمين أهدأ</string>
+    <string name="foryou_caption_brighter">تخمين أكثر سطوعا</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="zero">%1$d مرة سابقًا</item>
         <item quantity="one">%1$d مرة سابقًا</item>
@@ -1100,4 +1103,40 @@
     <string name="equalizer_peak_hint">قد تؤدي الزيادات الكبيرة إلى خفض مستوى صوت المقطع بأكمله.</string>
     <string name="map_memory_limited">لا توجد ذاكرة خالية كافية لحساب الخريطة. أغلق التطبيقات الأخرى وافتح الخريطة مجددًا.</string>
     <string name="map_unavailable">تعذّر حساب الخريطة. افتحها مجددًا لإعادة المحاولة.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">راديوك</string>
+    <string name="radio_open">راديوك</string>
+    <string name="radio_smart_off">SMART متوقف. ابدأ بأغنية لتوجيه المزيج.</string>
+    <string name="radio_play_this">شغّل هذه الأغنية مع SMART</string>
+    <string name="radio_find_song">ابحث عن أغنية البداية</string>
+    <string name="radio_no_matches">لا توجد أغنيات مطابقة</string>
+    <string name="radio_starting">أغنية البداية</string>
+    <string name="radio_this_song">هذه الأغنية</string>
+    <string name="radio_upcoming">القادم</string>
+    <string name="radio_upcoming_empty">لم يُضف SMART أي أغنيات بعد.</string>
+    <string name="radio_for_this_listen">لهذه الجلسة</string>
+    <string name="radio_while_playing">أثناء التشغيل</string>
+    <string name="radio_using_default">إعداد SMART المحفوظ</string>
+    <string name="radio_keep_default">اجعله الافتراضي</string>
+    <string name="radio_sound">الصوت</string>
+    <string name="radio_sound_balanced">متوازن</string>
+    <string name="radio_sound_body">الاقتراب والاستكشاف غير متاحين بعد. هذه الجلسة تستخدم توازن SMART الحالي.</string>
+    <string name="radio_feedback_body">تستمر حتى تغادر SMART. ليس الآن يُبعد هذه الأغنية عن بقية الجلسة. لا توصِ بها تبقى كما هي.</string>
+    <string name="radio_more_like_this">المزيد من هذا</string>
+    <string name="radio_too_repetitive">تكرار زائد</string>
+    <string name="radio_not_for_now">ليس الآن</string>
+    <string name="radio_exclusions">الأغنيات والفنانون الذين لا توصي بهم</string>
+    <string name="radio_save_queue">احفظ قائمة الانتظار كقائمة</string>
+    <string name="radio_stations">محطات</string>
+    <string name="radio_station_name">اسم المحطة</string>
+    <string name="radio_save_station">احفظ المحطة</string>
+    <string name="radio_no_stations">لا محطات محفوظة بعد.</string>
+    <string name="radio_station_missing">هذه الأغنية ليست في المكتبة.</string>
+    <string name="radio_remove_station">إزالة المحطة</string>
+    <string name="radio_travel">السفر إلى هذه الأغنية</string>
+    <string name="radio_travel_none">لا يوجد مسار بين هاتين الأغنيتين.</string>
+    <string name="radio_filter_folder">هذا المجلد</string>
+    <string name="radio_filter_decade">هذا العقد</string>
+    <string name="radio_filter_instrumental">آلاتي تخميناً</string>
 </resources>

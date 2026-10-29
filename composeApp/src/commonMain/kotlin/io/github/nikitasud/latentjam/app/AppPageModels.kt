@@ -173,6 +173,29 @@ internal class ArtistVarietyApplier(
     }
 }
 
+/**
+ * Applies a seed-gravity scale the way [ArtistVarietyApplier] applies artist variety.
+ *
+ * The shipped balance is `1`. The radio screen does not move this until Stay close and Explore
+ * have been measured. Leaving a listen applies `1` again so a session scale cannot leak.
+ */
+internal class SeedGravityApplier(
+    private val setScale: (Float) -> Unit,
+    private val invalidateSmartFuture: suspend () -> Unit,
+) {
+    private var plannedWith: Float? = null
+
+    suspend fun apply(scale: Float) {
+        val sanitized = if (scale.isFinite() && scale >= 0f) scale else 1f
+        setScale(sanitized)
+        val previous = plannedWith
+        val replan = previous != null && previous != sanitized
+        if (replan) delay(ARTIST_VARIETY_SETTLE_MS)
+        plannedWith = sanitized
+        if (replan) invalidateSmartFuture()
+    }
+}
+
 /** An externally resumed platform queue always wins over reloading and pausing the saved queue. */
 internal fun shouldApplySavedPlaybackAfterPlatformSync(now: NowPlaying): Boolean =
     now.track == null
@@ -320,6 +343,10 @@ internal class ForYouPageState {
     var builtIncludeNoveltyMixes by mutableStateOf<Boolean?>(null)
     var personalizationRevision by mutableStateOf(0)
     var builtPersonalizationRevision by mutableStateOf(-1)
+
+    // Start a radio only. Zero is today's window; each refresh asks for the next set of starts.
+    var radioShift by mutableStateOf(0)
+    var builtRadioShift by mutableStateOf(-1)
     var builtHistoryRevision by mutableStateOf(-1L)
 
     // The local day and phase the page was built in: a new day or phase is a reason to rebuild,

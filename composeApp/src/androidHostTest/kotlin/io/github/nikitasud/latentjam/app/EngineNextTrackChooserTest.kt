@@ -149,6 +149,22 @@ class EngineNextTrackChooserTest {
     }
 
     @Test
+    fun `a folder filter keeps that folder and an empty pool does not ask the engine`() = runTest {
+        val seed = track("seed", folder = "Music")
+        val inside = track("in", folder = "Music")
+        val outside = track("out", folder = "Other")
+        var gate: Pair<String, ((TrackDescriptor) -> Boolean)?> =
+            "" to { track -> track.folderPath == "Music" }
+        val planner = Planner(listOf(listOf(inside.id)))
+        val chooser = EngineNextTrackChooser(planner.engine, history, listenFilter = { gate })
+        assertEquals(inside, chooser.choose(seed, emptyList(), listOf(inside, outside))?.track)
+        assertNull(chooser.continuation(seed, emptyList(), listOf(outside)))
+        gate = "empty" to { false }
+        assertNull(chooser.choose(inside, listOf(seed.id), listOf(inside, outside)))
+        assertEquals(1, planner.calls)
+    }
+
+    @Test
     fun `removing an upcoming track keeps serving the plan`() = runTest {
         // Twenty upcoming rows: the first plan's twelve, then eight of the second.
         val (planner, queue) = smartQueue(upcoming = 20)
@@ -301,7 +317,8 @@ class EngineNextTrackChooserTest {
         }
     }
 
-    private fun track(id: String) = TrackDescriptor(TrackId(id), title = id, artist = id)
+    private fun track(id: String, folder: String? = null) =
+        TrackDescriptor(TrackId(id), title = id, artist = id, folderPath = folder)
     private val history = object : ListeningHistory {
         override suspend fun record(event: ListenEvent) = Unit
         override suspend fun stats(): Map<TrackId, TrackStats> = emptyMap()

@@ -446,7 +446,9 @@ internal fun SettingsScreen(
     var savedStack by rememberSaveable { mutableStateOf(SettingsPage.ROOT.name) }
     LaunchedEffect(startRoute) {
         // A visit opened at a page ends there too: the gear opens Settings at its root again.
-        savedStack = startRoute ?: if (savedStack == SETTINGS_ROUTE_EQUALIZER) SettingsPage.ROOT.name else savedStack
+        savedStack = startRoute ?: if (
+            savedStack == SETTINGS_ROUTE_EQUALIZER || savedStack == SETTINGS_ROUTE_SMART_EXCLUSIONS
+        ) SettingsPage.ROOT.name else savedStack
     }
     val stack = remember(savedStack) { savedStack.settingsStack() }
     val rootListState = rememberLazyListState()
@@ -3721,6 +3723,9 @@ private const val ROUTE_SEPARATOR = "|"
 
 /** Settings opened straight at the equalizer; Back goes back to where it was opened from. */
 internal const val SETTINGS_ROUTE_EQUALIZER = "EQUALIZER"
+
+/** Settings opened straight at Don't recommend. Back closes Settings, as the equalizer does. */
+internal const val SETTINGS_ROUTE_SMART_EXCLUSIONS = "SMART_EXCLUSIONS"
 private const val IOS_MUSIC_LIBRARY_SOURCE_ID = "ios:music"
 private const val RESTORE_ALL_OPERATION_ID = "restore-all"
 private const val SOURCE_URL = "https://github.com/Nikita-sud/latentjam"

@@ -158,7 +158,7 @@ internal class LocalBackupTest {
         val encoded = LocalBackupCodec.encode(snapshot)
 
         assertEquals(snapshot, LocalBackupCodec.decode(encoded))
-        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t11\n"))
+        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}\n"))
         assertFalse(encoded.contains("Группа крови"), "User strings must be safely encoded")
     }
 
@@ -248,7 +248,12 @@ internal class LocalBackupTest {
             assertFailsWith<LocalBackupFormatException>(bad) { LocalBackupCodec.decode(encoded.replace(record, bad)) }
         }
         assertFailsWith<LocalBackupFormatException> {
-            LocalBackupCodec.decode(encoded.replaceFirst("LOCAL-BACKUP\t11", "LOCAL-BACKUP\t10"))
+            LocalBackupCodec.decode(
+                encoded.replaceFirst(
+                    "LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}",
+                    "LOCAL-BACKUP\t10",
+                ),
+            )
         }
         assertFailsWith<LocalBackupFormatException> {
             LocalBackupCodec.encode(snapshot.copy(settings = snapshot.settings.copy(appearance = Appearance(albumColumns = 7))))
@@ -280,7 +285,12 @@ internal class LocalBackupTest {
             }
         }
         assertFailsWith<LocalBackupFormatException> {
-            LocalBackupCodec.decode(encoded.replaceFirst("LOCAL-BACKUP\t11", "LOCAL-BACKUP\t7"))
+            LocalBackupCodec.decode(
+                encoded.replaceFirst(
+                    "LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}",
+                    "LOCAL-BACKUP\t7",
+                ),
+            )
         }
     }
 
@@ -484,7 +494,7 @@ internal class LocalBackupTest {
         val encoded = LocalBackupCodec.encode(snapshot)
 
         assertEquals(snapshot, LocalBackupCodec.decode(encoded))
-        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t11\n"))
+        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}\n"))
     }
 
     @Test
@@ -533,12 +543,71 @@ internal class LocalBackupTest {
     }
 
     @Test
+    fun radioStationsRoundTripAndAVersionElevenFileLeavesThemAlone() = runTest {
+        val seed = track("seed-1", "Night", "Driver", "Album", 180_000)
+        val other = track("other", "Other", "Artist", "Album", 100_000)
+        val station = RadioStation("r1", "Night drive", "seed-1", 3)
+        val source = fixture(listOf(seed, other))
+        source.library.hide(other.id)
+        source.settings.setRadioStations(listOf(station))
+        val encoded = source.service.exportEncoded()
+        assertTrue(encoded.lineSequence().any { it.startsWith("R\t") })
+
+        val destination = fixture(listOf(seed, other))
+        destination.service.importEncoded(encoded, LocalBackupRestoreMode.REPLACE)
+        assertEquals(listOf(station), destination.settings.radioStations.value)
+
+        val missingSeed = fixture(listOf(other))
+        missingSeed.service.importEncoded(encoded, LocalBackupRestoreMode.REPLACE)
+        assertEquals(emptyList(), missingSeed.settings.radioStations.value)
+
+        destination.settings.setRadioStations(listOf(station))
+        val legacy = LocalBackupCodec.encode(emptySnapshot().copy(formatVersion = 11))
+        assertFalse(legacy.lineSequence().any { it.startsWith("R\t") })
+        destination.service.importEncoded(legacy, LocalBackupRestoreMode.REPLACE)
+        assertEquals(listOf(station), destination.settings.radioStations.value)
+    }
+
+    @Test
+    fun radioStationCodecRoundTripsAndRejectsAPrematureOrBrokenRecord() {
+        val station = RadioStation("r1", "Night drive", "seed-1", 3)
+        val snapshot = emptySnapshot().copy(
+            tracks = listOf(LocalBackupTrackReference("seed-1", "Night", "Driver", "Album", 180_000)),
+            settings = emptySnapshot().settings.copy(radioStations = listOf(station)),
+        )
+        val encoded = LocalBackupCodec.encode(snapshot)
+        assertEquals(snapshot, LocalBackupCodec.decode(encoded))
+        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}\n"))
+        assertFailsWith<LocalBackupFormatException> {
+            LocalBackupCodec.decode(
+                encoded.replaceFirst(
+                    "LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}",
+                    "LOCAL-BACKUP\t11",
+                ),
+            )
+        }
+        val record = encoded.lineSequence().single { it.startsWith("R\t") }
+        assertFailsWith<LocalBackupFormatException> {
+            LocalBackupCodec.decode(encoded.replace(record, "R\tonly-one"))
+        }
+        assertFailsWith<LocalBackupFormatException> {
+            LocalBackupCodec.encode(
+                snapshot.copy(
+                    formatVersion = 11,
+                    settings = snapshot.settings.copy(radioStations = listOf(station)),
+                ),
+            )
+        }
+    }
+
+    @Test
     fun codecRejectsFutureVersionsCorruptionAndDanglingReferences() {
         val valid = LocalBackupCodec.encode(emptySnapshot())
         // One version past the current format: a file from a newer build is refused whole, before
         // any record of it is read.
         assertFailsWith<LocalBackupFormatException> {
-            LocalBackupCodec.decode(valid.replaceFirst("LOCAL-BACKUP\t11", "LOCAL-BACKUP\t12"))
+            val current = LocalBackupCodec.FORMAT_VERSION
+            LocalBackupCodec.decode(valid.replaceFirst("LOCAL-BACKUP\t$current", "LOCAL-BACKUP\t${current + 1}"))
         }
         assertFailsWith<LocalBackupFormatException> {
             LocalBackupCodec.decode(valid + "Q\tnot-hex\n")
@@ -633,7 +702,7 @@ internal class LocalBackupTest {
         val encoded = source.service.exportEncoded()
         destination.service.importEncoded(encoded, LocalBackupRestoreMode.REPLACE)
 
-        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t11\n"))
+        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}\n"))
         assertEquals(layout, destination.settings.pageLayout.value)
         assertEquals(StartPage.STATISTICS, destination.settings.startPage.value)
     }
@@ -1161,7 +1230,7 @@ internal class LocalBackupTest {
         val encoded = LocalBackupCodec.encode(snapshot)
 
         assertEquals(snapshot, LocalBackupCodec.decode(encoded))
-        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t11\n"))
+        assertTrue(encoded.startsWith("LATENTJAM-LOCAL-BACKUP\t${LocalBackupCodec.FORMAT_VERSION}\n"))
         // One record per heart, newest first; one per verdict, every track of it on the line.
         assertEquals(
             listOf("F\ts63", "F\ts${"file:\nКИНО\t1".hex()}", "F\ts62"),
@@ -1810,6 +1879,14 @@ internal class LocalBackupTest {
             Result.success(Unit).also { rememberSearches.value = enabled }
         override val resumePlayback: MutableStateFlow<ResumePlayback?> = MutableStateFlow(null)
         override fun setResumePlayback(state: ResumePlayback?) { resumePlayback.value = state }
+        override val radioListen = MutableStateFlow<RadioListen?>(null)
+        override fun setRadioListen(listen: RadioListen?) {
+            radioListen.value = listen?.takeIf { it.isRemembered() }
+        }
+        override val radioStations = MutableStateFlow<List<RadioStation>>(emptyList())
+        override fun setRadioStations(stations: List<RadioStation>) {
+            radioStations.value = decodeRadioStations(encodeRadioStations(stations))
+        }
     }
 
     private fun track(

@@ -41,6 +41,14 @@ class EngineNextTrackChooser(
     private val history: ListeningHistory,
     /** Live view of the playlists the listener marked "keep together in SMART". */
     private val companionGroups: () -> List<Set<TrackId>> = { emptyList() },
+    /** Songs this listen asked to leave out. Empty keeps the chooser exactly as it was. */
+    private val suppressedIds: () -> Set<TrackId> = { emptySet() },
+    /**
+     * Folder, decade, or instrumental limit for this listen.
+     * The pair is a key plus a predicate. A null predicate does not filter.
+     * An empty allowed pool adds nothing: the filter is not dropped to fill the queue.
+     */
+    private val listenFilter: () -> Pair<String, ((TrackDescriptor) -> Boolean)?> = { "" to null },
 ) : NextTrackChooser {
 
     private val mutex = Mutex()
@@ -52,6 +60,8 @@ class EngineNextTrackChooser(
     /** The queued prefix distinguishes a continuation from a new start at the same track. */
     private var expectedPrecedingIds: List<TrackId> = emptyList()
     private var plannedWithGroups: List<Set<TrackId>> = emptyList()
+    private var plannedWithSuppressed: Set<TrackId> = emptySet()
+    private var plannedWithFilter: String = ""
 
     /** Artists of the last few continuations, so a run of them cannot become an album dump. */
     private val recentContinuationArtists = ArrayDeque<String>()
@@ -77,10 +87,21 @@ class EngineNextTrackChooser(
             plannedWithGroups = groups
             planned.clear()
         }
+        val suppressed = suppressedIds()
+        if (suppressed != plannedWithSuppressed) {
+            plannedWithSuppressed = suppressed
+            planned.clear()
+        }
+        val (filterKey, allows) = listenFilter()
+        if (filterKey != plannedWithFilter) {
+            plannedWithFilter = filterKey
+            planned.clear()
+        }
+        val pool = radioCandidates(candidates, suppressed, allows)
         fun nextPlanned(): SmartChoice? {
             while (planned.isNotEmpty()) {
                 val (index, id) = planned.removeFirst()
-                val chosen = candidates.firstOrNull { it.id == id } ?: continue
+                val chosen = pool.firstOrNull { it.id == id } ?: continue
                 expectedNext = chosen.id
                 servedAfter = current.id
                 expectedPrecedingIds = (recentIds + current.id).takeLast(CHAIN_LENGTH)
@@ -93,14 +114,14 @@ class EngineNextTrackChooser(
         // Eligibility can change without the playhead moving. Exhaust an obsolete cached plan
         // before deciding whether to replan, so available tracks are considered in this call.
         nextPlanned()?.let { return@withLock it }
-        if (candidates.isNotEmpty()) {
+        if (pool.isNotEmpty()) {
             val started = TimeSource.Monotonic.markNow()
             val events = smartHistoryFor(history, current)
             // A top-up can extend this chooser's plan or one the UI requested directly, even
             // after replacing the previous queue. The engine checks the preceding queued tracks
             // before carrying a walk; an unrelated seed starts fresh there.
             val plan = engine.continueSmartQueue(
-                current, candidates, CHAIN_LENGTH, events, groups, precedingTrackIds = recentIds,
+                current, pool, CHAIN_LENGTH, events, groups, precedingTrackIds = recentIds,
             )
             planned = ArrayDeque(plan.withIndex().toList())
             // Diagnostics stay aggregate on purpose: no title, artist or track id goes to the
@@ -108,7 +129,7 @@ class EngineNextTrackChooser(
             // older releases, and the app promises that nothing about what is played leaves it.
             println(
                 "SMART: planned ${planned.size} of $CHAIN_LENGTH slots from " +
-                    "${candidates.size} candidates in " +
+                    "${pool.size} candidates in " +
                     "${started.elapsedNow().inWholeMilliseconds} ms",
             )
         }
@@ -118,7 +139,7 @@ class EngineNextTrackChooser(
         expectedNext = null
         servedAfter = null
         expectedPrecedingIds = emptyList()
-        println("SMART: no eligible local plan candidates=${candidates.size}")
+        println("SMART: no eligible local plan candidates=${pool.size}")
         null
     }
 
@@ -138,8 +159,9 @@ class EngineNextTrackChooser(
             .getOrNull()
             ?.mapValues { (_, stats) -> stats.lastPlayedAtMs }
             .orEmpty()
+        val (_, allows) = listenFilter()
         val chosen = smartContinuationTrack(
-            candidates = candidates,
+            candidates = radioCandidates(candidates, suppressedIds(), allows),
             lastPlayedAtMs = lastPlayedAtMs,
             avoidArtists = recentContinuationArtists.toSet(),
         ) ?: return@withLock null
@@ -200,6 +222,20 @@ private fun continuationArtistKey(track: TrackDescriptor): String? =
  */
 internal fun smartPlanPositions(plan: List<TrackId>): Map<TrackId, Int> =
     plan.withIndex().associate { (index, id) -> id to index + 1 }
+
+/**
+ * Empty [suppressed] and a null [allows] return [candidates] itself.
+ * [allows] drops everything outside this listen's filter, including the top-up.
+ * When nothing remains, the caller adds nothing rather than ignoring the filter.
+ */
+internal fun radioCandidates(
+    candidates: List<TrackDescriptor>,
+    suppressed: Set<TrackId>,
+    allows: ((TrackDescriptor) -> Boolean)? = null,
+): List<TrackDescriptor> {
+    val visible = if (suppressed.isEmpty()) candidates else candidates.filter { it.id !in suppressed }
+    return if (allows == null) visible else visible.filter(allows)
+}
 
 /** Projects the private append-only history log into SMART's model-only value type. */
 internal suspend fun smartHistoryFor(

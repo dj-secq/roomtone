@@ -112,6 +112,9 @@
         <item quantity="other">השמעת את זה %1$d פעמים</item>
     </plurals>
     <string name="foryou_kicker_never_played">לא הושמע אף פעם</string>
+    <string name="foryou_section_radio">התחל רדיו</string>
+    <string name="foryou_caption_calmer">ניחוש רגוע יותר</string>
+    <string name="foryou_caption_brighter">ניחוש בהיר יותר</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">%1$d× בעבר</item>
         <item quantity="two">%1$d× בעבר</item>
@@ -962,4 +965,40 @@
     <string name="equalizer_peak_hint">הגברה חזקה עלולה להפחית את עוצמת הרצועה כולה.</string>
     <string name="map_memory_limited">אין מספיק זיכרון פנוי לחישוב המפה. יש לסגור יישומים אחרים ולפתוח את המפה מחדש.</string>
     <string name="map_unavailable">לא ניתן לחשב את המפה. יש לפתוח אותה מחדש כדי לנסות שוב.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">הרדיו שלך</string>
+    <string name="radio_open">הרדיו שלך</string>
+    <string name="radio_smart_off">SMART כבוי. התחילו משיר כדי לכוון את המיקס.</string>
+    <string name="radio_play_this">נגנו את השיר הזה עם SMART</string>
+    <string name="radio_find_song">מצאו שיר התחלה</string>
+    <string name="radio_no_matches">אין שירים תואמים</string>
+    <string name="radio_starting">שיר התחלה</string>
+    <string name="radio_this_song">השיר הזה</string>
+    <string name="radio_upcoming">בהמשך</string>
+    <string name="radio_upcoming_empty">SMART עדיין לא הוסיף שירים.</string>
+    <string name="radio_for_this_listen">להאזנה הזו</string>
+    <string name="radio_while_playing">בזמן שזה מתנגן</string>
+    <string name="radio_using_default">הגדרת SMART השמורה שלך</string>
+    <string name="radio_keep_default">שמרו כברירת מחדל</string>
+    <string name="radio_sound">צליל</string>
+    <string name="radio_sound_balanced">מאוזן</string>
+    <string name="radio_sound_body">להישאר קרוב ולחקור עדיין לא זמינים. ההאזנה הזו משתמשת באיזון SMART הנוכחי.</string>
+    <string name="radio_feedback_body">אלה נשארים עד שיוצאים מ-SMART. לא עכשיו משאיר את השיר הזה מחוץ לשאר ההאזנה. אל תמליצו לא משתנה.</string>
+    <string name="radio_more_like_this">עוד כמו זה</string>
+    <string name="radio_too_repetitive">חוזר מדי</string>
+    <string name="radio_not_for_now">לא עכשיו</string>
+    <string name="radio_exclusions">שירים ואמנים שאינכם ממליצים עליהם</string>
+    <string name="radio_save_queue">שמרו את התור כרשימה</string>
+    <string name="radio_stations">תחנות</string>
+    <string name="radio_station_name">שם התחנה</string>
+    <string name="radio_save_station">שמרו תחנה</string>
+    <string name="radio_no_stations">אין עדיין תחנות שמורות.</string>
+    <string name="radio_station_missing">השיר הזה אינו בספרייה.</string>
+    <string name="radio_remove_station">הסרת תחנה</string>
+    <string name="radio_travel">מסע אל השיר הזה</string>
+    <string name="radio_travel_none">אין מסלול בין השירים האלה.</string>
+    <string name="radio_filter_folder">התיקייה הזו</string>
+    <string name="radio_filter_decade">העשור הזה</string>
+    <string name="radio_filter_instrumental">אינסטרומנטלי משוער</string>
 </resources>

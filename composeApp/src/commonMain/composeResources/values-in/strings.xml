@@ -101,6 +101,9 @@
         <item quantity="other">Kamu memutarnya %1$d kali</item>
     </plurals>
     <string name="foryou_kicker_never_played">Belum pernah diputar</string>
+    <string name="foryou_section_radio">Mulai radio</string>
+    <string name="foryou_caption_calmer">Tebakan lebih tenang</string>
+    <string name="foryou_caption_brighter">Tebakan lebih cerah</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="other">%1$d kali sebelumnya</item>
     </plurals>
@@ -869,4 +872,40 @@
     <string name="equalizer_peak_hint">Penguatan besar dapat menurunkan volume seluruh lagu.</string>
     <string name="map_memory_limited">Memori bebas tidak cukup untuk menghitung peta. Tutup aplikasi lain lalu buka kembali peta.</string>
     <string name="map_unavailable">Peta tidak dapat dihitung. Buka kembali untuk mencoba lagi.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Radio kamu</string>
+    <string name="radio_open">Radio kamu</string>
+    <string name="radio_smart_off">SMART mati. Mulai dari sebuah lagu untuk mengarahkan campuran.</string>
+    <string name="radio_play_this">Putar lagu ini dengan SMART</string>
+    <string name="radio_find_song">Cari lagu awal</string>
+    <string name="radio_no_matches">Tidak ada lagu yang cocok</string>
+    <string name="radio_starting">Lagu awal</string>
+    <string name="radio_this_song">Lagu ini</string>
+    <string name="radio_upcoming">Berikutnya</string>
+    <string name="radio_upcoming_empty">SMART belum menambahkan lagu.</string>
+    <string name="radio_for_this_listen">Untuk dengar ini</string>
+    <string name="radio_while_playing">Selagi ini diputar</string>
+    <string name="radio_using_default">Pengaturan SMART yang tersimpan</string>
+    <string name="radio_keep_default">Jadikan bawaan</string>
+    <string name="radio_sound">Suara</string>
+    <string name="radio_sound_balanced">Seimbang</string>
+    <string name="radio_sound_body">Dekat dan Jelajah belum tersedia. Dengar ini memakai keseimbangan SMART yang sekarang.</string>
+    <string name="radio_feedback_body">Berlaku sampai kamu keluar dari SMART. Bukan ini menyingkirkan lagu itu dari sisa dengar ini. Jangan rekomendasikan tidak berubah.</string>
+    <string name="radio_more_like_this">Lebih seperti ini</string>
+    <string name="radio_too_repetitive">Terlalu berulang</string>
+    <string name="radio_not_for_now">Bukan ini, untuk sekarang</string>
+    <string name="radio_exclusions">Lagu dan artis yang tidak kamu rekomendasikan</string>
+    <string name="radio_save_queue">Simpan antrean sebagai daftar</string>
+    <string name="radio_stations">Stasiun</string>
+    <string name="radio_station_name">Nama stasiun</string>
+    <string name="radio_save_station">Simpan stasiun</string>
+    <string name="radio_no_stations">Belum ada stasiun tersimpan.</string>
+    <string name="radio_station_missing">Lagu itu tidak ada di pustaka.</string>
+    <string name="radio_remove_station">Hapus stasiun</string>
+    <string name="radio_travel">Menuju lagu ini</string>
+    <string name="radio_travel_none">Tidak ada jalur di antara lagu-lagu ini.</string>
+    <string name="radio_filter_folder">Folder ini</string>
+    <string name="radio_filter_decade">Dekade ini</string>
+    <string name="radio_filter_instrumental">Perkiraan instrumental</string>
 </resources>

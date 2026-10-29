@@ -211,6 +211,14 @@ public interface SimilarityEngine {
     ): LibraryMixFeatures?
 
     /**
+     * Semantics already classified for [ids].
+     *
+     * Does not load the audio model and does not build a vector space. A For You page can offer a
+     * calmer or brighter start from what SMART already knows, and stays quiet when it knows nothing.
+     */
+    public suspend fun cachedTrackSemantics(ids: List<TrackId>): Map<TrackId, TrackSemantics> = emptyMap()
+
+    /**
      * Encodes any missing metadata-text vectors for [library], and persists them.
      *
      * Cheap and idempotent — tracks that already have one are skipped — but not free on a cold
@@ -321,6 +329,12 @@ public interface SimilarityEngine {
      * listener's setting; see SmartEngineConfig.artistRunPenalty). Engines without SMART ignore it.
      */
     public fun setArtistRunPenalty(penalty: Float) {}
+
+    /**
+     * How strongly the next SMART plans pull back toward the song the listen started from.
+     * 1 is the shipped balance. Engines without SMART ignore it.
+     */
+    public fun setSeedGravityScale(scale: Float) {}
 
     /**
      * Deletes audio and metadata vectors from memory and durable storage without unloading models.

@@ -13,7 +13,9 @@ Roomtone is the sound already in the room: the records you own, played offline. 
 
 ## Git
 
-`upstream` is https://github.com/Nikita-sud/latentjam. There is no `origin` yet. `main` matches upstream. Work happens on `roomtone`.
+`origin` is https://github.com/dj-secq/roomtone. That repository belongs to `dj-secq` and has no parent repository. `upstream` stays https://github.com/Nikita-sud/latentjam, and push to upstream is disabled.
+
+A local `main` still matches `upstream/main`. Work stays on `roomtone`, which tracks `origin/main`.
 
 Pull upstream later with:
 
@@ -22,7 +24,11 @@ git fetch upstream
 git merge upstream/main
 ```
 
-This folder is not a GitHub fork and nothing has been pushed. A fork is only useful when you want a public repo or a pull request back to LatentJam. Say so and one can be created under `dj-secq`.
+Push this line with:
+
+```bash
+git push origin roomtone:main
+```
 
 ## Build
 

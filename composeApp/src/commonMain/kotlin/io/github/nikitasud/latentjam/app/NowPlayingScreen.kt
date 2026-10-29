@@ -291,6 +291,8 @@ fun NowPlayingScreen(
     onShowOnMap: ((TrackDescriptor) -> Unit)? = null,
     /** Opens Settings at the equalizer, from the back of the cover. */
     onOpenEqualizer: (() -> Unit)? = null,
+    /** Opens the radio sheet for the SMART mix that is playing. */
+    onOpenRadio: () -> Unit = {},
     active: Boolean = true,
     /** Back closes the player only while it is the open surface, not while merely shown. */
     ownsBack: Boolean = active,
@@ -763,6 +765,7 @@ fun NowPlayingScreen(
                                             onSelect = { chosen -> scope.launch { playback.setShuffleMode(chosen) } },
                                             smartQueueLength = smartQueueLength,
                                             onSmartQueueLength = onSmartQueueLength,
+                                            onOpenRadio = onOpenRadio,
                                         )
                                     }
                                 }

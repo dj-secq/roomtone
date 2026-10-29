@@ -80,6 +80,11 @@ internal data class LocalBackupSettings(
     val appearance: Appearance = Appearance(),
     /** The browse header's style; see [appearance]. */
     val pageHeaderStyle: PageHeaderStyle = PageHeaderStyle.DOTS,
+    /**
+     * Saved radio recipes, newest first. Added in backup v12 with the "R" record.
+     * An older snapshot says nothing about them, so restoring one leaves the current stations alone.
+     */
+    val radioStations: List<RadioStation> = emptyList(),
 )
 
 /**
@@ -159,6 +164,10 @@ internal data class LocalBackupSnapshot(
     /** v11 on: the look (appearance and page-header style); older files leave it as it is. */
     val carriesAppearance: Boolean
         get() = formatVersion >= FIRST_VERSION_WITH_APPEARANCE
+
+    /** v12 on: saved radio stations; older files leave them as they are. */
+    val carriesRadioStations: Boolean
+        get() = formatVersion >= FIRST_VERSION_WITH_RADIO
 }
 
 /** The format version that brought the favourites ("F") and duplicate decision ("N") records. */
@@ -166,6 +175,9 @@ private const val FIRST_VERSION_WITH_FAVORITES = 9
 
 /** The format version that brought the look ("K") record and the custom track colour mode. */
 private const val FIRST_VERSION_WITH_APPEARANCE = 11
+
+/** The format version that brought saved radio stations ("R"). */
+private const val FIRST_VERSION_WITH_RADIO = 12
 
 internal enum class LocalBackupSection {
     PLAYLISTS,
@@ -265,11 +277,12 @@ internal object LocalBackupCodec {
     /**
      * The version every export writes. A record arrives together with the version number that
      * carries it — "L" with v4, "V" with v6, "O" with v7, "G" with v8, the favourites ("F") and
-     * the duplicate finder's verdicts ("N") with v9, the look ("K") with v11 — so a build that knows only an older
+     * the duplicate finder's verdicts ("N") with v9, the look ("K") with v11, saved radio
+     * stations ("R") with v12 — so a build that knows only an older
      * version refuses such a file with "Unsupported backup version" instead of tripping over a
      * record it does not know ("Unknown backup record at line N").
      */
-    const val FORMAT_VERSION: Int = 11
+    const val FORMAT_VERSION: Int = 12
     private const val LEGACY_FORMAT_VERSION: Int = 1
     private const val HEADER = "LATENTJAM-LOCAL-BACKUP"
     private const val MAX_TEXT_CHARS = 64 * 1024 * 1024
@@ -336,6 +349,17 @@ internal object LocalBackupCodec {
                 }
                 if (snapshot.formatVersion >= FIRST_VERSION_WITH_APPEARANCE) {
                     appendRecord("K", encodeAppearance(appearance).encodeField(), pageHeaderStyle.persistedValue)
+                }
+                if (snapshot.formatVersion >= FIRST_VERSION_WITH_RADIO) {
+                    radioStations.forEach { station ->
+                        appendRecord(
+                            "R",
+                            station.id.encodeField(),
+                            station.name.encodeField(),
+                            station.seedTrackId.encodeField(),
+                            station.artistVariety.toString(),
+                        )
+                    }
                 }
             }
             snapshot.tracks.sortedBy(LocalBackupTrackReference::originalId).forEach { track ->
@@ -420,6 +444,7 @@ internal object LocalBackupCodec {
         var sortOrders: SortOrders? = null
         var groupSortOrders: GroupSortOrders? = null
         var look: Pair<Appearance, PageHeaderStyle>? = null
+        val radioStations = mutableListOf<RadioStation>()
         val tracks = mutableListOf<LocalBackupTrackReference>()
         val playlists = mutableListOf<LocalBackupPlaylist>()
         val history = mutableListOf<LocalBackupListenEvent>()
@@ -535,6 +560,20 @@ internal object LocalBackupCodec {
                     // the default instead of refusing the whole restore.
                     val style = pageHeaderStyleFromPersisted(record.nextField())
                     look = appearance to style
+                }
+                "R" -> {
+                    record.requireFieldCount(5)
+                    if (version < FIRST_VERSION_WITH_RADIO) {
+                        formatError("Older backups cannot encode radio stations")
+                    }
+                    if (radioStations.size >= MAX_RADIO_STATIONS) formatError("Too many radio stations")
+                    val station = RadioStation(
+                        id = record.nextField().decodeField("radio station id"),
+                        name = record.nextField().decodeField("radio station name"),
+                        seedTrackId = record.nextField().decodeField("radio station seed"),
+                        artistVariety = record.nextField().parseInt("radio station artist variety"),
+                    ).sanitized() ?: formatError("Invalid radio station")
+                    radioStations += station
                 }
                 "T" -> {
                     record.requireFieldCount(6)
@@ -659,6 +698,7 @@ internal object LocalBackupCodec {
                     groupSortOrders = groupSortOrders ?: GroupSortOrders(),
                     appearance = look?.first ?: Appearance(),
                     pageHeaderStyle = look?.second ?: PageHeaderStyle.DOTS,
+                    radioStations = radioStations.toList(),
                 ),
             tracks = tracks,
             playlists = playlists,
@@ -720,6 +760,9 @@ internal object LocalBackupCodec {
         if (decodeAppearance(encodeAppearance(snapshot.settings.appearance)) != snapshot.settings.appearance) {
             formatError("Unsupported appearance")
         }
+        if (!snapshot.carriesRadioStations && snapshot.settings.radioStations.isNotEmpty()) {
+            formatError("Older backups cannot encode radio stations")
+        }
         if (snapshot.settings.pageLayout != snapshot.settings.pageLayout.normalized()) {
             formatError("Invalid page layout")
         }
@@ -758,6 +801,17 @@ internal object LocalBackupCodec {
             if (track.durationMs != null && track.durationMs < 0) formatError("Invalid track duration")
         }
         val knownTracks = trackIds.toSet()
+        val stationIds = snapshot.settings.radioStations.map(RadioStation::id)
+        if (snapshot.settings.radioStations.size > MAX_RADIO_STATIONS ||
+            stationIds.toSet().size != stationIds.size
+        ) {
+            formatError("Invalid radio station")
+        }
+        snapshot.settings.radioStations.forEach { station ->
+            if (station.sanitized() != station || station.seedTrackId !in knownTracks) {
+                formatError("Invalid radio station")
+            }
+        }
         val playlistIds = snapshot.playlists.map(LocalBackupPlaylist::id)
         if (playlistIds.any(String::isBlank) || playlistIds.toSet().size != playlistIds.size) {
             formatError("Playlist ids must be non-blank and unique")
@@ -1053,6 +1107,7 @@ internal class LocalBackupService(
             exclusions.trackIds.forEach { add(it.value) }
             hearts.forEach { add(it.value) }
             verdicts.forEach { verdict -> verdict.forEach { add(it.value) } }
+            settings.radioStations.value.forEach { add(it.seedTrackId) }
         }
         val references = referencedIds.map { id ->
             descriptors[id]?.toBackupReference() ?: LocalBackupTrackReference(
@@ -1083,6 +1138,7 @@ internal class LocalBackupService(
                 groupSortOrders = settings.groupSortOrders.value,
                 appearance = settings.appearance.value,
                 pageHeaderStyle = settings.pageHeaderStyle.value,
+                radioStations = settings.radioStations.value,
             ),
             tracks = references,
             playlists = storedPlaylists.map { playlist ->
@@ -1286,6 +1342,16 @@ internal class LocalBackupService(
                 if (snapshot.carriesAppearance) {
                     settings.setAppearance(snapshot.settings.appearance)
                     settings.setPageHeaderStyle(snapshot.settings.pageHeaderStyle)
+                }
+                // A backup from before v12 has no stations. Restoring it must not clear the ones
+                // saved since. A seed this library cannot find is dropped; a station is not a playlist.
+                if (snapshot.carriesRadioStations) {
+                    val imported = snapshot.settings.radioStations.mapNotNull { station ->
+                        resolved[station.seedTrackId]?.value?.let { seed ->
+                            station.copy(seedTrackId = seed).sanitized()
+                        }
+                    }
+                    settings.setRadioStations(imported)
                 }
                 settings.setPlaylistSortOrders(settings.playlistSortOrders.value.normalized())
                 completed += LocalBackupSection.SETTINGS

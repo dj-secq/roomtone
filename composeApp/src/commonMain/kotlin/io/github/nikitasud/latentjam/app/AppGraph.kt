@@ -26,6 +26,7 @@ import io.github.nikitasud.latentjam.smart.SmartEngineConfig
 import io.github.nikitasud.latentjam.smart.EngineError
 import io.github.nikitasud.latentjam.smart.TrackDescriptor
 import io.github.nikitasud.latentjam.smart.TrackId
+import io.github.nikitasud.latentjam.smart.TrackSemantics
 import io.github.nikitasud.latentjam.smart.di.smartEngineModule
 import io.github.nikitasud.latentjam.smart.di.smartLayoutQualifier
 import io.github.nikitasud.latentjam.smart.di.smartMapLayoutDispatcherQualifier
@@ -106,6 +107,18 @@ object AppGraph {
      * current by the App whenever playlists change; read by every SMART queue planner.
      */
     val smartCompanionGroups = MutableStateFlow<List<Set<TrackId>>>(emptyList())
+
+    /** Songs the open SMART listen asked to leave out. Empty outside that listen. */
+    val radioSuppressed = MutableStateFlow<Set<TrackId>>(emptySet())
+
+    /**
+     * Folder, decade, or instrumental limit for the open listen.
+     * [Open] adds no extra rule. The instrumental half reads [radioSemantics] and never loads a model.
+     */
+    internal val radioGate = MutableStateFlow(RadioCandidateGate.Open)
+
+    /** Semantics already cached for the library. Empty means the instrumental chip stays hidden. */
+    internal val radioSemantics = MutableStateFlow<Map<TrackId, TrackSemantics>>(emptyMap())
     /** Advances after each accepted listening event so For You can apply feedback next time it opens. */
     val historyRevision: StateFlow<Long> = mutableHistoryRevision.asStateFlow()
     private val historyFlushRequests = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
@@ -179,6 +192,11 @@ object AppGraph {
                                 engine = get(),
                                 history = get(),
                                 companionGroups = { smartCompanionGroups.value },
+                                suppressedIds = { radioSuppressed.value },
+                                listenFilter = {
+                                    val gate = radioGate.value
+                                    gate.key to gate.allows
+                                },
                             )
                         }
                     },

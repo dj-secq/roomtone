@@ -18,6 +18,7 @@ internal fun PlaybackRestoreEffect(
     externalAudioOpener: ExternalAudioOpener?,
     onOpenPlayer: () -> Unit,
     onUnavailable: () -> Unit,
+    onRestoreSettled: () -> Unit = {},
 ) {
     var resumeAttempted by remember { mutableStateOf(false) }
     val externalAudioRequest = externalAudioOpener?.pending?.collectAsState()?.value
@@ -31,73 +32,79 @@ internal fun PlaybackRestoreEffect(
         // restore attempt on it would silently skip the restore the first REAL load earns.
         if (loaded.isEmpty()) return@LaunchedEffect
         resumeAttempted = true
-        val saved = AppGraph.settings.resumePlayback.value ?: return@LaunchedEffect
-        // A widget, Quick Settings, Bluetooth, or Android Auto may have resumed the platform
-        // session before this composition existed. Import that state before deciding whether
-        // launch restore is needed; replacing it here would pause live playback.
-        playback.synchronizeWithPlatformSession()
-        if (externalAudioOpener?.pending?.value != null) return@LaunchedEffect
-        // Something already sounding (an external controller, a fast user) wins outright.
-        if (!shouldApplySavedPlaybackAfterPlatformSync(playback.state.value)) {
-            return@LaunchedEffect
-        }
-        // The mode is the more important half — restore it even when the track is gone
-        // (deleted, SD card unmounted): SMART being on is what the user asked to keep.
-        val savedMode = ShuffleMode.entries.firstOrNull { it.name == saved.shuffleMode }
-        savedMode?.let { playback.setShuffleMode(it) }
-        // Prefer the queue that was ACTUALLY playing — a playlist stays that playlist across
-        // a restart. Tracks deleted meanwhile drop out; if the saved track itself is gone or
-        // no queue was saved, fall back to wrapping the track in the whole library.
-        val byId = loaded.associateBy { it.id.value }
-        val resolvedSavedQueue = saved.queueTrackIds.mapIndexedNotNull { persistedIndex, id ->
-            byId[id]?.let { persistedIndex to it }
-        }
-        val savedQueue = resolvedSavedQueue.map { it.second }
-        val savedQueueIndex = resolvedSavedQueue.indexOfFirst { (persistedIndex, track) ->
-            persistedIndex == saved.queueIndex && track.id.value == saved.trackId
-        }.takeIf { it >= 0 } ?: savedQueue.indexOfFirst { it.id.value == saved.trackId }
-        // Oversized sources are omitted from frequently-written preferences. Tracks rebuild
-        // from the library; a stable playlist id rebuilds current membership. A deleted
-        // playlist resolves to known-empty, never to the generated SMART tail.
-        val savedSourceQueue = resolveResumeSourceQueue(
-            saved = saved,
-            library = loaded,
-            playlists = playlistsState.playlists,
-            playlistsAvailable = playlistsState.playlistsAvailableForSourceRestore,
-            playlistOrders = AppGraph.settings.playlistSortOrders.value,
-        )
-        if (savedQueueIndex >= 0) {
-            playback.restoreQueue(
-                tracks = savedQueue,
-                startIndex = savedQueueIndex,
-                positionMs = saved.positionMs,
-                // Null is the legacy state (no source was ever persisted); an empty v2 source
-                // is meaningful when every original playlist row was deleted while a
-                // generated SMART current row survived.
-                sourceTracks = savedSourceQueue,
-                smartContinuationIds = saved.smartContinuationIds.mapTo(HashSet(), ::TrackId),
-                smartPlanPositions = saved.smartPlanPositions.mapKeys { (id, _) -> TrackId(id) },
+        try {
+            val saved = AppGraph.settings.resumePlayback.value ?: return@LaunchedEffect
+            // A widget, Quick Settings, Bluetooth, or Android Auto may have resumed the platform
+            // session before this composition existed. Import that state before deciding whether
+            // launch restore is needed; replacing it here would pause live playback.
+            playback.synchronizeWithPlatformSession()
+            if (externalAudioOpener?.pending?.value != null) return@LaunchedEffect
+            // Something already sounding (an external controller, a fast user) wins outright.
+            if (!shouldApplySavedPlaybackAfterPlatformSync(playback.state.value)) {
+                return@LaunchedEffect
+            }
+            // The mode is the more important half — restore it even when the track is gone
+            // (deleted, SD card unmounted): SMART being on is what the user asked to keep.
+            val savedMode = ShuffleMode.entries.firstOrNull { it.name == saved.shuffleMode }
+            savedMode?.let { playback.setShuffleMode(it) }
+            // Prefer the queue that was ACTUALLY playing — a playlist stays that playlist across
+            // a restart. Tracks deleted meanwhile drop out; if the saved track itself is gone or
+            // no queue was saved, fall back to wrapping the track in the whole library.
+            val byId = loaded.associateBy { it.id.value }
+            val resolvedSavedQueue = saved.queueTrackIds.mapIndexedNotNull { persistedIndex, id ->
+                byId[id]?.let { persistedIndex to it }
+            }
+            val savedQueue = resolvedSavedQueue.map { it.second }
+            val savedQueueIndex = resolvedSavedQueue.indexOfFirst { (persistedIndex, track) ->
+                persistedIndex == saved.queueIndex && track.id.value == saved.trackId
+            }.takeIf { it >= 0 } ?: savedQueue.indexOfFirst { it.id.value == saved.trackId }
+            // Oversized sources are omitted from frequently-written preferences. Tracks rebuild
+            // from the library; a stable playlist id rebuilds current membership. A deleted
+            // playlist resolves to known-empty, never to the generated SMART tail.
+            val savedSourceQueue = resolveResumeSourceQueue(
+                saved = saved,
+                library = loaded,
+                playlists = playlistsState.playlists,
+                playlistsAvailable = playlistsState.playlistsAvailableForSourceRestore,
+                playlistOrders = AppGraph.settings.playlistSortOrders.value,
             )
-        }
-        val index = loaded.indexOfFirst { it.id.value == saved.trackId }
-        if (savedQueueIndex < 0 && index >= 0) {
-            val fallbackSource = savedSourceQueue ?: loaded
-            val fallback = fallbackResumeQueue(
-                mode = savedMode,
-                current = loaded[index],
-                source = fallbackSource,
-            )
-            playback.restoreQueue(
-                tracks = fallback.liveQueue,
-                startIndex = fallback.currentIndex,
-                positionMs = saved.positionMs,
-                sourceTracks = fallbackSource,
-            )
-        }
-        if (savedQueueIndex >= 0 || index >= 0) {
-            // The restored player keeps saying where its queue came from. An unknown kind
-            // from another build degrades to no label, same as the mode above.
-            AppGraph.queueSource.value = saved.savedQueueSource()
+            if (savedQueueIndex >= 0) {
+                playback.restoreQueue(
+                    tracks = savedQueue,
+                    startIndex = savedQueueIndex,
+                    positionMs = saved.positionMs,
+                    // Null is the legacy state (no source was ever persisted); an empty v2 source
+                    // is meaningful when every original playlist row was deleted while a
+                    // generated SMART current row survived.
+                    sourceTracks = savedSourceQueue,
+                    smartContinuationIds = saved.smartContinuationIds.mapTo(HashSet(), ::TrackId),
+                    smartPlanPositions = saved.smartPlanPositions.mapKeys { (id, _) -> TrackId(id) },
+                )
+            }
+            val index = loaded.indexOfFirst { it.id.value == saved.trackId }
+            if (savedQueueIndex < 0 && index >= 0) {
+                val fallbackSource = savedSourceQueue ?: loaded
+                val fallback = fallbackResumeQueue(
+                    mode = savedMode,
+                    current = loaded[index],
+                    source = fallbackSource,
+                )
+                playback.restoreQueue(
+                    tracks = fallback.liveQueue,
+                    startIndex = fallback.currentIndex,
+                    positionMs = saved.positionMs,
+                    sourceTracks = fallbackSource,
+                )
+            }
+            if (savedQueueIndex >= 0 || index >= 0) {
+                // The restored player keeps saying where its queue came from. An unknown kind
+                // from another build degrades to no label, same as the mode above.
+                AppGraph.queueSource.value = saved.savedQueueSource()
+            }
+        } finally {
+            // After setShuffleMode, including when there is nothing to resume. Settling earlier
+            // would apply the saved artist variety for one frame and replan the restored queue.
+            onRestoreSettled()
         }
     }
 
@@ -107,9 +114,17 @@ internal fun PlaybackRestoreEffect(
         tracks = tracks,
         playbackReady = playlistsState.playlistsLoaded,
         userPlaybackRevision = { playback.userPlaybackRevision },
-        onBegin = { resumeAttempted = true },
+        onBegin = {
+            resumeAttempted = true
+            onRestoreSettled()
+        },
         onPlay = { track ->
+            // A file opened from outside replaces this listen. Clear before play, so the next
+            // SMART seed is that file and the previous "not this" tracks do not follow it.
             AppGraph.queueSource.value = null
+            AppGraph.settings.setRadioListen(null)
+            AppGraph.radioSuppressed.value = emptySet()
+            AppGraph.radioGate.value = RadioCandidateGate.Open
             playback.play(listOf(track), 0)
             onOpenPlayer()
         },

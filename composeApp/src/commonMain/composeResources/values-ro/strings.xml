@@ -106,6 +106,9 @@
         <item quantity="other">Ai ascultat-o de %1$d de ori</item>
     </plurals>
     <string name="foryou_kicker_never_played">Neascultată încă</string>
+    <string name="foryou_section_radio">Pornește un radio</string>
+    <string name="foryou_caption_calmer">Mai calm, după ureche</string>
+    <string name="foryou_caption_brighter">Mai viu, după ureche</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">%1$d ascultare</item>
         <item quantity="few">%1$d ascultări</item>
@@ -947,4 +950,40 @@
     <string name="equalizer_peak_hint">Amplificarea puternică poate reduce volumul întregii piese.</string>
     <string name="map_memory_limited">Nu există suficientă memorie liberă pentru calcularea hărții. Închide alte aplicații și redeschide harta.</string>
     <string name="map_unavailable">Harta nu a putut fi calculată. Redeschide-o pentru a încerca din nou.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Radioul tău</string>
+    <string name="radio_open">Radioul tău</string>
+    <string name="radio_smart_off">SMART este oprit. Pornește de la o piesă ca să conduci mixul.</string>
+    <string name="radio_play_this">Redă această piesă cu SMART</string>
+    <string name="radio_find_song">Caută o piesă de start</string>
+    <string name="radio_no_matches">Nicio piesă potrivită</string>
+    <string name="radio_starting">Piesa de start</string>
+    <string name="radio_this_song">Piesa aceasta</string>
+    <string name="radio_upcoming">Urmează</string>
+    <string name="radio_upcoming_empty">SMART nu a adăugat încă piese.</string>
+    <string name="radio_for_this_listen">Pentru această ascultare</string>
+    <string name="radio_while_playing">Cât timp cântă</string>
+    <string name="radio_using_default">Setarea SMART salvată</string>
+    <string name="radio_keep_default">Păstrează ca implicit</string>
+    <string name="radio_sound">Sunet</string>
+    <string name="radio_sound_balanced">Echilibrat</string>
+    <string name="radio_sound_body">Mai aproape și Explorează nu sunt încă disponibile. Această ascultare folosește echilibrul SMART actual.</string>
+    <string name="radio_feedback_body">Țin până părăsești SMART. Nu acum ține piesa asta în afara restului ascultării. Nu recomanda rămâne neschimbat.</string>
+    <string name="radio_more_like_this">Mai mult ca asta</string>
+    <string name="radio_too_repetitive">Prea repetitiv</string>
+    <string name="radio_not_for_now">Nu acum</string>
+    <string name="radio_exclusions">Piese și artiști pe care nu îi recomanzi</string>
+    <string name="radio_save_queue">Salvează coada ca playlist</string>
+    <string name="radio_stations">Posturi</string>
+    <string name="radio_station_name">Numele postului</string>
+    <string name="radio_save_station">Salvează postul</string>
+    <string name="radio_no_stations">Niciun post salvat.</string>
+    <string name="radio_station_missing">Piesa asta nu este în bibliotecă.</string>
+    <string name="radio_remove_station">Elimină stația</string>
+    <string name="radio_travel">Călătorește la piesa asta</string>
+    <string name="radio_travel_none">Nu există un drum între piesele astea.</string>
+    <string name="radio_filter_folder">Dosarul ăsta</string>
+    <string name="radio_filter_decade">Deceniul ăsta</string>
+    <string name="radio_filter_instrumental">Instrumental presupus</string>
 </resources>

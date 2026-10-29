@@ -114,6 +114,9 @@
         <item quantity="other">Ви слухали це %1$d разу</item>
     </plurals>
     <string name="foryou_kicker_never_played">Ще не слухали</string>
+    <string name="foryou_section_radio">Запустити радіо</string>
+    <string name="foryou_caption_calmer">Спокійніше, за оцінкою</string>
+    <string name="foryou_caption_brighter">Яскравіше, за оцінкою</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">Слухали %1$d раз</item>
         <item quantity="few">Слухали %1$d рази</item>
@@ -1006,4 +1009,40 @@
     <string name="equalizer_peak_hint">Сильне підсилення може знижувати гучність усього треку.</string>
     <string name="map_memory_limited">Недостатньо вільної пам’яті для розрахунку карти. Закрийте інші програми й відкрийте карту знову.</string>
     <string name="map_unavailable">Не вдалося розрахувати карту. Відкрийте її знову, щоб повторити спробу.</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">Твоє радіо</string>
+    <string name="radio_open">Твоє радіо</string>
+    <string name="radio_smart_off">SMART вимкнено. Почни з пісні, щоб керувати міксом.</string>
+    <string name="radio_play_this">Відтворити цю пісню через SMART</string>
+    <string name="radio_find_song">Знайти початкову пісню</string>
+    <string name="radio_no_matches">Немає відповідних пісень</string>
+    <string name="radio_starting">Початкова пісня</string>
+    <string name="radio_this_song">Ця пісня</string>
+    <string name="radio_upcoming">Далі</string>
+    <string name="radio_upcoming_empty">SMART ще не додав пісень.</string>
+    <string name="radio_for_this_listen">Для цього прослуховування</string>
+    <string name="radio_while_playing">Поки це грає</string>
+    <string name="radio_using_default">Твоє збережене налаштування SMART</string>
+    <string name="radio_keep_default">Залишити як типове</string>
+    <string name="radio_sound">Звук</string>
+    <string name="radio_sound_balanced">Збалансовано</string>
+    <string name="radio_sound_body">Ближче й Далі ще недоступні. Це прослуховування використовує поточний баланс SMART.</string>
+    <string name="radio_feedback_body">Вони діють, доки ти не вийдеш із SMART. Не зараз прибирає цю пісню з решти прослуховування. Не рекомендувати не змінюється.</string>
+    <string name="radio_more_like_this">Більше такого</string>
+    <string name="radio_too_repetitive">Надто одноманітно</string>
+    <string name="radio_not_for_now">Не зараз</string>
+    <string name="radio_exclusions">Пісні й виконавці, яких ти не рекомендуєш</string>
+    <string name="radio_save_queue">Зберегти чергу як список</string>
+    <string name="radio_stations">Станції</string>
+    <string name="radio_station_name">Назва станції</string>
+    <string name="radio_save_station">Зберегти станцію</string>
+    <string name="radio_no_stations">Збережених станцій ще немає.</string>
+    <string name="radio_station_missing">Цієї пісні немає в бібліотеці.</string>
+    <string name="radio_remove_station">Прибрати станцію</string>
+    <string name="radio_travel">Шлях до цієї пісні</string>
+    <string name="radio_travel_none">Між цими піснями немає шляху.</string>
+    <string name="radio_filter_folder">Ця папка</string>
+    <string name="radio_filter_decade">Це десятиліття</string>
+    <string name="radio_filter_instrumental">Ймовірно інструментал</string>
 </resources>

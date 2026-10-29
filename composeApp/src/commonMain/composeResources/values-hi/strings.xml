@@ -100,6 +100,9 @@
         <item quantity="other">आपने इसे %1$d बार सुना</item>
     </plurals>
     <string name="foryou_kicker_never_played">कभी नहीं चलाया</string>
+    <string name="foryou_section_radio">रेडियो शुरू करें</string>
+    <string name="foryou_caption_calmer">शांत अनुमान</string>
+    <string name="foryou_caption_brighter">उजला अनुमान</string>
     <plurals name="foryou_caption_played_before">
         <item quantity="one">पहले %1$d बार</item>
         <item quantity="other">पहले %1$d बार</item>
@@ -908,4 +911,40 @@
     <string name="equalizer_peak_hint">ज़्यादा बढ़ाने से पूरे ट्रैक की आवाज़ कम हो सकती है।</string>
     <string name="map_memory_limited">मानचित्र की गणना के लिए पर्याप्त खाली मेमोरी नहीं है। अन्य ऐप बंद करके मानचित्र फिर खोलें।</string>
     <string name="map_unavailable">मानचित्र की गणना नहीं हो सकी। फिर से कोशिश करने के लिए इसे दोबारा खोलें।</string>
+
+    <!-- ============================================================ radio -->
+    <string name="radio_title">तुम्हारा रेडियो</string>
+    <string name="radio_open">तुम्हारा रेडियो</string>
+    <string name="radio_smart_off">SMART बंद है। मिश्रण मोड़ने के लिए एक गीत से शुरू करो।</string>
+    <string name="radio_play_this">यह गीत SMART के साथ चलाओ</string>
+    <string name="radio_find_song">आरंभिक गीत खोजो</string>
+    <string name="radio_no_matches">कोई मेल खाता गीत नहीं</string>
+    <string name="radio_starting">आरंभिक गीत</string>
+    <string name="radio_this_song">यह गीत</string>
+    <string name="radio_upcoming">आगे</string>
+    <string name="radio_upcoming_empty">SMART ने अभी कोई गीत नहीं जोड़ा।</string>
+    <string name="radio_for_this_listen">इस सुनने के लिए</string>
+    <string name="radio_while_playing">जब यह चल रहा हो</string>
+    <string name="radio_using_default">तुम्हारी सहेजी SMART सेटिंग</string>
+    <string name="radio_keep_default">मेरा डिफ़ॉल्ट रखो</string>
+    <string name="radio_sound">ध्वनि</string>
+    <string name="radio_sound_balanced">संतुलित</string>
+    <string name="radio_sound_body">पास रहो और खोज अभी उपलब्ध नहीं। यह सुनना मौजूदा SMART संतुलन का उपयोग करता है।</string>
+    <string name="radio_feedback_body">ये तब तक रहते हैं जब तक तुम SMART छोड़ते नहीं। अभी नहीं इस गीत को इस सुनने के बाकी हिस्से से बाहर रखता है। अनुशंसा मत करो नहीं बदलता।</string>
+    <string name="radio_more_like_this">और ऐसा</string>
+    <string name="radio_too_repetitive">बहुत दोहराव</string>
+    <string name="radio_not_for_now">अभी नहीं</string>
+    <string name="radio_exclusions">गीत और कलाकार जिनकी तुम अनुशंसा नहीं करते</string>
+    <string name="radio_save_queue">कतार को प्लेलिस्ट के रूप में सहेजो</string>
+    <string name="radio_stations">केंद्र</string>
+    <string name="radio_station_name">केंद्र का नाम</string>
+    <string name="radio_save_station">केंद्र सहेजो</string>
+    <string name="radio_no_stations">अभी कोई सहेजा केंद्र नहीं।</string>
+    <string name="radio_station_missing">वह गीत संग्रह में नहीं है.</string>
+    <string name="radio_remove_station">स्टेशन हटाओ</string>
+    <string name="radio_travel">इस गीत तक चलो</string>
+    <string name="radio_travel_none">इन गीतों के बीच कोई रास्ता नहीं है।</string>
+    <string name="radio_filter_folder">यह फ़ोल्डर</string>
+    <string name="radio_filter_decade">यह दशक</string>
+    <string name="radio_filter_instrumental">अनुमानित वाद्य</string>
 </resources>
