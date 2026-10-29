@@ -1,4 +1,4 @@
-LatentJam, telefonundaki müzik dosyaları için yapılmış ve kitaplığının nasıl tınladığını anlayan bir müzik çalardır. Küçük bir sinir ağı modeli doğrudan cihazda çalışır ve parçalarını arka planda dinler; böylece SMART modu sıradaki şarkıyı kendi koleksiyonundan seçebilir. Hesap yok, katalog yok, ağ izni yok: dinlediklerine dair hiçbir şey telefondan çıkmaz.
+Roomtone, telefonundaki müzik dosyaları için yapılmış ve kitaplığının nasıl tınladığını anlayan bir müzik çalardır. Küçük bir sinir ağı modeli doğrudan cihazda çalışır ve parçalarını arka planda dinler; böylece SMART modu sıradaki şarkıyı kendi koleksiyonundan seçebilir. Hesap yok, katalog yok, ağ izni yok: dinlediklerine dair hiçbir şey telefondan çıkmaz.
 
 <ul>
 <li><b>SMART kuyruk</b>: sıradaki parça kitaplığından sesine, etiketlerine ve kompakt bir çevrimdışı paketin 350.000 sanatçı hakkında bildiklerine — dillerine, dönemlerine ve tarzlarına — göre seçilir. Kuyruk, enerjideki büyük sıçramalardan kaçınır.</li>

@@ -1,4 +1,4 @@
-LatentJam adalah pemutar musik untuk file di ponsel Anda yang memahami seperti apa bunyi pustaka Anda. Sebuah model neural kecil berjalan langsung di perangkat dan mendengarkan lagu-lagu Anda di latar belakang, sehingga mode SMART bisa memilih lagu berikutnya dari koleksi Anda sendiri. Tanpa akun, tanpa katalog, dan tanpa izin jaringan: tidak ada data tentang apa yang Anda dengarkan yang keluar dari ponsel.
+Roomtone adalah pemutar musik untuk file di ponsel Anda yang memahami seperti apa bunyi pustaka Anda. Sebuah model neural kecil berjalan langsung di perangkat dan mendengarkan lagu-lagu Anda di latar belakang, sehingga mode SMART bisa memilih lagu berikutnya dari koleksi Anda sendiri. Tanpa akun, tanpa katalog, dan tanpa izin jaringan: tidak ada data tentang apa yang Anda dengarkan yang keluar dari ponsel.
 
 <ul>
 <li><b>Antrean SMART</b>: lagu berikutnya dipilih dari pustaka Anda berdasarkan suaranya, tag-nya, dan apa yang diketahui sebuah paket offline ringkas tentang 350.000 artis — bahasa, era, dan gaya mereka. Antrean menghindari lonjakan energi yang besar.</li>

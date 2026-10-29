@@ -54,7 +54,7 @@ def main():
     # Connect additions to the application root instead of listing disconnected components.
     application = bom["metadata"]["component"]
     application["type"] = "application"
-    application["name"] = "LatentJam"
+    application["name"] = "Roomtone"
     application["version"] = re.search(r'versionName = "([^"]+)"',
         (ROOT / "androidApp/build.gradle.kts").read_text()).group(1)
     application.pop("purl", None) # The aggregation project's placeholder coordinates are not an artifact.

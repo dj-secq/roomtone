@@ -1,3 +1,7 @@
+Roomtone ships the model weights described in this file.
+The copyright in each weight stays with the author named below.
+LatentJam produced the weights this file attributes to the LatentJam Project.
+
 LatentJam bundled model licences
 ================================
 

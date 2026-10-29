@@ -1,4 +1,4 @@
-LatentJam este un player pentru fișierele muzicale de pe telefon care înțelege cum sună biblioteca ta. Un mic model neuronal rulează pe dispozitiv și îți ascultă piesele în fundal, astfel încât modul SMART să aleagă următoarea melodie din propria ta colecție. Nu există cont, nici catalog, nici permisiune de rețea: nimic despre ce asculți nu părăsește telefonul.
+Roomtone este un player pentru fișierele muzicale de pe telefon care înțelege cum sună biblioteca ta. Un mic model neuronal rulează pe dispozitiv și îți ascultă piesele în fundal, astfel încât modul SMART să aleagă următoarea melodie din propria ta colecție. Nu există cont, nici catalog, nici permisiune de rețea: nimic despre ce asculți nu părăsește telefonul.
 
 <ul>
 <li><b>Coada SMART</b>: următoarea piesă e aleasă din biblioteca ta după sunet, după etichete și după ce știe un pachet offline compact despre 350.000 de artiști — limba, epoca și stilul lor. Coada evită salturile mari de energie.</li>

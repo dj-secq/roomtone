@@ -1,4 +1,4 @@
-LatentJam è un lettore per la musica salvata sul telefono che capisce come suona la tua libreria. Un piccolo modello neurale gira direttamente sul dispositivo e ascolta i tuoi brani in background, così la modalità SMART può scegliere il brano successivo dalla tua collezione. Niente account, niente catalogo e nessun permesso di rete: nulla di ciò che ascolti lascia il telefono.
+Roomtone è un lettore per la musica salvata sul telefono che capisce come suona la tua libreria. Un piccolo modello neurale gira direttamente sul dispositivo e ascolta i tuoi brani in background, così la modalità SMART può scegliere il brano successivo dalla tua collezione. Niente account, niente catalogo e nessun permesso di rete: nulla di ciò che ascolti lascia il telefono.
 
 <ul>
 <li><b>Coda SMART</b>: il brano successivo viene scelto dalla tua libreria in base al suono, ai tag e a ciò che un pacchetto offline compatto sa di 350.000 artisti — lingua, epoca e stile. La coda evita i grandi sbalzi di energia.</li>

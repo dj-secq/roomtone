@@ -1,4 +1,4 @@
-LatentJam es un reproductor para la música guardada en tu móvil que entiende cómo suena tu biblioteca. Un pequeño modelo neuronal se ejecuta en el propio dispositivo y escucha tus canciones en segundo plano, para que el modo SMART elija la siguiente canción de tu propia colección. No hay cuenta, ni catálogo, ni permiso de red: nada de lo que escuchas sale del teléfono.
+Roomtone es un reproductor para la música guardada en tu móvil que entiende cómo suena tu biblioteca. Un pequeño modelo neuronal se ejecuta en el propio dispositivo y escucha tus canciones en segundo plano, para que el modo SMART elija la siguiente canción de tu propia colección. No hay cuenta, ni catálogo, ni permiso de red: nada de lo que escuchas sale del teléfono.
 
 <ul>
 <li><b>Cola SMART</b>: la siguiente canción se elige de tu biblioteca por cómo suena, por sus etiquetas y por lo que un paquete compacto sin conexión sabe de 350.000 artistas: su idioma, su época y su estilo. La cola evita los saltos bruscos de energía.</li>

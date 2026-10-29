@@ -81,7 +81,7 @@ def feature_graphic(out):
     draw = ImageDraw.Draw(canvas)
     title = font(112, bold=True)
     body = font(30, bold=False)
-    draw.text((444, 156), "LatentJam", font=title, fill=(245, 245, 245))
+    draw.text((444, 156), "Roomtone", font=title, fill=(245, 245, 245))
     # Two lines so the tagline never runs into the right edge at this size.
     words = TAGLINE.split(" ")
     first, second = " ".join(words[:4]), " ".join(words[4:])

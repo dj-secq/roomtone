@@ -1,4 +1,4 @@
-LatentJam to odtwarzacz plików muzycznych z Twojego telefonu, który rozumie, jak brzmi Twoja biblioteka. Niewielki model neuronowy działa na urządzeniu i w tle słucha Twoich utworów, dzięki czemu tryb SMART dobiera kolejną piosenkę z Twojej własnej kolekcji. Nie ma konta, katalogu ani uprawnienia do sieci: nic o tym, czego słuchasz, nie opuszcza telefonu.
+Roomtone to odtwarzacz plików muzycznych z Twojego telefonu, który rozumie, jak brzmi Twoja biblioteka. Niewielki model neuronowy działa na urządzeniu i w tle słucha Twoich utworów, dzięki czemu tryb SMART dobiera kolejną piosenkę z Twojej własnej kolekcji. Nie ma konta, katalogu ani uprawnienia do sieci: nic o tym, czego słuchasz, nie opuszcza telefonu.
 
 <ul>
 <li><b>Kolejka SMART</b>: następny utwór wybierany z Twojej biblioteki według brzmienia, tagów i tego, co kompaktowy pakiet offline wie o 350 000 wykonawców — ich języku, epoce i stylu. Kolejka unika dużych skoków energii.</li>

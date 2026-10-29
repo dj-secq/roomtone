@@ -1,3 +1,5 @@
+> These notes describe a LatentJam release that Roomtone inherits. Roomtone's own record is in [CHANGELOG.md](../CHANGELOG.md). Issue links point at the LatentJam tracker.
+
 # Проверка готовности LatentJam 0.9.1
 
 Дата: 15 октября 2026. Ветка исправлений: `codex/adversarial-0.9.1`.

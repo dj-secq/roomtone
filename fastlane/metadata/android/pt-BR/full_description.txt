@@ -1,4 +1,4 @@
-O LatentJam é um player para as músicas salvas no seu celular que entende como a sua biblioteca soa. Um pequeno modelo neural roda no próprio aparelho e ouve suas músicas em segundo plano, para que o modo SMART escolha a próxima faixa da sua própria coleção. Não há conta, nem catálogo, nem permissão de rede: nada do que você ouve sai do celular.
+O Roomtone é um player para as músicas salvas no seu celular que entende como a sua biblioteca soa. Um pequeno modelo neural roda no próprio aparelho e ouve suas músicas em segundo plano, para que o modo SMART escolha a próxima faixa da sua própria coleção. Não há conta, nem catálogo, nem permissão de rede: nada do que você ouve sai do celular.
 
 <ul>
 <li><b>Fila SMART</b>: a próxima música é escolhida na sua biblioteca pelo som, pelas tags e pelo que um pacote compacto e offline sabe sobre 350.000 artistas — idioma, época e estilo. A fila evita saltos bruscos de energia.</li>

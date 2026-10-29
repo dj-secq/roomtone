@@ -699,7 +699,7 @@ private fun centerCrop(source: Bitmap, size: Int): Bitmap {
 }
 
 private fun renderLatentArtwork(snapshot: PlaybackWidgetSnapshot): Bitmap {
-    val seed = (snapshot.mediaId.ifBlank { snapshot.title.ifBlank { "LatentJam" } }).hashCode()
+    val seed = (snapshot.mediaId.ifBlank { snapshot.title.ifBlank { "Roomtone" } }).hashCode()
     val hue = Math.floorMod(seed, 360).toFloat()
     val bitmap = Bitmap.createBitmap(ARTWORK_SIZE_PX, ARTWORK_SIZE_PX, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)

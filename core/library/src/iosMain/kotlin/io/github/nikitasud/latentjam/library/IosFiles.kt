@@ -25,7 +25,7 @@ import platform.posix.memcpy
  *
  * [documents] is deliberately user-visible: the Info.plist sets
  * `UIFileSharingEnabled`, so it is the folder that appears under "On My
- * iPhone → LatentJam" in Files.app, and dropping music in there is how a track
+ * iPhone → Roomtone" in Files.app, and dropping music in there is how a track
  * gets into the library at all.
  *
  * [appSupport] is deliberately NOT: playlists, history and search state are

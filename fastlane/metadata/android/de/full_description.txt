@@ -1,4 +1,4 @@
-LatentJam ist ein Player für die Musikdateien auf deinem Smartphone, der versteht, wie deine Bibliothek klingt. Ein kleines neuronales Modell läuft direkt auf dem Gerät und hört sich deine Titel im Hintergrund an, damit der SMART-Modus den nächsten Song aus deiner eigenen Sammlung auswählen kann. Es gibt kein Konto, keinen Katalog und keine Netzwerkberechtigung: Nichts über dein Hörverhalten verlässt das Gerät.
+Roomtone ist ein Player für die Musikdateien auf deinem Smartphone, der versteht, wie deine Bibliothek klingt. Ein kleines neuronales Modell läuft direkt auf dem Gerät und hört sich deine Titel im Hintergrund an, damit der SMART-Modus den nächsten Song aus deiner eigenen Sammlung auswählen kann. Es gibt kein Konto, keinen Katalog und keine Netzwerkberechtigung: Nichts über dein Hörverhalten verlässt das Gerät.
 
 <ul>
 <li><b>SMART-Warteschlange</b>: Der nächste Titel kommt aus deiner Bibliothek – ausgewählt nach Klang, nach Tags und nach dem, was ein kompaktes Offline-Paket über 350.000 Künstler weiß: Sprache, Ära und Stil. Große Energiesprünge vermeidet die Warteschlange.</li>

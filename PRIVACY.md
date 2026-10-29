@@ -1,41 +1,25 @@
-# LatentJam privacy policy
+# Roomtone privacy policy
 
-Effective 21 October 2026. Applies to the LatentJam app for Android and iOS, whether
-installed from Google Play, the App Store, or a build downloaded from this repository.
+Effective 30 October 2026. Applies to the Roomtone app for Android and iOS, including a build you make from this repository.
 
 ## The short version
 
-LatentJam collects no personal data. It has no account, no analytics, no advertising, no
-crash reporting and no server. The Android app does not even request the internet permission,
-so it cannot send anything anywhere. Everything the app knows lives on your device and
-leaves it only if you copy it out yourself. Like every music player, though, it hands the
-track that is playing (and, on Android, the queue) to the system's media controls, where the
-operating system and apps allowed to control media or read notifications, such as a voice
-assistant, can read them on their own terms.
+Roomtone collects no personal data. It has no account, no analytics, no advertising, no crash reporting, and no server. The Android app does not request the internet permission, so it cannot send anything anywhere. Everything the app knows lives on your device and leaves it only if you copy it out yourself. Like every music player, it hands the track that is playing (and, on Android, the queue) to the system's media controls. The operating system, and apps allowed to control media or read notifications, can read that on their own terms.
 
 ## What the app reads on your device
 
-- **Your music files and their tags** — title, artist, album, genre, year, language, lyrics
-  and cover art embedded in the files — to build the library, the audio index, the
-  recommendations, the map, search and the duplicate finder. The audio is analysed on the
-  device with bundled models; no audio or metadata is uploaded.
-- **Listening history** — which tracks you played, skipped or finished, and when; how each one
-  started (you picked it, the previous track ended, you skipped or repeated, or the
-  recommendations queued it, with its place in that queue); and the playlist, album, artist,
-  genre or folder playback started from — used for statistics, "For You" and the
-  recommendations. It is recorded only while *Save listening history* is on in Settings, where
-  it can also be cleared at any time.
-- **Your playlists, favourites, hidden tracks, duplicate decisions and settings.**
+- **Your music files and their tags.** Title, artist, album, genre, year, language, lyrics, and cover art, used to build the library, the audio index, the recommendations, the map, search, and the duplicate finder. The audio is analysed on the device with bundled models. No audio or metadata is uploaded.
+- **Listening history.** Which tracks you played, skipped, or finished, and when. How each one started. The playlist, album, artist, genre, or folder playback started from. This is used for statistics, For You, and the recommendations. It is recorded only while *Save listening history* is on in Settings, where it can also be cleared.
+- **Your playlists, favourites, hidden tracks, duplicate decisions, and settings.**
 
-All of this is stored in the app's private storage on the device. Nothing is shared with the
-developer or with any third party.
+All of this is stored in the app's private storage on the device. Nothing is shared with the developer or with any third party.
 
 ## Permissions and why they are asked for
 
 | Permission | Why |
 | --- | --- |
 | Read audio files (Android), Media Library (iOS) | To find and play your music |
-| Write audio files (Android 9 and older) | To save edited tags or delete a file when you ask; older Android has no per-file consent |
+| Write audio files (Android 9 and older) | To save edited tags or delete a file when you ask. Older Android has no per-file consent. |
 | Notifications | Playback controls in the notification shade |
 | Foreground service | To keep playing with the screen off and to index files in the background |
 | Modify audio settings | Equaliser and volume normalisation |
@@ -45,24 +29,19 @@ developer or with any third party.
 
 - **Tag editing** rewrites the tags inside your own audio files, on the device.
 - **Delete file** removes a file through the system's own confirmation dialog.
-- **Local backup** writes a backup file to the location you choose, and restores from it. The file
-  carries your playlists, favourites, listening history, recent searches, hidden tracks, SMART
-  exclusions, the duplicate finder's decisions and settings.
+- **Local backup** writes a backup file to the location you choose, and restores from it. The file carries your playlists, favourites, listening history, recent searches, hidden tracks, SMART exclusions, the duplicate finder's decisions, and settings.
 
 ## Third parties
 
-There are none. The app embeds no analytics, advertising or tracking SDKs. The store you
-installed from (Google Play or the App Store) may collect install and crash statistics on its
-own terms, described in that store's privacy policy; LatentJam itself sends nothing.
+There are none in the app. It embeds no analytics, advertising, or tracking SDKs. Roomtone itself sends nothing.
 
 ## Deleting your data
 
-Uninstalling the app removes everything it stored. Inside the app, Settings offers separate
-controls to clear the listening history and the audio analysis.
+Uninstalling the app removes everything it stored. Inside the app, Settings offers separate controls to clear the listening history and the audio analysis.
 
 ## Children
 
-LatentJam is a general-purpose music player and is not directed at children.
+Roomtone is a general-purpose music player and is not directed at children.
 
 ## Changes
 
@@ -70,5 +49,5 @@ Changes to this policy are published in this file with a new effective date.
 
 ## Contact
 
-Questions go to the project's issue tracker:
-<https://github.com/Nikita-sud/latentjam/issues>.
+Questions go to the issue tracker:
+<https://github.com/dj-secq/roomtone/issues>.

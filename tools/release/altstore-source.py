@@ -9,9 +9,9 @@ import re
 import subprocess
 from pathlib import Path
 
-REPO = "Nikita-sud/latentjam"
+REPO = "dj-secq/roomtone"
 RAW = f"https://raw.githubusercontent.com/{REPO}/main"
-BUNDLE_ID = "io.github.nikitasud.latentjam.kmp"
+BUNDLE_ID = "io.github.djsecq.roomtone"
 TINT = "8E24AA"
 
 
@@ -79,7 +79,7 @@ def source(project, releases):
     app = {
         "name": info["CFBundleDisplayName"],
         "bundleIdentifier": bundle_id,
-        "developerName": "LatentJam Project",
+        "developerName": "dj",
         "subtitle": (metadata / "short_description.txt").read_text().strip(),
         "localizedDescription": re.sub(r"<[^>]+>", "", (metadata / "full_description.txt").read_text()).strip(),
         "iconURL": icon,
@@ -98,13 +98,13 @@ def source(project, releases):
         "size": latest["size"],
     }
     return {
-        "name": "LatentJam",
+        "name": "Roomtone",
         "identifier": f"{bundle_id}.source",
-        "subtitle": "Official source for the LatentJam iPhone app",
-        "description": "Unsigned IPAs from the LatentJam GitHub releases. AltStore or SideStore signs "
+        "subtitle": "Source for the Roomtone iPhone app",
+        "description": "Unsigned IPAs from the Roomtone GitHub releases. AltStore or SideStore signs "
                        "them with your Apple ID; nothing is rebuilt or modified.",
         "iconURL": icon,
-        "website": "https://latentjam.com",
+        "website": "https://github.com/dj-secq/roomtone",
         "tintColor": TINT,
         "apps": [app],
         "news": [],

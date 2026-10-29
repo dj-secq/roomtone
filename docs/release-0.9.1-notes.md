@@ -1,3 +1,5 @@
+> These notes describe a LatentJam release that Roomtone inherits. Roomtone's own record is in [CHANGELOG.md](../CHANGELOG.md). Issue links point at the LatentJam tracker.
+
 # 0.9.1 — release candidate
 
 This patch follows the October 13 feedback on playlist migration, missing artwork and Android

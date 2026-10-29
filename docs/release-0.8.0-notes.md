@@ -1,3 +1,5 @@
+> These notes describe a LatentJam release that Roomtone inherits. Roomtone's own record is in [CHANGELOG.md](../CHANGELOG.md). Issue links point at the LatentJam tracker.
+
 SMART picks better, and the app gets smaller: smoother transitions and fewer jumps between genres, an Artist variety slider, marked playlists that stay together without abrupt changes — on audio models half the size that analyse your library up to twice as fast. Still fully on-device: no account, no catalogue, no network — nothing about your listening leaves the phone.
 
 ### New

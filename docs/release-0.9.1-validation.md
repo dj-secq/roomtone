@@ -1,3 +1,5 @@
+> These notes describe a LatentJam release that Roomtone inherits. Roomtone's own record is in [CHANGELOG.md](../CHANGELOG.md). Issue links point at the LatentJam tracker.
+
 # 0.9.1 — validation record
 
 Validated on 2026-10-13 in `codex/release-0.9.1`, based on `origin/main` at `68496c56`.

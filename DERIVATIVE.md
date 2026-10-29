@@ -1,6 +1,6 @@
 # Roomtone
 
-A local music player based on [LatentJam](https://github.com/Nikita-sud/latentjam). Same app, your own install, ready for new features.
+A local music player based on [LatentJam](https://github.com/Nikita-sud/latentjam). The public name, the install id, and this repository are Roomtone.
 
 Roomtone is the sound already in the room: the records you own, played offline. LatentJam is Apache-2.0. This copy keeps that license, the `LICENSE` file, and the original copyright lines.
 
@@ -9,7 +9,7 @@ Roomtone is the sound already in the room: the records you own, played offline. 
 - Home screen name, in-app copy, Android Auto root, and the iOS display name say **Roomtone**.
 - Android application id and iOS bundle id are `io.github.djsecq.roomtone`, so this build can sit beside an installed LatentJam.
 - Kotlin packages stay `io.github.nikitasud.latentjam`. Renaming them would make every upstream update a rewrite.
-- A FLAC file edited in the app still records the vendor string `LatentJam`. That string is file metadata, not the app name.
+- A FLAC file with no vendor string records `Roomtone` the first time this app edits it. An existing vendor string is left alone.
 
 ## Git
 
@@ -38,7 +38,7 @@ Android debug APK, from this directory, with JDK 17 and the Android SDK:
 ./gradlew :androidApp:assembleDebug
 ```
 
-The first build downloads a large Kotlin toolchain and needs a lot of RAM. The upstream README has the iOS build steps. Release scripts under `tools/release/` and `website/altstore.json` still describe LatentJam's own releases. Do not publish with them as-is.
+The first build downloads a large Kotlin toolchain and needs a lot of RAM. The iOS build steps are in the README. `tools/release/altstore-source.py` reads releases from `dj-secq/roomtone`. `website/altstore.json` lists no downloads until one of those releases includes an IPA.
 
 ## License
 

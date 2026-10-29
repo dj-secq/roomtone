@@ -21,7 +21,7 @@ internal object FlacTagCodec : TagCodec {
     private const val STREAMINFO_LENGTH = 34
     private const val MAX_BLOCK = 0xFFFFFF
     private const val MAX_BLOCKS = 10_000
-    private val NEW_VENDOR = "LatentJam".encodeToByteArray()
+    private val NEW_VENDOR = "Roomtone".encodeToByteArray()
 
     private class Block(val type: Int, val body: ByteArray)
 

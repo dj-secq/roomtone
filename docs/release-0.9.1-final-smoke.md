@@ -1,3 +1,5 @@
+> These notes describe a LatentJam release that Roomtone inherits. Roomtone's own record is in [CHANGELOG.md](../CHANGELOG.md). Issue links point at the LatentJam tracker.
+
 # 0.9.1: заключительная проверка Android APK
 
 Дата: 15 октября 2026. Код и APK: `b7d5a8bb7242ebf15cbf803a3396d18d26843389`,

@@ -1,4 +1,4 @@
-# LatentJam demo gallery
+# Roomtone demo gallery
 
 Screenshots captured on **23 September 2026** from the actual Android **0.5.1 build (versionCode 9)**,
 compiled in release configuration and installed in the dedicated “LJ demo” emulator. The videos

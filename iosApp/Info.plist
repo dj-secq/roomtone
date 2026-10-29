@@ -63,7 +63,7 @@
 	<true/>
 
 	<!--
-	  How music gets into the app at all: together these put LatentJam under
+	  How music gets into the app at all: together these put Roomtone under
 	  "On My iPhone" in Files.app, so the user can drag albums straight into
 	  the Documents folder the library scans.
 	-->
@@ -80,7 +80,7 @@
 	  in CFBundleLocalizations above, and must be kept in sync with this string.
 	-->
 	<key>NSAppleMusicUsageDescription</key>
-	<string>LatentJam uses your on-device music library to organize tracks and make private recommendations locally.</string>
+	<string>Roomtone uses your on-device music library to organize tracks and make private recommendations locally.</string>
 
 	<!-- Keep playing once the screen locks, like any music player should. -->
 	<key>UIBackgroundModes</key>

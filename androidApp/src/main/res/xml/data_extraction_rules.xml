@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  LatentJam exports its private state only through the explicit, user-chosen backup flow.
+  Roomtone exports its private state only through the explicit, user-chosen backup flow.
   Android 12+ treats cloud backup and device-to-device transfer separately, so exclude every
   credential- and device-protected domain here instead of relying on allowBackup alone.
 -->
