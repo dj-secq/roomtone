@@ -113,6 +113,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">לא הושמע אף פעם</string>
     <string name="foryou_section_radio">התחל רדיו</string>
+    <string name="foryou_radio_refresh">התחלות רדיו חדשות</string>
     <string name="foryou_caption_calmer">ניחוש רגוע יותר</string>
     <string name="foryou_caption_brighter">ניחוש בהיר יותר</string>
     <plurals name="foryou_caption_played_before">
@@ -359,7 +360,7 @@
     <string name="settings_intelligence">מנוע SMART</string>
     <string name="settings_smart_engine">מנוע SMART</string>
     <string name="settings_smart_engine_subtitle">מה המודל שבמכשיר יודע על הספרייה שלך</string>
-    <string name="settings_about_body">נגן המוזיקה המקומי Roomtone כולל מנוע המלצות שפועל במכשיר. שום מידע על ההאזנה שלך לא יוצא מהמכשיר הזה.</string>
+    <string name="settings_about_body">Roomtone הוא רדיו למוזיקה שכבר יש לך. התחל בשיר, ו-SMART ממשיך לבחור מה יתנגן אחר כך, במכשיר הזה. שום מידע על ההאזנה שלך לא יוצא מהמכשיר הזה.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">פועל</string>

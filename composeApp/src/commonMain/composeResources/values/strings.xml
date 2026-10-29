@@ -409,7 +409,7 @@
     <string name="settings_intelligence">SMART engine</string>
     <string name="settings_smart_engine">SMART engine</string>
     <string name="settings_smart_engine_subtitle">What the on-device model knows about your library</string>
-    <string name="settings_about_body">Roomtone — a local music player with an on-device recommender. Nothing about your listening leaves this device.</string>
+    <string name="settings_about_body">Roomtone is a radio for the music you already own. Start a song and SMART keeps choosing what plays next, on this device. Nothing about your listening leaves here.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">On</string>

@@ -96,6 +96,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">한 번도 안 들은 곡</string>
     <string name="foryou_section_radio">라디오 시작</string>
+    <string name="foryou_radio_refresh">새 라디오 시작</string>
     <string name="foryou_caption_calmer">더 잔잔한 추정</string>
     <string name="foryou_caption_brighter">더 밝은 추정</string>
     <plurals name="foryou_caption_played_before">
@@ -310,7 +311,7 @@
     <string name="settings_intelligence">SMART 엔진</string>
     <string name="settings_smart_engine">SMART 엔진</string>
     <string name="settings_smart_engine_subtitle">온디바이스 모델이 내 라이브러리에 대해 알고 있는 것</string>
-    <string name="settings_about_body">Roomtone은 온디바이스 추천 기능을 갖춘 로컬 음악 플레이어입니다. 청취 기록은 이 기기를 벗어나지 않습니다.</string>
+    <string name="settings_about_body">Roomtone은 이미 가진 음악을 위한 라디오입니다. 한 곡에서 시작하면 SMART가 이 기기에서 다음에 재생할 곡을 계속 고릅니다. 청취 기록은 이 기기를 벗어나지 않습니다.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">켜짐</string>

@@ -102,6 +102,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">Belum pernah diputar</string>
     <string name="foryou_section_radio">Mulai radio</string>
+    <string name="foryou_radio_refresh">Awal radio baru</string>
     <string name="foryou_caption_calmer">Tebakan lebih tenang</string>
     <string name="foryou_caption_brighter">Tebakan lebih cerah</string>
     <plurals name="foryou_caption_played_before">
@@ -316,7 +317,7 @@
     <string name="settings_intelligence">Mesin SMART</string>
     <string name="settings_smart_engine">Mesin SMART</string>
     <string name="settings_smart_engine_subtitle">Apa yang diketahui model di perangkat tentang pustaka Anda</string>
-    <string name="settings_about_body">Roomtone — pemutar musik lokal dengan mesin rekomendasi yang berjalan di perangkat. Tidak ada informasi tentang apa yang Anda dengarkan yang meninggalkan perangkat ini.</string>
+    <string name="settings_about_body">Roomtone adalah radio untuk musik yang sudah Anda miliki. Mulai dari satu lagu, dan SMART terus memilih lagu berikutnya di perangkat ini. Tidak ada informasi tentang apa yang Anda dengarkan yang meninggalkan perangkat ini.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Aktif</string>

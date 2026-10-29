@@ -5,8 +5,8 @@
 <h1 align="center">Roomtone</h1>
 
 <p align="center">
-  <b>The records you already own, played offline.</b><br>
-  A music player for Android and iOS. No account, no streaming, no network.
+  <b>A radio for the music you already own.</b><br>
+  Start a song and SMART keeps choosing what plays next. Android and iOS. No account, no streaming, no network.
 </p>
 
 <p align="center">
@@ -22,11 +22,11 @@
 
 ---
 
-Pick a song and **SMART** queues others from your own library that sound like they belong next to it. **For You** brings back records you own and forgot. Edit tags, follow synced lyrics, and see the library as a map. The models run on the phone, so nothing about your listening leaves it.
+Roomtone is a radio for the music already on your phone. Start a song and **SMART** keeps choosing what plays next, on the device. **For You** can open a radio from a seed and also brings back records you own and forgot. Edit tags, follow synced lyrics, and see the library as a map. Nothing about your listening leaves the phone.
 
 Roomtone is based on [LatentJam](https://github.com/Nikita-sud/latentjam) 0.9.2, which is Apache-2.0. This tree keeps that license, the `NOTICE`, and the copyright lines already in the source. Kotlin packages stay `io.github.nikitasud.latentjam` so a later merge from that project can still apply. The install id is `io.github.djsecq.roomtone`, so this build can sit beside LatentJam.
 
-There is no published Roomtone download yet. Build it from this repository. It is not the LatentJam F-Droid package, and it is not on the App Store.
+Android 0.9.2 is on [GitHub Releases](https://github.com/dj-secq/roomtone/releases/latest). A normal phone wants the arm64 APK. There is no iPhone build in that release, no F-Droid listing, and no App Store build.
 
 <p align="center">
   <img src="docs/media/walkthrough.gif" width="270" alt="Opening the player and following synchronised lyrics">
@@ -47,7 +47,7 @@ There is no published Roomtone download yet. Build it from this repository. It i
 
 > **Beta.** Screens and settings can still change. Tag editing writes to your real files, so back up the music you care about before a big edit. SMART gets better once the first analysis has finished. Found a bug? [Open an issue](https://github.com/dj-secq/roomtone/issues).
 
-Build the Android debug APK or the iOS app with the commands in [Building](#building). Android needs **7.0+**. iOS needs **15.1+** and a signing identity. There is no F-Droid listing and no signed store build for Roomtone.
+Install the arm64 APK from [GitHub Releases](https://github.com/dj-secq/roomtone/releases/latest), or build it with the commands in [Building](#building). Android needs **7.0+**. iOS needs **15.1+** and a signing identity. The published APKs are signed with the debug key. There is no F-Droid listing and no App Store build.
 
 **Where music comes from on Android.** Roomtone plays what Android's media index knows about. There is no manual "add folder" yet. If songs are missing, use Settings → Library → Refresh library. A hidden `.nomedia` file tells Android to skip a folder. Settings → Library → Music sources picks which folders appear.
 

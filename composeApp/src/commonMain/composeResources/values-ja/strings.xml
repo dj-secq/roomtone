@@ -96,6 +96,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">未再生</string>
     <string name="foryou_section_radio">ラジオを始める</string>
+    <string name="foryou_radio_refresh">新しいラジオの開始</string>
     <string name="foryou_caption_calmer">落ち着き気味の推測</string>
     <string name="foryou_caption_brighter">明るめの推測</string>
     <plurals name="foryou_caption_played_before">
@@ -310,7 +311,7 @@
     <string name="settings_intelligence">SMARTエンジン</string>
     <string name="settings_smart_engine">SMARTエンジン</string>
     <string name="settings_smart_engine_subtitle">オンデバイスモデルがライブラリについて把握している内容</string>
-    <string name="settings_about_body">Roomtoneは、オンデバイスのレコメンド機能を備えたローカル音楽プレーヤーです。再生履歴に関する情報がこのデバイスの外に出ることはありません。</string>
+    <string name="settings_about_body">Roomtone は、すでに持っている音楽のためのラジオです。一曲から始めると、SMART がこの端末上で次に再生する曲を選び続けます。再生に関する情報がこの端末の外に出ることはありません。</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">オン</string>

@@ -111,6 +111,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">Nie gehört</string>
     <string name="foryou_section_radio">Radio starten</string>
+    <string name="foryou_radio_refresh">Neue Radio-Starts</string>
     <string name="foryou_caption_calmer">Vermutlich ruhiger</string>
     <string name="foryou_caption_brighter">Vermutlich heller</string>
     <plurals name="foryou_caption_played_before">
@@ -340,7 +341,7 @@
     <string name="settings_intelligence">SMART-Engine</string>
     <string name="settings_smart_engine">SMART-Engine</string>
     <string name="settings_smart_engine_subtitle">Was das Modell auf diesem Gerät über deine Bibliothek weiß</string>
-    <string name="settings_about_body">Roomtone — ein lokaler Musikplayer mit Empfehlungen direkt auf dem Gerät. Nichts über dein Hörverhalten verlässt dieses Gerät.</string>
+    <string name="settings_about_body">Roomtone ist ein Radio für die Musik, die du schon besitzt. Starte einen Titel, und SMART wählt auf diesem Gerät, was als Nächstes spielt. Nichts über dein Hören verlässt dieses Gerät.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">An</string>

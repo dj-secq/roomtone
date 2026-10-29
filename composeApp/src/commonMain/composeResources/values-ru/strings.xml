@@ -109,6 +109,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">Ещё не слушали</string>
     <string name="foryou_section_radio">Запустить радио</string>
+    <string name="foryou_radio_refresh">Новые старты радио</string>
     <string name="foryou_caption_calmer">Тише, по оценке</string>
     <string name="foryou_caption_brighter">Ярче, по оценке</string>
     <plurals name="foryou_caption_played_before">
@@ -360,7 +361,7 @@
     <string name="settings_intelligence">Движок SMART</string>
     <string name="settings_smart_engine">Движок SMART</string>
     <string name="settings_smart_engine_subtitle">Что модель на устройстве знает о вашей медиатеке</string>
-    <string name="settings_about_body">Roomtone — локальный музыкальный плеер с рекомендациями прямо на устройстве. Ничего о том, что вы слушаете, не покидает это устройство.</string>
+    <string name="settings_about_body">Roomtone — радио для музыки, которая уже у вас есть. Начните с песни, и SMART на этом устройстве сам выбирает, что играть дальше. Ничего о том, что вы слушаете, не покидает это устройство.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Включён</string>

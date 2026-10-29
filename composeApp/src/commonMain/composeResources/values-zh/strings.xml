@@ -102,6 +102,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">从未播放</string>
     <string name="foryou_section_radio">开始电台</string>
+    <string name="foryou_radio_refresh">新的电台起点</string>
     <string name="foryou_caption_calmer">猜是更安静</string>
     <string name="foryou_caption_brighter">猜是更明亮</string>
     <plurals name="foryou_caption_played_before">
@@ -316,7 +317,7 @@
     <string name="settings_intelligence">SMART 引擎</string>
     <string name="settings_smart_engine">SMART 引擎</string>
     <string name="settings_smart_engine_subtitle">设备端模型对你音乐库的了解</string>
-    <string name="settings_about_body">Roomtone 是一款内置设备端推荐引擎的本地音乐播放器。你的收听记录不会离开这台设备。</string>
+    <string name="settings_about_body">Roomtone 是为你已经拥有的音乐准备的电台。从一首歌开始，SMART 会在这台设备上继续选择下一首。你的收听记录不会离开这台设备。</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">开</string>

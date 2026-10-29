@@ -101,6 +101,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">कभी नहीं चलाया</string>
     <string name="foryou_section_radio">रेडियो शुरू करें</string>
+    <string name="foryou_radio_refresh">नए रेडियो स्टार्ट</string>
     <string name="foryou_caption_calmer">शांत अनुमान</string>
     <string name="foryou_caption_brighter">उजला अनुमान</string>
     <plurals name="foryou_caption_played_before">
@@ -330,7 +331,7 @@
     <string name="settings_intelligence">SMART इंजन</string>
     <string name="settings_smart_engine">SMART इंजन</string>
     <string name="settings_smart_engine_subtitle">डिवाइस पर मौजूद मॉडल आपकी लाइब्रेरी के बारे में क्या जानता है</string>
-    <string name="settings_about_body">Roomtone — डिवाइस पर ही चलने वाले सुझाव इंजन के साथ एक लोकल म्यूज़िक प्लेयर. आप क्या सुनते हैं, इससे जुड़ी कोई भी जानकारी इस डिवाइस से बाहर नहीं जाती.</string>
+    <string name="settings_about_body">Roomtone आपके पास पहले से मौजूद संगीत का रेडियो है. एक गाने से शुरू करें, और SMART इसी डिवाइस पर आगे क्या चलेगा यह चुनता रहता है. आप क्या सुनते हैं, इसकी कोई जानकारी इस डिवाइस से बाहर नहीं जाती.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">चालू</string>

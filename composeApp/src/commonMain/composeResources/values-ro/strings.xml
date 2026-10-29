@@ -107,6 +107,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">Neascultată încă</string>
     <string name="foryou_section_radio">Pornește un radio</string>
+    <string name="foryou_radio_refresh">Starturi radio noi</string>
     <string name="foryou_caption_calmer">Mai calm, după ureche</string>
     <string name="foryou_caption_brighter">Mai viu, după ureche</string>
     <plurals name="foryou_caption_played_before">
@@ -343,7 +344,7 @@
     <string name="settings_intelligence">Motorul SMART</string>
     <string name="settings_smart_engine">Motorul SMART</string>
     <string name="settings_smart_engine_subtitle">Ce știe despre biblioteca ta modelul de pe dispozitiv</string>
-    <string name="settings_about_body">Roomtone — un player de muzică local, cu recomandări făcute chiar pe dispozitiv. Nimic din ce asculți nu părăsește acest dispozitiv.</string>
+    <string name="settings_about_body">Roomtone este un radio pentru muzica pe care o ai deja. Pornește o piesă, iar SMART alege în continuare ce urmează, pe acest dispozitiv. Nimic din ce asculți nu părăsește acest dispozitiv.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Activat</string>

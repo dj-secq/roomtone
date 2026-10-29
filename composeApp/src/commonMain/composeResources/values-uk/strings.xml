@@ -115,6 +115,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">Ще не слухали</string>
     <string name="foryou_section_radio">Запустити радіо</string>
+    <string name="foryou_radio_refresh">Нові старти радіо</string>
     <string name="foryou_caption_calmer">Спокійніше, за оцінкою</string>
     <string name="foryou_caption_brighter">Яскравіше, за оцінкою</string>
     <plurals name="foryou_caption_played_before">
@@ -374,7 +375,7 @@
     <string name="settings_intelligence">Рушій SMART</string>
     <string name="settings_smart_engine">Рушій SMART</string>
     <string name="settings_smart_engine_subtitle">Що модель на пристрої знає про вашу бібліотеку</string>
-    <string name="settings_about_body">Roomtone — локальний музичний плеєр із рекомендаціями просто на пристрої. Дані про ваше прослуховування не залишають цей пристрій.</string>
+    <string name="settings_about_body">Roomtone — радіо для музики, яка вже у вас є. Почніть із пісні, і SMART на цьому пристрої сам обирає, що грати далі. Дані про ваше прослуховування не залишають цей пристрій.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">Увімкнено</string>

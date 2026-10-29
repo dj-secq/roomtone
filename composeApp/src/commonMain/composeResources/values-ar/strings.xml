@@ -129,6 +129,7 @@
     </plurals>
     <string name="foryou_kicker_never_played">لم يُشغَّل قط</string>
     <string name="foryou_section_radio">ابدأ راديو</string>
+    <string name="foryou_radio_refresh">بدايات راديو جديدة</string>
     <string name="foryou_caption_calmer">تخمين أهدأ</string>
     <string name="foryou_caption_brighter">تخمين أكثر سطوعا</string>
     <plurals name="foryou_caption_played_before">
@@ -418,7 +419,7 @@
     <string name="settings_intelligence">محرك SMART</string>
     <string name="settings_smart_engine">محرك SMART</string>
     <string name="settings_smart_engine_subtitle">ما يعرفه النموذج العامل على الجهاز عن مكتبتك</string>
-    <string name="settings_about_body">مشغّل موسيقى محلي من Roomtone مزوّد بمحرك توصيات يعمل على الجهاز. لا تغادر أي معلومات عن استماعك هذا الجهاز.</string>
+    <string name="settings_about_body">Roomtone راديو للموسيقى التي تملكها بالفعل. ابدأ بأغنية، ويواصل SMART اختيار ما يُشغَّل بعد ذلك على هذا الجهاز. لا شيء عن استماعك يغادر هذا الجهاز.</string>
 
     <!-- ========================================================== equalizer -->
     <string name="state_on">مفعّل</string>
